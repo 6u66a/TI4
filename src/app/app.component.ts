@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DATA } from './data';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+
+  hamburgerIsActive: Boolean = false;
+
+  hamburgerClick() {
+    this.hamburgerIsActive = !this.hamburgerIsActive;
+  }
 }

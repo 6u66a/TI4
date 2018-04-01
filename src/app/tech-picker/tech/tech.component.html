@@ -1,0 +1,4 @@
+<div class="buttons">
+  <button class="button">{{tech.tech.name}}</button>
+  <button [disabled]="!tech.available" [ngClass]="currentClasses" class="button" (click)="researchMe()">Research</button>
+</div>

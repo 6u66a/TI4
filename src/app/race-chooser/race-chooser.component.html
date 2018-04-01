@@ -1,0 +1,5 @@
+<h2 class="subtitle">Choose race</h2>
+
+<div *ngFor="let race of races">
+  <a routerLink="tech/{{race.id}}" class="button">{{race.name}}</a>
+</div>
