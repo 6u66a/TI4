@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, ViewChildren } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Tech, DATA, Race, State, RuntimeTech, TechColors } from '../data';
 import { TechColor } from '../tech-color.enum';
 import { TechComponent } from './tech/tech.component';
@@ -14,11 +14,16 @@ export class TechPickerComponent implements OnInit {
   @ViewChildren(TechComponent) techComponents: Array<TechComponent>;
 
   private state: State;
+  private provided : TechColors;
 
-  constructor(private route: ActivatedRoute) {
-    const id = +this.route.snapshot.paramMap.get('raceid');
+  constructor(private route: ActivatedRoute, private router: Router) {
+    const id = +this.route.snapshot.params['raceid'];
     let race: Race = DATA.races.find(race => race.id === id);
-    let provided: TechColors = {
+    if(race===undefined) {
+      //TODO do this via Guard
+      router.navigate(['']);
+    }
+    this.provided = {
       [TechColor.blue]: 0,
       [TechColor.red]: 0,
       [TechColor.green]: 0,
@@ -27,9 +32,9 @@ export class TechPickerComponent implements OnInit {
     this.state = {
       race: race,
       tech: race.tech.map(item => {
-        return { tech: item, researched: false, provided: provided, available: false }
+        return { tech: item, researched: false, provided: this.provided, available: false }
       }).concat(DATA.genericTech.map(item => {
-        return { tech: item, researched: false, provided: provided, available: false }
+        return { tech: item, researched: false, provided: this.provided, available: false }
       }))
     };
   }
