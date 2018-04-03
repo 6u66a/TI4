@@ -8,6 +8,7 @@ import { TechPickerComponent } from './tech-picker/tech-picker.component';
 import { TechDetailComponent } from './tech-detail/tech-detail.component';
 import { RaceGuard } from './race.guard';
 import { TechComponent } from './tech-picker/tech/tech.component';
+import { TechColorComponent } from './tech-picker/tech-color/tech-color.component';
 
 const appRoutes: Routes = [
   {
@@ -32,7 +33,8 @@ const appRoutes: Routes = [
     RaceChooserComponent,
     TechPickerComponent,
     TechDetailComponent,
-    TechComponent
+    TechComponent,
+    TechColorComponent
   ],
   imports: [
     BrowserModule,

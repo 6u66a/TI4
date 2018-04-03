@@ -18,8 +18,8 @@ export class TechComponent implements OnInit {
 
   setCurrentClasses() {
     this.currentClasses = {
-      'is-danger': !this.tech.researched,
-      'is-success': this.tech.researched
+      'is-light': !this.tech.researched,
+      'is-dark': this.tech.researched
     }
   }
 
@@ -35,8 +35,9 @@ export class TechComponent implements OnInit {
   }
 
   checkForMatchingRequirements():Boolean {
+    //TODO Possible bug here
     for(let color in this.tech.tech.requirements) {
-      if(this.tech.provided[color]<this.tech.tech.requirements[color])return false;
+      if(this.tech.provided[color]<this.tech.tech.requirements[color]) return false;
     }
     return true;
   }

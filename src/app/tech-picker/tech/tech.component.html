@@ -1,4 +1,11 @@
-<div class="buttons">
-  <button class="button">{{tech.tech.name}}</button>
-  <button [disabled]="!tech.available" [ngClass]="currentClasses" class="button" (click)="researchMe()">Research</button>
+<div class="field has-addons">
+  <p class="control is-expanded">
+    <button class="button is-fullwidth">{{tech.tech.name}}</button>
+  </p>
+  <p class="control">
+    <app-tech-color [techColors]="tech.tech.requirements"></app-tech-color>
+  </p>
+  <p class="control">
+    <button [disabled]="!tech.available" [ngClass]="currentClasses" class="button" (click)="researchMe()">Research</button>
+  </p>
 </div>
