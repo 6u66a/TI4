@@ -44,14 +44,14 @@ export const DATA: Data = {
           requirements: {
             [TechColor.blue]: 2,
           },
-          provides: null
+          provides: TechColor.blue
         },
         {
           name: "E-res Siphons",
           requirements: {
             [TechColor.yellow]: 2,
           },
-          provides: null
+          provides: TechColor.yellow
         },
       ]
     },

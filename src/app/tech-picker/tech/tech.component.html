@@ -1,4 +1,10 @@
 <div class="field has-addons">
+  <p class="control">
+    <a class="button is-danger" *ngIf="tech.tech.provides===colorEnum.red">+1</a>
+    <a class="button is-success" *ngIf="tech.tech.provides===colorEnum.green">+1</a>
+    <a class="button is-warning" *ngIf="tech.tech.provides===colorEnum.yellow">+1</a>
+    <a class="button is-link" *ngIf="tech.tech.provides===colorEnum.blue">+1</a>
+  </p>
   <p class="control is-expanded">
     <button class="button is-fullwidth">{{tech.tech.name}}</button>
   </p>

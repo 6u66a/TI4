@@ -17,7 +17,6 @@ export class TechColorComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.techColors);
   }
 
 }

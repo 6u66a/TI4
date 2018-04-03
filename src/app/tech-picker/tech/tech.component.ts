@@ -12,6 +12,8 @@ export class TechComponent implements OnInit {
   @Input() tech: RuntimeTech;
   @Output() onResearched = new EventEmitter<RuntimeTech>();
 
+  public colorEnum = TechColor;
+
   currentClasses: {};
 
   setCurrentClasses() {
@@ -24,7 +26,6 @@ export class TechComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.tech.tech.name);
     this.setCurrentClasses();
     this.updateRequirements();
   }
@@ -34,7 +35,6 @@ export class TechComponent implements OnInit {
   }
 
   checkForMatchingRequirements():Boolean {
-    //TODO Possible bug here
     for(let color in this.tech.tech.requirements) {
       if(this.tech.provided[color]<this.tech.tech.requirements[color]) return false;
     }
