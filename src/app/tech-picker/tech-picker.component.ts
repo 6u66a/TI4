@@ -7,7 +7,7 @@ import { TechComponent } from './tech/tech.component';
 @Component({
   selector: 'app-tech-picker',
   templateUrl: './tech-picker.component.html',
-  styleUrls: ['./tech-picker.component.css']
+  styleUrls: ['./tech-picker.component.css','../../../node_modules/bulma/css/bulma.css']
 })
 export class TechPickerComponent implements OnInit {
 
@@ -37,6 +37,8 @@ export class TechPickerComponent implements OnInit {
         return { tech: item, researched: false, provided: this.provided, available: false }
       }))
     };
+    console.log("all tech");
+    console.log(this.state.tech);
   }
 
   ngOnInit() {

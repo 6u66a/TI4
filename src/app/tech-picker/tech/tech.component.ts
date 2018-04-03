@@ -5,14 +5,12 @@ import { TechColor } from '../../tech-color.enum';
 @Component({
   selector: 'app-tech',
   templateUrl: './tech.component.html',
-  styleUrls: ['./tech.component.css'],
+  styleUrls: ['./tech.component.css','../../../../node_modules/bulma/css/bulma.css'],
 })
 export class TechComponent implements OnInit {
 
   @Input() tech: RuntimeTech;
   @Output() onResearched = new EventEmitter<RuntimeTech>();
-
-  requirementsFullfilled: Boolean = false;
 
   currentClasses: {};
 
@@ -26,6 +24,7 @@ export class TechComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.tech.tech.name);
     this.setCurrentClasses();
     this.updateRequirements();
   }

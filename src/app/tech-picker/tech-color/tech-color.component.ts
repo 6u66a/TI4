@@ -13,9 +13,11 @@ export class TechColorComponent implements OnInit {
 
   public colorEnum = TechColor;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+    console.log(this.techColors);
   }
 
 }

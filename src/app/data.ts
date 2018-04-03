@@ -25,7 +25,7 @@ export interface RuntimeTech {
 }
 
 export interface TechColors {
-  [color:number]: number;
+  [color: number]: number;
 }
 
 export interface State {
@@ -199,23 +199,68 @@ export const DATA: Data = {
     },
     {
       name: "Light / Wave Deflector",
-      requirements: { [TechColor.green]: 3 },
+      requirements: { [TechColor.blue]: 3 },
       provides: TechColor.blue
     },
     {
       name: "Fleet Logistics",
-      requirements: { [TechColor.green]: 2 },
+      requirements: { [TechColor.blue]: 2 },
       provides: TechColor.blue
     },
     {
       name: "Gravity Drive",
-      requirements: { [TechColor.green]: 1 },
+      requirements: { [TechColor.blue]: 1 },
       provides: TechColor.blue
     },
     {
       name: "Antimass Deflectors",
       requirements: {},
       provides: TechColor.blue
+    },
+    {
+      name: "War Sun",
+      requirements: { [TechColor.red]: 3, [TechColor.yellow]: 1 },
+      provides: null
+    },
+    {
+      name: "Dreadnought II",
+      requirements: { [TechColor.blue]: 2, [TechColor.yellow]: 1 },
+      provides: null
+    },
+    {
+      name: "Cruiser II",
+      requirements: { [TechColor.red]: 1, [TechColor.yellow]: 1, [TechColor.green]: 1 },
+      provides: null
+    },
+    {
+      name: "Destroyer II",
+      requirements: { [TechColor.red]: 2 },
+      provides: null
+    },
+    {
+      name: "PDS II",
+      requirements: { [TechColor.red]: 1, [TechColor.yellow]: 1 },
+      provides: null
+    },
+    {
+      name: "Carrier II",
+      requirements: { [TechColor.blue]: 2 },
+      provides: null
+    },
+    {
+      name: "Fighter II",
+      requirements: { [TechColor.blue]: 1, [TechColor.green]: 1 },
+      provides: null
+    },
+    {
+      name: "Infantry II",
+      requirements: { [TechColor.green]: 2 },
+      provides: null
+    },
+    {
+      name: "Space Dock II",
+      requirements: { [TechColor.yellow]: 2 },
+      provides: null
     },
   ]
 }
