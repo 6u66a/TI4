@@ -1,17 +1,27 @@
 <div class="field has-addons">
-  <p class="control">
-    <a class="button is-danger" *ngIf="tech.tech.provides===colorEnum.red">+1</a>
-    <a class="button is-success" *ngIf="tech.tech.provides===colorEnum.green">+1</a>
-    <a class="button is-warning" *ngIf="tech.tech.provides===colorEnum.yellow">+1</a>
-    <a class="button is-link" *ngIf="tech.tech.provides===colorEnum.blue">+1</a>
-  </p>
   <p class="control is-expanded">
-    <button class="button is-fullwidth">{{tech.tech.name}}</button>
+    <button [ngClass]="techColorClasses" class="button is-fullwidth is-outlined" (click)="descriptionToggle()">{{tech.tech.name}}</button>
   </p>
   <p class="control">
     <app-tech-color [techColors]="tech.tech.requirements"></app-tech-color>
   </p>
   <p class="control">
-    <button [disabled]="!tech.available" [ngClass]="currentClasses" class="button" (click)="researchMe()">Research</button>
+    <button class="button" (click)="researchMe()">
+      <span *ngIf="!tech.available" class="icon is-small has-text-danger">
+        <i class="fas fa-times-circle"></i>
+      </span>
+      <span *ngIf="tech.available&&!tech.researched" class="icon is-small has-text-warning">
+        <i  class="far fa-check-circle"></i>
+      </span>
+      <span *ngIf="tech.researched" class="icon is-small has-text-success">
+        <i class="fas fa-check-circle"></i>
+      </span>
+
+    </button>
   </p>
+</div>
+<div class="box" *ngIf="showDescription===true">
+  <div class="content">
+    <p>{{tech.tech.description}}</p>
+  </div>
 </div>

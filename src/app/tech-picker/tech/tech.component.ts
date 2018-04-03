@@ -5,38 +5,51 @@ import { TechColor } from '../../tech-color.enum';
 @Component({
   selector: 'app-tech',
   templateUrl: './tech.component.html',
-  styleUrls: ['./tech.component.css','../../../../node_modules/bulma/css/bulma.css'],
+  styleUrls: ['./tech.component.css', '../../../../node_modules/bulma/css/bulma.css'],
 })
 export class TechComponent implements OnInit {
 
   @Input() tech: RuntimeTech;
   @Output() onResearched = new EventEmitter<RuntimeTech>();
 
-  public colorEnum = TechColor;
+  private showDescription: Boolean = false;
 
   currentClasses: {};
+  techColorClasses: {};
 
   setCurrentClasses() {
     this.currentClasses = {
-      'is-light': !this.tech.researched,
-      'is-dark': this.tech.researched
+    }
+  }
+
+  setTechColorClasses() {
+    this.techColorClasses = {
+      "is-danger": this.tech.tech.provides === TechColor.red,
+      "is-success": this.tech.tech.provides === TechColor.green,
+      "is-warning": this.tech.tech.provides === TechColor.yellow,
+      "is-link": this.tech.tech.provides === TechColor.blue,
     }
   }
 
   constructor() { }
 
   ngOnInit() {
-    this.setCurrentClasses();
+    this.setTechColorClasses();
     this.updateRequirements();
+    this.setCurrentClasses();
   }
 
-  public updateRequirements():void {
+  descriptionToggle() {
+    this.showDescription=!this.showDescription;
+  }
+
+  public updateRequirements(): void {
     this.tech.available = this.checkForMatchingRequirements();
   }
 
-  checkForMatchingRequirements():Boolean {
-    for(let color in this.tech.tech.requirements) {
-      if(this.tech.provided[color]<this.tech.tech.requirements[color]) return false;
+  checkForMatchingRequirements(): Boolean {
+    for (let color in this.tech.tech.requirements) {
+      if (this.tech.provided[color] < this.tech.tech.requirements[color]) return false;
     }
     return true;
   }
