@@ -316,151 +316,151 @@ export const DATA: Data = {
     {
       name: "Assault Cannon",
       requirements: { [TechColor.red]: 3 },
-      description: "",
+      description: "At the start of a space combat in a system that contains 3 or more of your non-fighter ships, your opponent must destroy 1 of his non-fighter ships.",
       provides: TechColor.red
     },
     {
       name: "Duranium Armor",
       requirements: { [TechColor.red]: 2 },
-      description: "",
+      description: "During each combat round, after you assign hits to your units, repair 1 of your damaged units that did not use Sustain Damage during this combat round.",
       provides: TechColor.red
     },
     {
       name: "Magen Defense Grid",
       requirements: { [TechColor.red]: 1 },
-      description: "",
+      description: "You may exhaust this card at the start of a round of ground combat on a planet that contains 1 or more of your units that have Planetary Shield; your opponent cannot make combat rolls during this combat round. Magen Defense Grid CANNOT be used when an enemy War Sun is bombarding the planet (56.3).",
       provides: TechColor.red
     },
     {
       name: "Plasma Scoring",
       requirements: {},
-      description: "",
+      description: "When 1 or more of your unit use Bombardment or Space Canon, 1 of those units may roll 1 additional die.",
       provides: TechColor.red
     },
     {
       name: "Integrated Economy",
       requirements: { [TechColor.yellow]: 3 },
-      description: "",
+      description: "After you gain control of a planet, you may produce any number of units on that planet that have a combined cost equal to or less than that planet’s resource value.",
       provides: TechColor.yellow
     },
     {
       name: "Transit Diodes",
       requirements: { [TechColor.yellow]: 2 },
-      description: "",
+      description: "You may exhaust this card at the start of your turn during the action phase; remove up to 4 of your GFs from the game board and place them on 1 or more planets you control.",
       provides: TechColor.yellow
     },
     {
       name: "Graviton Laser Systems",
       requirements: { [TechColor.yellow]: 1 },
-      description: "",
+      description: "You may exhaust this card before 1 or of your units use Space Cannon; hits produced by those units must be assigned to non-fighter ships if able.",
       provides: TechColor.yellow
     },
     {
       name: "Sarween Tools",
       requirements: {},
-      description: "",
+      description: "When 1 or more of your units use Production, reduce the combined cost of the produced units by 1.",
       provides: TechColor.yellow
     },
     {
       name: "X-89 Bacterial Weapon",
       requirements: { [TechColor.green]: 3 },
-      description: "",
+      description: "Action: Exhaust this card and choose 1 planet in a system that contains 1 or more of your ships that have Bombardment; destroy all infantry on that planet (Planetary Shields cannot stop this technology).",
       provides: TechColor.green
     },
     {
       name: "Hyper Methabolism",
       requirements: { [TechColor.green]: 2 },
-      description: "",
+      description: "During the status phase, gain 3 CTs instead of 2.",
       provides: TechColor.green
     },
     {
       name: "Dacxive Animators",
       requirements: { [TechColor.green]: 1 },
-      description: "",
+      description: "After you win an ground combat, you may place 1 infantry from your reinforcements on the planet.",
       provides: TechColor.green
     },
     {
       name: "Neural Motivator",
       requirements: {},
-      description: "",
+      description: "During the Status Phase, draw 2 action cards instead of 1.",
       provides: TechColor.green
     },
     {
       name: "Light / Wave Deflector",
       requirements: { [TechColor.blue]: 3 },
-      description: "",
+      description: "Your ships can move through systems that contain other players’ ships.",
       provides: TechColor.blue
     },
     {
       name: "Fleet Logistics",
       requirements: { [TechColor.blue]: 2 },
-      description: "",
+      description: "During each of your turn of the Action Phase, you may perform 2 actions instead of 1.",
       provides: TechColor.blue
     },
     {
       name: "Gravity Drive",
       requirements: { [TechColor.blue]: 1 },
-      description: "",
+      description: "You After you activate a system, apply +1 to the move value of 1 of your ships during the Tactical Action.",
       provides: TechColor.blue
     },
     {
       name: "Antimass Deflectors",
       requirements: {},
-      description: "",
+      description: "Your ships can move through and into Asteroid Fields. When other players’ units use Space Canon against your units, apply -1 to the result of each die roll.",
       provides: TechColor.blue
     },
     {
       name: "War Sun",
       requirements: { [TechColor.red]: 3, [TechColor.yellow]: 1 },
-      description: "",
+      description: "<ul><li>Cost 12; Battle 3[x3]; Move 2; Capacity 6</li><li>Other players’ units in this system lose Planetary Shield</li><li>Sustain Damage</li><li>Bombardment 3[x3].</li></ul>",
       provides: null
     },
     {
       name: "Dreadnought II",
       requirements: { [TechColor.blue]: 2, [TechColor.yellow]: 1 },
-      description: "",
+      description: "<ul><li>Cost 4; Battle 5; Move 2; Capacity 1</li><li>This unit cannot be destroyed by the “Direct Hit” action cards</li><li>Sustain Damage</li><li>Bombardment 5</li></ul>",
       provides: null
     },
     {
       name: "Cruiser II",
       requirements: { [TechColor.red]: 1, [TechColor.yellow]: 1, [TechColor.green]: 1 },
-      description: "",
+      description: "Cost 2; Battle 6; Move 3; Capacity 1",
       provides: null
     },
     {
       name: "Destroyer II",
       requirements: { [TechColor.red]: 2 },
-      description: "",
+      description: "<ul><li>Cost 1; Battle 8; Move 2</li><li>Anti-fighter barrage 6[x3].</li></ul>",
       provides: null
     },
     {
       name: "PDS II",
       requirements: { [TechColor.red]: 1, [TechColor.yellow]: 1 },
-      description: "",
+      description: "<ul><li>You may use this unit’s Space Canon against ships that are adjacent to this system</li><li>Planetary Shield</li><li>Space Cannon 5</li></ul>",
       provides: null
     },
     {
       name: "Carrier II",
       requirements: { [TechColor.blue]: 2 },
-      description: "",
+      description: "Cost 3; Battle 9; Move 2; Capacity 6",
       provides: null
     },
     {
       name: "Fighter II",
       requirements: { [TechColor.blue]: 1, [TechColor.green]: 1 },
-      description: "",
+      description: "<ul><li>Cost 1/2; Battle 8; Move 2</li><li>This unit may move without being transported. Fighters in excess of your ships’ capacity count against your fleet pool.</li></ul>",
       provides: null
     },
     {
       name: "Infantry II",
       requirements: { [TechColor.green]: 2 },
-      description: "",
+      description: "<ul><li>Cost 1/2; Battle 7</li><li>After this unit is destroyed, roll 1 die. If result ≥ 6: place the unit on this card. At the start of your next turn, place each unit on this card on a planet you control in your HS.</li></ul>",
       provides: null
     },
     {
       name: "Space Dock II",
       requirements: { [TechColor.yellow]: 2 },
-      description: "",
+      description: "<ul><li>This unit’s Production value is equal to 4 more than the resource value of this planet</li><li>Up to 3 fighters in this system do not count toward your ships’ capacity</li><li>Production X.</li></ul>",
       provides: null
     },
   ]
