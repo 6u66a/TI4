@@ -22,6 +22,6 @@
 </div>
 <div class="box" *ngIf="showDescription===true">
   <div class="content">
-    <p>{{tech.tech.description}}</p>
+    <p [innerHTML]="tech.tech.description"></p>
   </div>
 </div>

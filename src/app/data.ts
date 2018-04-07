@@ -177,7 +177,25 @@ export const DATA: Data = {
     {
       id: 8,
       name: "Naalu Collective",
-      tech: []
+      tech: [
+        {
+          name: "Neuroglaive",
+          requirements: {
+            [TechColor.green]: 3
+          },
+          provides: TechColor.green,
+          description: "After another player activates a system that contains 1 or more of your ships, that player removes 1 CT from his Fleet Pool and returns it to his reinforcements."
+        },
+        {
+          name: "Hybrid Crystal Fighter II",
+          requirements: {
+            [TechColor.green]: 1,
+            [TechColor.blue]: 1
+          },
+          provides: null,
+          description: "<ul><li>Naalu Fighter (Cost 1/2; Combat 7; Move 2)</li><li>This unit may move without being transported. Each fighter in excess of your ships' capacity counts as 1/2 of a ship against your fleet pool.</li></ul>"
+        },
+      ]
     },
     {
       id: 9,
@@ -187,17 +205,69 @@ export const DATA: Data = {
     {
       id: 10,
       name: "Federation of Sol",
-      tech: []
+      tech: [
+        {
+          name: "Spec Ops II",
+          requirements: {
+            [TechColor.green]: 2
+          },
+          provides: null,
+          description: "<ul><li>Sol Infantry (Cost 1/2; Combat 6)</li><li>After this unit is destroyed, roll 1 die. If the result is 5 or greater, place the unit on this card. At the start of your next turn, place each unit that is on this card on a planet you control in your HS.</li></ul>"
+        },
+        {
+          name: "Advanced Carrier II",
+          requirements: {
+            [TechColor.blue]: 2
+          },
+          provides: null,
+          description: "<ul><li>Sol Carrier (Cost 3; Combat 9; Move 2; Capacity 8)</li><li>Sustain Damage.</li></ul>"
+        },
+      ]
     },
     {
       id: 11,
       name: "Winnu",
-      tech: []
+      tech: [
+        {
+          name: "Hegemonic Trade Policy",
+          requirements: {
+            [TechColor.yellow]: 2
+          },
+          provides: TechColor.yellow,
+          description: "Exhaust this card when 1 or more of your units use Production; swap the resource and influence values of 1 planet you control until the end of your turn."
+        },
+        {
+          name: "Lazax Gate Folding",
+          requirements: {
+            [TechColor.blue]: 2
+          },
+          provides: TechColor.blue,
+          description: "<ul><li>During your tactical actions, if you do not control Mecatol Rex, treat its system as if it contains both an alpha and beta wormhole.</li><li>ACTION: If you control Mecatol Rex, exhaust this card to place 1 infantry from your reinforcement on Mecatol Rex.</li></ul>"
+        },
+      ]
     },
     {
       id: 12,
       name: "Embers of Muat",
-      tech: []
+      tech: [
+        {
+          name: "Prototype War Sun II",
+          requirements: {
+            [TechColor.yellow]: 1,
+            [TechColor.red]: 3
+          },
+          provides: null,
+          description: "<ul><li>Muuat War Sun (Cost 10; Combat 3[x3]; Move 3; Capacity 6)</li><li>Other player's units in this system lose Planetary Shield.</li><li>Sustain Damage; and, Bombardment 3[x3].</li></ul>"
+        },
+        {
+          name: "Magmus Reactor",
+          requirements: {
+            [TechColor.red]: 2
+          },
+          provides: TechColor.red,
+          description: "<ul><li>Your ships can move into superovas.</li><li>After 1 or more of your units use Production in a system that either contains a war sun or is adjacent to a supernova, gain 1 TG.</li>"
+        },
+      ]
     },
     {
       id: 13,
@@ -207,7 +277,24 @@ export const DATA: Data = {
     {
       id: 14,
       name: "Clan of Saar",
-      tech: []
+      tech: [
+        {
+          name: "Floating Factory II",
+          requirements: {
+            [TechColor.yellow]: 2
+          },
+          provides: null,
+          description: "<ul><li>Saar Space Dock (Move 2, Capacity 5)</li><li>This unit is placed in a space area instead of on a planet. This unit can move and retreat as if it were a ship. If this unit is blockaded, it is destroyed.</li><li>Production 7.</li></ul>"
+        },
+        {
+          name: "Chaos Mapping",
+          requirements: {
+            [TechColor.blue]: 1
+          },
+          provides: TechColor.blue,
+          description: "<ul><li>Other players cannot activate asteroid fields that contain 1 or more of your ships.</li><li>At the start of your turn during the action phase, you may produce 1 unit in a system that contains at least 1 of your units that has Production.</li></ul>"
+        },
+      ]
     },
     {
       id: 15,
