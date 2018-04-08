@@ -24,10 +24,10 @@ export class TechComponent implements OnInit {
 
   setTechColorClasses() {
     this.techColorClasses = {
-      "is-danger": this.tech.tech.provides === TechColor.red,
-      "is-success": this.tech.tech.provides === TechColor.green,
-      "is-warning": this.tech.tech.provides === TechColor.yellow,
-      "is-link": this.tech.tech.provides === TechColor.blue,
+      "has-text-danger": this.tech.tech.provides === TechColor.red,
+      "has-text-success": this.tech.tech.provides === TechColor.green,
+      "has-text-warning": this.tech.tech.provides === TechColor.yellow,
+      "has-text-link": this.tech.tech.provides === TechColor.blue,
     }
   }
 

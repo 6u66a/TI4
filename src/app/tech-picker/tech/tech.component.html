@@ -1,6 +1,11 @@
 <div class="field has-addons">
   <p class="control is-expanded">
-    <button [ngClass]="techColorClasses" class="button is-fullwidth is-outlined" (click)="descriptionToggle()">{{tech.tech.name}}</button>
+    <button class="button is-fullwidth" (click)="descriptionToggle()">
+      <span *ngIf="tech.tech.provides!=null" [ngClass]="techColorClasses" class="icon is-medium">
+        <i class="fas fa-arrow-alt-circle-up"></i>
+      </span>
+      <span>{{tech.tech.name}}</span>
+    </button>
   </p>
   <p class="control">
     <app-tech-color [techColors]="tech.tech.requirements"></app-tech-color>
