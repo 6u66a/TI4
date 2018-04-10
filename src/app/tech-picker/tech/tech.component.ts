@@ -13,6 +13,7 @@ export class TechComponent implements OnInit {
   @Output() onResearched = new EventEmitter<RuntimeTech>();
 
   private showDescription: Boolean = false;
+  private visible: Boolean = true;
 
   currentClasses: {};
   techColorClasses: {};
@@ -39,8 +40,35 @@ export class TechComponent implements OnInit {
     this.setCurrentClasses();
   }
 
+  public updateVisibility(flag: String): void {
+    switch (flag) {
+      case "researchable":
+        this.visible = this.tech.available && !this.tech.researched;
+        break;
+      case "unavailable":
+        this.visible = !this.tech.available;
+        break;
+      case "researched":
+        this.visible = this.tech.researched;
+        break;
+      case "showAll":
+        this.visible = true;
+        break;
+      /*
+      <span *ngIf="!tech.available" class="icon is-small has-text-danger">
+        <i class="fas fa-times-circle"></i>
+      </span>
+      <span *ngIf="tech.available&&!tech.researched" class="icon is-small has-text-warning">
+        <i  class="far fa-check-circle"></i>
+      </span>
+      <span *ngIf="tech.researched" class="icon is-small has-text-success">
+        <i class="fas fa-check-circle"></i>
+      </span>*/
+    }
+  }
+
   descriptionToggle() {
-    this.showDescription=!this.showDescription;
+    this.showDescription = !this.showDescription;
   }
 
   public updateRequirements(): void {

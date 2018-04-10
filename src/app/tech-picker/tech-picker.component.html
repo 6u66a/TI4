@@ -1,6 +1,25 @@
 <div class="field has-addons">
   <p class="control is-expanded">
-    <label class="label is-fullwidth">Researched Colors</label>
+    <button class="button" (click)="showAll()">
+      <span class="icon is-small">
+        <i  class="fas fa-eye"></i>
+      </span>
+    </button>
+    <button class="button" (click)="filterResearchable()">
+      <span class="icon is-small has-text-warning">
+        <i  class="far fa-check-circle"></i>
+      </span>
+    </button>
+    <button class="button" (click)="filterResearched()">
+      <span class="icon is-small has-text-success">
+        <i class="fas fa-check-circle"></i>
+      </span>
+    </button>
+    <button class="button" (click)="filterUnavailable()">
+      <span class="icon is-small has-text-danger">
+        <i class="fas fa-times-circle"></i>
+      </span>
+    </button>
   </p>
   <p class="control">
     <app-tech-color [techColors]="provided"></app-tech-color>

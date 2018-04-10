@@ -1,3 +1,4 @@
+<div *ngIf="visible">
 <div class="field has-addons">
   <p class="control is-expanded">
     <button class="button is-fullwidth" (click)="descriptionToggle()">
@@ -21,7 +22,6 @@
       <span *ngIf="tech.researched" class="icon is-small has-text-success">
         <i class="fas fa-check-circle"></i>
       </span>
-
     </button>
   </p>
 </div>
@@ -29,4 +29,5 @@
   <div class="content">
     <p [innerHTML]="tech.tech.description"></p>
   </div>
+</div>
 </div>

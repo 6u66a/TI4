@@ -37,8 +37,22 @@ export class TechPickerComponent implements OnInit {
         return { tech: item, researched: false, provided: this.provided, available: false }
       }))
     };
-    console.log("all tech");
-    console.log(this.state.tech);
+  }
+
+  filterResearched() {
+    this.techComponents.forEach(item => item.updateVisibility("researched"));
+  }
+
+  filterResearchable() {
+    this.techComponents.forEach(item => item.updateVisibility("researchable"));
+  }
+
+  filterUnavailable() {
+    this.techComponents.forEach(item => item.updateVisibility("unavailable"));
+  }
+
+  showAll() {
+    this.techComponents.forEach(item => item.updateVisibility("showAll"));
   }
 
   ngOnInit() {
