@@ -9,6 +9,8 @@ import { TechDetailComponent } from './tech-detail/tech-detail.component';
 import { RaceGuard } from './race.guard';
 import { TechComponent } from './tech-picker/tech/tech.component';
 import { TechColorComponent } from './tech-picker/tech-color/tech-color.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const appRoutes: Routes = [
   {
@@ -41,6 +43,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes, { enableTracing: true }
     ),
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [
     RaceGuard

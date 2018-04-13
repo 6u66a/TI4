@@ -13,7 +13,7 @@ export class TechComponent implements OnInit {
   @Output() onResearched = new EventEmitter<RuntimeTech>();
 
   private showDescription: Boolean = false;
-  private visible: Boolean = true;
+  public visible: Boolean = true;
 
   currentClasses: {};
   techColorClasses: {};

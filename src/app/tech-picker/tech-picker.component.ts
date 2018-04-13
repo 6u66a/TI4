@@ -13,8 +13,8 @@ export class TechPickerComponent implements OnInit {
 
   @ViewChildren(TechComponent) techComponents: Array<TechComponent>;
 
-  private state: State;
-  private provided : TechColors;
+  public state: State;
+  public provided : TechColors;
 
   constructor(private route: ActivatedRoute, private router: Router) {
     const id = +this.route.snapshot.params['raceid'];

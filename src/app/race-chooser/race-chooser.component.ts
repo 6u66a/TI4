@@ -8,7 +8,7 @@ import { DATA, Race } from '../data';
 })
 export class RaceChooserComponent implements OnInit {
 
-  private races:Array<Race> = DATA.races;
+  public races:Array<Race> = DATA.races;
 
   constructor() { }
 
