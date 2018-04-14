@@ -54,6 +54,11 @@ export class TechPickerComponent implements OnInit {
       } else if (!itemA.researched && itemB.researched) {
         return 1;
       }
+      if (itemA.tech.name < itemB.tech.name) {
+        return -1;
+      } else if (itemA.tech.name > itemB.tech.name) {
+        return 1;
+      }
       return 0;
     } else if (itemA.researchDistance > itemB.researchDistance) {
       return 1;
