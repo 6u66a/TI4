@@ -1,25 +1,26 @@
-import { Component, OnInit, AfterViewInit, ViewChildren } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChildren, QueryList, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tech, DATA, Race, State, RuntimeTech, TechColors } from '../data';
 import { TechColor } from '../tech-color.enum';
 import { TechComponent } from './tech/tech.component';
+import { createViewChildren } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'app-tech-picker',
   templateUrl: './tech-picker.component.html',
-  styleUrls: ['./tech-picker.component.css','../../../node_modules/bulma/css/bulma.css']
+  styleUrls: ['./tech-picker.component.css', '../../../node_modules/bulma/css/bulma.css']
 })
 export class TechPickerComponent implements OnInit {
 
-  @ViewChildren(TechComponent) techComponents: Array<TechComponent>;
+  @ViewChildren(TechComponent) techComponents: QueryList<TechComponent>;
 
   public state: State;
-  public provided : TechColors;
+  public provided: TechColors;
 
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router, public cdRef: ChangeDetectorRef) {
     const id = +this.route.snapshot.params['raceid'];
-    let race: Race = DATA.races.find(race => race.id === id);
-    if(race===undefined) {
+    const race: Race = DATA.races.find(item => item.id === id);
+    if (race === undefined) {
       //TODO do this via Guard
       router.navigate(['']);
     }
@@ -29,40 +30,61 @@ export class TechPickerComponent implements OnInit {
       [TechColor.green]: 0,
       [TechColor.yellow]: 0
     };
+    let startingTech: Boolean;
     this.state = {
       race: race,
       tech: race.tech.map(item => {
-        return { tech: item, researched: false, provided: this.provided, available: false }
+        return { tech: item, researched: false, provided: this.provided, available: false };
       }).concat(DATA.genericTech.map(item => {
-        return { tech: item, researched: false, provided: this.provided, available: false }
+        startingTech = (race.startingtech.indexOf(item.id) !== -1);
+        if (startingTech) {
+          this.provided[item.provides]++;
+        }
+        return { tech: item, researched: startingTech, provided: this.provided, available: startingTech };
       }))
     };
+    this.state.tech.map(item => this.updateRequirements(item));
+    this.state.tech.sort(this.distanceSorter);
   }
 
-  filterResearched() {
-    this.techComponents.forEach(item => item.updateVisibility("researched"));
-  }
-
-  filterResearchable() {
-    this.techComponents.forEach(item => item.updateVisibility("researchable"));
-  }
-
-  filterUnavailable() {
-    this.techComponents.forEach(item => item.updateVisibility("unavailable"));
-  }
-
-  showAll() {
-    this.techComponents.forEach(item => item.updateVisibility("showAll"));
+  distanceSorter(itemA: RuntimeTech, itemB: RuntimeTech): number {
+    if (itemA.researchDistance === itemB.researchDistance) {
+      if (itemA.researched && !itemB.researched) {
+        return -1;
+      } else if (!itemA.researched && itemB.researched) {
+        return 1;
+      }
+      return 0;
+    } else if (itemA.researchDistance > itemB.researchDistance) {
+      return 1;
+    }
+    return -1;
   }
 
   ngOnInit() {
   }
 
+  updateRequirements(tech: RuntimeTech): void {
+    tech.available = this.checkForMatchingRequirements(tech, this.provided);
+  }
+
+  checkForMatchingRequirements(tech: RuntimeTech, provided: TechColors): Boolean {
+    let techDistance = 0;
+    for (const color in tech.tech.requirements) {
+      if (tech.provided[color] < tech.tech.requirements[color]) {
+        techDistance = tech.tech.requirements[color] - tech.provided[color];
+      }
+    }
+    tech.researchDistance = techDistance;
+    return (techDistance === 0);
+  }
+
   onResearched(tech: RuntimeTech) {
     tech.researched = !tech.researched;
-    if (tech.tech.provides != undefined) {
+    if (tech.tech.provides !== undefined) {
       (tech.researched) ? tech.provided[tech.tech.provides]++ : tech.provided[tech.tech.provides]--;
     }
-    this.techComponents.forEach(item => item.updateRequirements());
+    this.state.tech.forEach(item => this.updateRequirements(item));
+    this.state.tech.sort(this.distanceSorter);
   }
 }

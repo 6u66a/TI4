@@ -10,7 +10,7 @@ import { TechColor } from '../../tech-color.enum';
 export class TechComponent implements OnInit {
 
   @Input() tech: RuntimeTech;
-  @Output() onResearched = new EventEmitter<RuntimeTech>();
+  @Output() researched: EventEmitter<RuntimeTech> = new EventEmitter<RuntimeTech>();
 
   private showDescription: Boolean = false;
   public visible: Boolean = true;
@@ -20,66 +20,44 @@ export class TechComponent implements OnInit {
 
   setCurrentClasses() {
     this.currentClasses = {
-    }
+    };
   }
 
   setTechColorClasses() {
     this.techColorClasses = {
-      "has-text-danger": this.tech.tech.provides === TechColor.red,
-      "has-text-success": this.tech.tech.provides === TechColor.green,
-      "has-text-warning": this.tech.tech.provides === TechColor.yellow,
-      "has-text-link": this.tech.tech.provides === TechColor.blue,
-    }
+      'has-text-danger': this.tech.tech.provides === TechColor.red,
+      'has-text-success': this.tech.tech.provides === TechColor.green,
+      'has-text-warning': this.tech.tech.provides === TechColor.yellow,
+      'has-text-link': this.tech.tech.provides === TechColor.blue,
+    };
   }
 
   constructor() { }
 
   ngOnInit() {
     this.setTechColorClasses();
-    this.updateRequirements();
     this.setCurrentClasses();
   }
 
   public updateVisibility(flag: String): void {
     switch (flag) {
-      case "researchable":
+      case 'researchable':
         this.visible = this.tech.available && !this.tech.researched;
         break;
-      case "unavailable":
+      case 'unavailable':
         this.visible = !this.tech.available;
         break;
-      case "researched":
+      case 'researched':
         this.visible = this.tech.researched;
         break;
-      case "showAll":
+      case 'showAll':
         this.visible = true;
         break;
-      /*
-      <span *ngIf="!tech.available" class="icon is-small has-text-danger">
-        <i class="fas fa-times-circle"></i>
-      </span>
-      <span *ngIf="tech.available&&!tech.researched" class="icon is-small has-text-warning">
-        <i  class="far fa-check-circle"></i>
-      </span>
-      <span *ngIf="tech.researched" class="icon is-small has-text-success">
-        <i class="fas fa-check-circle"></i>
-      </span>*/
     }
   }
 
   descriptionToggle() {
     this.showDescription = !this.showDescription;
-  }
-
-  public updateRequirements(): void {
-    this.tech.available = this.checkForMatchingRequirements();
-  }
-
-  checkForMatchingRequirements(): Boolean {
-    for (let color in this.tech.tech.requirements) {
-      if (this.tech.provided[color] < this.tech.tech.requirements[color]) return false;
-    }
-    return true;
   }
 
   getRequirement(color: TechColor, toCheck: TechColors): Number {
@@ -91,7 +69,7 @@ export class TechComponent implements OnInit {
   }
 
   researchMe() {
-    this.onResearched.emit(this.tech);
+    this.researched.emit(this.tech);
     this.setCurrentClasses();
   }
 
