@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { RuntimeTech, TechColors } from '../../data';
 import { TechColor } from '../../tech-color.enum';
+import { TechColorComponent } from '../tech-color/tech-color.component';
 
 @Component({
   selector: 'app-tech',
@@ -10,10 +11,11 @@ import { TechColor } from '../../tech-color.enum';
 export class TechComponent implements OnInit {
 
   @Input() tech: RuntimeTech;
+  @Input() provided: TechColors;
   @Output() researched: EventEmitter<RuntimeTech> = new EventEmitter<RuntimeTech>();
 
-  private showDescription: Boolean = false;
-  public visible: Boolean = true;
+  private showDescription = false;
+  public visible = true;
 
   currentClasses: {};
   techColorClasses: {};
@@ -32,40 +34,16 @@ export class TechComponent implements OnInit {
     };
   }
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit() {
     this.setTechColorClasses();
     this.setCurrentClasses();
   }
 
-  public updateVisibility(flag: String): void {
-    switch (flag) {
-      case 'researchable':
-        this.visible = this.tech.available && !this.tech.researched;
-        break;
-      case 'unavailable':
-        this.visible = !this.tech.available;
-        break;
-      case 'researched':
-        this.visible = this.tech.researched;
-        break;
-      case 'showAll':
-        this.visible = true;
-        break;
-    }
-  }
-
   descriptionToggle() {
     this.showDescription = !this.showDescription;
-  }
-
-  getRequirement(color: TechColor, toCheck: TechColors): Number {
-    if (color in toCheck) {
-      return toCheck[color];
-    } else {
-      return 0;
-    }
   }
 
   researchMe() {

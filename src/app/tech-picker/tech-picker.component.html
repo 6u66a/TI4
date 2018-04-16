@@ -1,7 +1,7 @@
 <div class="field has-addons">
-  <label class="control is-expanded">Researched Colors</label>
+  <h2 class="control is-expanded subtitle">{{state.race.name}}</h2>
   <p class="control">
     <app-tech-color [techColors]="provided"></app-tech-color>
   </p>
 </div>
-<app-tech (researched)="onResearched($event)" *ngFor="let tech of state.tech" [tech]="tech"></app-tech>
+<app-tech (researched)="onResearched($event)" *ngFor="let tech of state.tech" [tech]="tech" [provided]="provided"></app-tech>

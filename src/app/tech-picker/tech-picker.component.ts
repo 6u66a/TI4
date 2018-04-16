@@ -11,9 +11,6 @@ import { createViewChildren } from '@angular/compiler/src/core';
   styleUrls: ['./tech-picker.component.css', '../../../node_modules/bulma/css/bulma.css']
 })
 export class TechPickerComponent implements OnInit {
-
-  @ViewChildren(TechComponent) techComponents: QueryList<TechComponent>;
-
   public state: State;
   public provided: TechColors;
 
@@ -21,7 +18,7 @@ export class TechPickerComponent implements OnInit {
     const id = +this.route.snapshot.params['raceid'];
     const race: Race = DATA.races.find(item => item.id === id);
     if (race === undefined) {
-      //TODO do this via Guard
+      // TODO do this via Guard
       router.navigate(['']);
     }
     this.provided = {
@@ -30,17 +27,17 @@ export class TechPickerComponent implements OnInit {
       [TechColor.green]: 0,
       [TechColor.yellow]: 0
     };
-    let startingTech: Boolean;
+    let startingTech: boolean;
     this.state = {
       race: race,
       tech: race.tech.map(item => {
-        return { tech: item, researched: false, provided: this.provided, available: false };
+        return { tech: item, researched: false, provided: this.provided, available: false, researchDistance: 0 };
       }).concat(DATA.genericTech.map(item => {
         startingTech = (race.startingtech.indexOf(item.id) !== -1);
         if (startingTech) {
           this.provided[item.provides]++;
         }
-        return { tech: item, researched: startingTech, provided: this.provided, available: startingTech };
+        return { tech: item, researched: startingTech, provided: this.provided, available: startingTech, researchDistance: 0 };
       }))
     };
     this.state.tech.map(item => this.updateRequirements(item));
@@ -73,7 +70,7 @@ export class TechPickerComponent implements OnInit {
     tech.available = this.checkForMatchingRequirements(tech, this.provided);
   }
 
-  checkForMatchingRequirements(tech: RuntimeTech, provided: TechColors): Boolean {
+  checkForMatchingRequirements(tech: RuntimeTech, provided: TechColors): boolean {
     let techDistance = 0;
     for (const color in tech.tech.requirements) {
       if (tech.provided[color] < tech.tech.requirements[color]) {

@@ -1,33 +1,33 @@
 <div *ngIf="visible">
-<div class="field has-addons">
-  <p class="control is-expanded">
-    <button class="button is-fullwidth" (click)="descriptionToggle()">
-      <span *ngIf="tech.tech.provides!=null" [ngClass]="techColorClasses" class="icon is-medium">
-        <i class="fas fa-arrow-alt-circle-up"></i>
-      </span>
-      <span>{{tech.tech.name}}</span>
-    </button>
-  </p>
-  <p class="control">
-    <app-tech-color [techColors]="tech.tech.requirements"></app-tech-color>
-  </p>
-  <p class="control">
-    <button class="button" (click)="researchMe()">
-      <span *ngIf="!tech.available" class="icon is-small has-text-danger">
-        <i class="fas fa-times-circle"></i>
-      </span>
-      <span *ngIf="tech.available&&!tech.researched" class="icon is-small has-text-warning">
-        <i  class="far fa-check-circle"></i>
-      </span>
-      <span *ngIf="tech.researched" class="icon is-small has-text-success">
-        <i class="fas fa-check-circle"></i>
-      </span>
-    </button>
-  </p>
-</div>
-<div class="box" *ngIf="showDescription===true">
-  <div class="content">
-    <p [innerHTML]="tech.tech.description"></p>
+  <div class="field has-addons">
+    <p class="control is-expanded">
+      <button class="button is-fullwidth" (click)="descriptionToggle()">
+        <span *ngIf="tech.tech.provides!=null" [ngClass]="techColorClasses" class="icon is-medium">
+          <i class="fas fa-arrow-alt-circle-up"></i>
+        </span>
+        <span>{{tech.tech.name}}</span>
+      </button>
+    </p>
+    <p class="control">
+      <app-tech-color [techColors]="tech.tech.requirements" [provided]="provided"></app-tech-color>
+    </p>
+    <p class="control">
+      <button class="button" (click)="researchMe()">
+        <span *ngIf="!tech.available" class="icon is-small has-text-danger">
+          <i class="fas fa-times-circle"></i>
+        </span>
+        <span *ngIf="tech.available && !tech.researched" class="icon is-small has-text-warning">
+          <i class="far fa-check-circle"></i>
+        </span>
+        <span *ngIf="tech.researched" class="icon is-small has-text-success">
+          <i class="fas fa-check-circle"></i>
+        </span>
+      </button>
+    </p>
   </div>
-</div>
+  <div class="box" *ngIf="showDescription===true">
+    <div class="content">
+      <p [innerHTML]="tech.tech.description"></p>
+    </div>
+  </div>
 </div>

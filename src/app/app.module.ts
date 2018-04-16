@@ -5,7 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { RaceChooserComponent } from './race-chooser/race-chooser.component';
 import { TechPickerComponent } from './tech-picker/tech-picker.component';
-import { TechDetailComponent } from './tech-detail/tech-detail.component';
 import { RaceGuard } from './race.guard';
 import { TechComponent } from './tech-picker/tech/tech.component';
 import { TechColorComponent } from './tech-picker/tech-color/tech-color.component';
@@ -23,10 +22,6 @@ const appRoutes: Routes = [
     canActivate: [RaceGuard],
     component: TechPickerComponent
   },
-  {
-    path: 'detail',
-    component: TechDetailComponent,
-  },
 ];
 
 @NgModule({
@@ -34,7 +29,6 @@ const appRoutes: Routes = [
     AppComponent,
     RaceChooserComponent,
     TechPickerComponent,
-    TechDetailComponent,
     TechComponent,
     TechColorComponent
   ],

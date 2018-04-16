@@ -23,8 +23,8 @@ export interface Tech {
 export interface RuntimeTech {
   tech: Tech;
   provided: TechColors;
-  researched: Boolean;
-  available: Boolean;
+  researched: boolean;
+  available: boolean;
   researchDistance: number;
 }
 
@@ -642,4 +642,4 @@ export const DATA: Data = {
       provides: null
     },
   ]
-}
+};
