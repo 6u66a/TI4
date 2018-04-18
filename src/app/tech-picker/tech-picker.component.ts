@@ -25,7 +25,8 @@ export class TechPickerComponent implements OnInit {
       [TechColor.blue]: 0,
       [TechColor.red]: 0,
       [TechColor.green]: 0,
-      [TechColor.yellow]: 0
+      [TechColor.yellow]: 0,
+      [TechColor.black]: 0
     };
     let startingTech: boolean;
     this.state = {

@@ -51,7 +51,7 @@ export const DATA: Data = {
             [TechColor.green]: 2,
           },
           description: '<ul><li>After this unit is destroyed, roll 1 die. If the result is 6 or greater, place the unit on this card. At the start of your next turn, place each unit that is on this card on a planet you control in your HS.</li><li>Production 2</li><Ul>',
-          provides: null
+          provides: TechColor.black
         },
         {
           id: 2,
@@ -100,7 +100,7 @@ export const DATA: Data = {
           requirements: {
             [TechColor.yellow]: 2
           },
-          provides: null,
+          provides: TechColor.black,
           description: '<ul><li>Saar Space Dock (Move 2, Capacity 5)</li><li>This unit is placed in a space area instead of on a planet. This unit can move and retreat as if it were a ship. If this unit is blockaded, it is destroyed.</li><li>Production 7.</li></ul>'
         },
         {
@@ -126,7 +126,7 @@ export const DATA: Data = {
             [TechColor.yellow]: 1,
             [TechColor.red]: 3
           },
-          provides: null,
+          provides: TechColor.black,
           description: '<ul><li>Muuat War Sun (Cost 10; Combat 3[x3]; Move 3; Capacity 6)</li><li>Other player\'s units in this system lose Planetary Shield.</li><li>Sustain Damage; and, Bombardment 3[x3].</li></ul>'
         },
         {
@@ -176,7 +176,7 @@ export const DATA: Data = {
           requirements: {
             [TechColor.green]: 2
           },
-          provides: null,
+          provides: TechColor.black,
           description: '<ul><li>Sol Infantry (Cost 1/2; Combat 6)</li><li>After this unit is destroyed, roll 1 die. If the result is 5 or greater, place the unit on this card. At the start of your next turn, place each unit that is on this card on a planet you control in your HS.</li></ul>'
         },
         {
@@ -185,7 +185,7 @@ export const DATA: Data = {
           requirements: {
             [TechColor.blue]: 2
           },
-          provides: null,
+          provides: TechColor.black,
           description: '<ul><li>Sol Carrier (Cost 3; Combat 9; Move 2; Capacity 8)</li><li>Sustain Damage.</li></ul>'
         },
       ]
@@ -227,7 +227,7 @@ export const DATA: Data = {
             [TechColor.blue]: 2,
             [TechColor.yellow]: 1
           },
-          provides: null,
+          provides: TechColor.black,
           description: '<ul><li>L1Z1X Dreadnought (Cost 4; Combat 4; Move 2; Capacity 2)</li><li>This unit cannot be destroyed by "Direct Hit" action cards; Sustain Damage; and, Bombardment 4.</li></ul>'
         },
         {
@@ -287,7 +287,7 @@ export const DATA: Data = {
             [TechColor.green]: 1,
             [TechColor.blue]: 1
           },
-          provides: null,
+          provides: TechColor.black,
           description: '<ul><li>Naalu Fighter (Cost 1/2; Combat 7; Move 2)</li><li>This unit may move without being transported. Each fighter in excess of your ships\' capacity counts as 1/2 of a ship against your fleet pool.</li></ul>'
         },
       ]
@@ -301,14 +301,14 @@ export const DATA: Data = {
           id: 21,
           name: 'Valefar Assimilator',
           requirements: {},
-          provides: null,
+          provides: TechColor.black,
           description: 'When you would gain another player\'s technology using 1 of your faction abilities, you may place either the "X" or "Y" assimilator token on a faction technology owned by that player instead. While that token is on a technology, the corresponding "X" or "Y" card gains that technology\'s text. You cannot place an assimilator token on a technology that already has one.'
         },
         {
           id: 22,
           name: 'Valefar Assimilator',
           requirements: {},
-          provides: null,
+          provides: TechColor.black,
           description: 'When you would gain another player\'s technology using 1 of your faction abilities, you may place either the "X" or "Y" assimilator token on a faction technology owned by that player instead. While that token is on a technology, the corresponding "X" or "Y" card gains that technology\'s text. You cannot place an assimilator token on a technology that already has one.'
         },
       ]
@@ -326,7 +326,7 @@ export const DATA: Data = {
             [TechColor.yellow]: 1
           },
           description: '<ul><li>N\'orr Dreadnought (Cost 4; Combat 5; Move 2; Capacity 1)</li><li>This unit cannot be destroyed by "Direct Hit" action cards. After a round of space combat, you may destroy this unit to destroy up to 2 ships in this system</li><li>Sustain Damage; and, Bombardment 4[x2].</li></ul>',
-          provides: null
+          provides: TechColor.black
         },
         {
           id: 24,
@@ -583,63 +583,63 @@ export const DATA: Data = {
       name: 'War Sun',
       requirements: { [TechColor.red]: 3, [TechColor.yellow]: 1 },
       description: '<ul><li>Cost 12; Battle 3[x3]; Move 2; Capacity 6</li><li>Other players’ units in this system lose Planetary Shield</li><li>Sustain Damage</li><li>Bombardment 3[x3].</li></ul>',
-      provides: null
+      provides: TechColor.black
     },
     {
       id: 52,
       name: 'Dreadnought II',
       requirements: { [TechColor.blue]: 2, [TechColor.yellow]: 1 },
       description: '<ul><li>Cost 4; Battle 5; Move 2; Capacity 1</li><li>This unit cannot be destroyed by the “Direct Hit” action cards</li><li>Sustain Damage</li><li>Bombardment 5</li></ul>',
-      provides: null
+      provides: TechColor.black
     },
     {
       id: 53,
       name: 'Cruiser II',
       requirements: { [TechColor.red]: 1, [TechColor.yellow]: 1, [TechColor.green]: 1 },
       description: 'Cost 2; Battle 6; Move 3; Capacity 1',
-      provides: null
+      provides: TechColor.black
     },
     {
       id: 54,
       name: 'Destroyer II',
       requirements: { [TechColor.red]: 2 },
       description: '<ul><li>Cost 1; Battle 8; Move 2</li><li>Anti-fighter barrage 6[x3].</li></ul>',
-      provides: null
+      provides: TechColor.black
     },
     {
       id: 55,
       name: 'PDS II',
       requirements: { [TechColor.red]: 1, [TechColor.yellow]: 1 },
       description: '<ul><li>You may use this unit’s Space Canon against ships that are adjacent to this system</li><li>Planetary Shield</li><li>Space Cannon 5</li></ul>',
-      provides: null
+      provides: TechColor.black
     },
     {
       id: 56,
       name: 'Carrier II',
       requirements: { [TechColor.blue]: 2 },
       description: 'Cost 3; Battle 9; Move 2; Capacity 6',
-      provides: null
+      provides: TechColor.black
     },
     {
       id: 57,
       name: 'Fighter II',
       requirements: { [TechColor.blue]: 1, [TechColor.green]: 1 },
       description: '<ul><li>Cost 1/2; Battle 8; Move 2</li><li>This unit may move without being transported. Fighters in excess of your ships’ capacity count against your fleet pool.</li></ul>',
-      provides: null
+      provides: TechColor.black
     },
     {
       id: 58,
       name: 'Infantry II',
       requirements: { [TechColor.green]: 2 },
       description: '<ul><li>Cost 1/2; Battle 7</li><li>After this unit is destroyed, roll 1 die. If result ≥ 6: place the unit on this card. At the start of your next turn, place each unit on this card on a planet you control in your HS.</li></ul>',
-      provides: null
+      provides: TechColor.black
     },
     {
       id: 59,
       name: 'Space Dock II',
       requirements: { [TechColor.yellow]: 2 },
       description: '<ul><li>This unit’s Production value is equal to 4 more than the resource value of this planet</li><li>Up to 3 fighters in this system do not count toward your ships’ capacity</li><li>Production X.</li></ul>',
-      provides: null
+      provides: TechColor.black
     },
   ]
 };
