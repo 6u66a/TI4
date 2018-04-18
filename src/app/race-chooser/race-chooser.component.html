@@ -1,8 +1,2 @@
 <h2 class="subtitle control is-expanded">Choose race</h2>
-<div class="field">
-  <div *ngFor="let race of races" class="field">
-    <p class="control is-expanded">
-      <a routerLink="tech/{{race.id}}" class="button is-fullwidth">{{race.name}}</a>
-    </p>
-  </div>
-</div>
+<a *ngFor="let race of races" routerLink="tech/{{race.id}}" class="button is-fullwidth is-justified-start">{{race.name}}</a>

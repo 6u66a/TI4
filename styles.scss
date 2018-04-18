@@ -1,0 +1,16 @@
+//initial vars
+//derived vars
+@import './node_modules/bulma/sass/utilities/initial-variables';
+@import './node_modules/bulma/sass/utilities/functions';
+
+$button: text-align(left);
+
+//new vars
+@import './node_modules/bulma/sass/utilities/derived-variables';
+
+//import rest of bulma
+@import './node_modules/bulma/bulma';
+
+.is-justified-start {
+    justify-content: flex-start !important;
+}

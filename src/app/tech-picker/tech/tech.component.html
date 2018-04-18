@@ -1,11 +1,13 @@
 <div *ngIf="visible">
-  <div class="field has-addons">
-    <p class="control is-expanded">
-      <button class="button is-fullwidth" (click)="descriptionToggle()">
-        <span *ngIf="tech.tech.provides!=null" [ngClass]="techColorClasses" class="icon is-medium">
-          <i class="fas fa-arrow-alt-circle-up"></i>
-        </span>
-        <span>{{tech.tech.name}}</span>
+  <div class="field has-addons text-left">
+    <p class="control is-expanded is-pulled-left text-left">
+      <button class="button is-fullwidth text-left is-pulled-left" (click)="descriptionToggle()">
+        <div class="is-pulled-left">
+          <span *ngIf="tech.tech.provides!=null" [ngClass]="techColorClasses" class="icon is-medium text-left is-pulled-left">
+            <i class="fas fa-arrow-alt-circle-up text-left is-pulled-left"></i>
+          </span>
+          <span class="text-left is-pulled-left">{{tech.tech.name}}</span>
+        </div>
       </button>
     </p>
     <p class="control">
