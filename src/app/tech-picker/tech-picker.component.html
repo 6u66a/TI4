@@ -1,7 +1,35 @@
-<div class="field has-addons">
-  <h2 class="control is-expanded subtitle">{{state.race.name}}</h2>
-  <p class="control">
-    <app-tech-color [techColors]="provided"></app-tech-color>
-  </p>
+<div class="level is-mobile is-marginless">
+  <div class="level-left">
+    <div class="level-item" style="padding: 6px;">
+      <h2 class="subtitle has-text-grey-light">{{state.race.name}}</h2>
+    </div>
+  </div>
+  <div class="level has-text-right" style="margin-right: 18px;">
+    <div *ngIf="provided[colorEnum.red]!==undefined&&provided[colorEnum.red]>0">
+      <span *ngFor="let i of Arr(provided[colorEnum.red]).fill(0)" class="icon has-text-danger">
+        <i class="fas fa-circle"></i>
+      </span>
+    </div>
+    <div *ngIf="provided[colorEnum.green]!==undefined&&provided[colorEnum.green]>0">
+      <span *ngFor="let i of Arr(provided[colorEnum.green]).fill(0)" class="icon has-text-success">
+        <i class="fas fa-circle"></i>
+      </span>
+    </div>
+    <div *ngIf="provided[colorEnum.yellow]!==undefined&&provided[colorEnum.yellow]>0">
+      <span *ngFor="let i of Arr(provided[colorEnum.yellow]).fill(0)" class="icon has-text-warning">
+        <i class="fas fa-circle"></i>
+      </span>
+    </div>
+    <div *ngIf="provided[colorEnum.blue]!==undefined&&provided[colorEnum.blue]>0">
+      <span *ngFor="let i of Arr(provided[colorEnum.blue]).fill(0)" class="icon has-text-link">
+        <i class="fas fa-circle"></i>
+      </span>
+    </div>
+    <div *ngIf="provided[colorEnum.black]!==undefined&&provided[colorEnum.black]>0">
+      <span *ngFor="let i of Arr(provided[colorEnum.black]).fill(0)" class="icon has-text-white">
+        <i class="fas fa-circle"></i>
+      </span>
+    </div>
+  </div>
 </div>
 <app-tech (researched)="onResearched($event)" *ngFor="let tech of state.tech" [tech]="tech" [provided]="provided"></app-tech>

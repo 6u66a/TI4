@@ -1,5 +1,27 @@
-<a class="button is-danger" *ngIf="deltaTechColor[colorEnum.red]!==undefined&&deltaTechColor[colorEnum.red]>0">{{deltaTechColor[colorEnum.red]}}</a>
-<a class="button is-success" *ngIf="deltaTechColor[colorEnum.green]!==undefined&&deltaTechColor[colorEnum.green]>0">{{deltaTechColor[colorEnum.green]}}</a>
-<a class="button is-warning" *ngIf="deltaTechColor[colorEnum.yellow]!==undefined&&deltaTechColor[colorEnum.yellow]>0">{{deltaTechColor[colorEnum.yellow]}}</a>
-<a class="button is-link" *ngIf="deltaTechColor[colorEnum.blue]!==undefined&&deltaTechColor[colorEnum.blue]>0">{{deltaTechColor[colorEnum.blue]}}</a>
-<a class="button" *ngIf="deltaTechColor[colorEnum.black]!==undefined&&deltaTechColor[colorEnum.black]>0">{{deltaTechColor[colorEnum.black]}}</a>
+<div class="level-item">
+    <div *ngIf="deltaTechColor[colorEnum.red]!==undefined&&deltaTechColor[colorEnum.red]>0">
+        <span *ngFor="let i of Arr(deltaTechColor[colorEnum.red]).fill(0)" class="icon has-text-danger">
+            <i class="far fa-circle"></i>
+        </span>
+    </div>
+    <div *ngIf="deltaTechColor[colorEnum.green]!==undefined&&deltaTechColor[colorEnum.green]>0">
+        <span *ngFor="let i of Arr(deltaTechColor[colorEnum.green]).fill(0)" class="icon has-text-success">
+            <i class="far fa-circle"></i>
+        </span>
+    </div>
+    <div *ngIf="deltaTechColor[colorEnum.yellow]!==undefined&&deltaTechColor[colorEnum.yellow]>0">
+        <span *ngFor="let i of Arr(deltaTechColor[colorEnum.yellow]).fill(0)" class="icon has-text-warning">
+            <i class="far fa-circle"></i>
+        </span>
+    </div>
+    <div *ngIf="deltaTechColor[colorEnum.blue]!==undefined&&deltaTechColor[colorEnum.blue]>0">
+        <span *ngFor="let i of Arr(deltaTechColor[colorEnum.blue]).fill(0)" class="icon has-text-link">
+            <i class="far fa-circle"></i>
+        </span>
+    </div>
+    <div *ngIf="deltaTechColor[colorEnum.black]!==undefined&&deltaTechColor[colorEnum.black]>0">
+        <span *ngFor="let i of Arr(deltaTechColor[colorEnum.black]).fill(0)" class="icon has-text-white">
+            <i class="far fa-circle"></i>
+        </span>
+    </div>
+</div>

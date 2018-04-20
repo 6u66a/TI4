@@ -1,7 +1,7 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar has-background-black" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <h1 class="title">TI4 Tech Helper</h1>
-    <button [ngClass]="{'is-active': hamburgerIsActive}" class="button navbar-burger" (click)="hamburgerClick()">
+    <h1 class="title has-text-grey-light" style="padding-left: 6px;">TI4 Tech Helper</h1>
+    <button [ngClass]="{'is-active': hamburgerIsActive}" class="button navbar-burger is-dark" (click)="hamburgerClick()" style="margin-right: 13px;">
       <span></span>
       <span></span>
       <span></span>
@@ -10,8 +10,8 @@
   <div [ngClass]="{'is-active': hamburgerIsActive}" class="navbar-menu">
     <div class="navbar-start">
     </div>
-    <div class="navbar-end" (click)="hamburgerClick()">
-      <a class="navbar-item" routerLink="/">Choose Race</a>
+    <div class="navbar-end has-background-dark" (click)="hamburgerClick()">
+      <a class="navbar-item has-text-grey-light" routerLink="/">Choose Race</a>
     </div>
   </div>
 </nav>

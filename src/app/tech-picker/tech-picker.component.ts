@@ -14,6 +14,9 @@ export class TechPickerComponent implements OnInit {
   public state: State;
   public provided: TechColors;
 
+  public colorEnum = TechColor;
+  private Arr = Array;
+
   constructor(private route: ActivatedRoute, private router: Router, public cdRef: ChangeDetectorRef) {
     const id = +this.route.snapshot.params['raceid'];
     const race: Race = DATA.races.find(item => item.id === id);

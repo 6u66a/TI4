@@ -1,18 +1,16 @@
-<div *ngIf="visible">
-  <div class="field has-addons">
-    <p class="control is-expanded">
-      <button class="button is-fullwidth is-justified-start" (click)="descriptionToggle()">
-        <span [ngClass]="techColorClasses" class="icon is-medium">
-          <i class="fas fa-arrow-alt-circle-up"></i>
-        </span>
-        <span>{{tech.tech.name}}</span>
-      </button>
-    </p>
-    <p class="control">
-      <app-tech-color [techColors]="tech.tech.requirements" [provided]="provided"></app-tech-color>
-    </p>
-    <p class="control">
-      <button class="button" (click)="researchMe()">
+<div class="level is-mobile has-text-white has-background-black is-marginless" style="outline: 1pt; outline-color: white; outline-style: solid">
+  <div class="level-left">
+    <div class="level-item" (click)="descriptionToggle()">
+      <span [ngClass]="techColorClasses" class="icon is-medium">
+        <i class="fas fa-arrow-alt-circle-up"></i>
+      </span>
+      <span>{{tech.tech.name}}</span>
+    </div>
+  </div>
+  <div class="level-right">
+    <app-tech-color [techColors]="tech.tech.requirements" [provided]="provided"></app-tech-color>
+    <div class="level-item">
+      <button class="button is-dark" (click)="researchMe()" style="border-bottom: white solid 1px; border-top: white solid 1px;">
         <span *ngIf="!tech.available" class="icon is-small has-text-danger">
           <i class="fas fa-times-circle"></i>
         </span>
@@ -23,11 +21,9 @@
           <i class="fas fa-check-circle"></i>
         </span>
       </button>
-    </p>
-  </div>
-  <div class="box" *ngIf="showDescription===true">
-    <div class="content">
-      <p [innerHTML]="tech.tech.description"></p>
     </div>
   </div>
+</div>
+<div class="has-background-dark has-text-white level" *ngIf="showDescription===true">
+  <p class="level-item" [innerHTML]="tech.tech.description"></p>
 </div>

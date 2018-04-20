@@ -16,6 +16,7 @@ export class TechColorComponent implements DoCheck {
 
   public colorEnum = TechColor;
   public deltaTechColor: TechColors = [];
+  private Arr = Array;
 
   constructor() {
   }
