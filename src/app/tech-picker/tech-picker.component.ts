@@ -78,7 +78,7 @@ export class TechPickerComponent implements OnInit {
     let techDistance = 0;
     for (const color in tech.tech.requirements) {
       if (tech.provided[color] < tech.tech.requirements[color]) {
-        techDistance = tech.tech.requirements[color] - tech.provided[color];
+        techDistance += tech.tech.requirements[color] - tech.provided[color];
       }
     }
     tech.researchDistance = techDistance;
