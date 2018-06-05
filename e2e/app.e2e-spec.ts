@@ -9,6 +9,14 @@ describe('ti4 App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getParagraphText()).toEqual('TI4 Tech Helper');
+  });
+
+  it('click arborec', () => {
+    const anchor = page.getRaceButton('Arborec');
+    anchor.click();
+    expect(page.getSubtitle()).toBe('Arborec');
+    page.researchTech('Plasma Scoring');
+    page.researchTech('Duranium Armor');
   });
 });
