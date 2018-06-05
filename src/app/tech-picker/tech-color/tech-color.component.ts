@@ -1,8 +1,6 @@
 import { Input, Component, OnInit, OnChanges, DoCheck } from '@angular/core';
 import { TechColors } from '../../data';
 import { TechColor } from '../../tech-color.enum';
-import { timestamp } from 'rxjs/operator/timestamp';
-import { timer } from 'rxjs/observable/timer';
 
 @Component({
   selector: 'app-tech-color',
