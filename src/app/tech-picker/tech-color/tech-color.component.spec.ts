@@ -7,21 +7,21 @@ import { TechColor } from '../../tech-color.enum';
 describe('TechColorComponent', () => {
   let component: TechColorComponent;
   let fixture: ComponentFixture<TechColorComponent>;
-  let techColors: TechColors = {
-    [TechColor.blue]: 1
-  }
+  const techColors: TechColors = {
+    [TechColor.blue]: 2
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TechColorComponent ]
+      declarations: [TechColorComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TechColorComponent);
     component = fixture.componentInstance;
-    component.techColors=techColors;
+    component.techColors = techColors;
     fixture.detectChanges();
   });
 
@@ -30,7 +30,9 @@ describe('TechColorComponent', () => {
   });
 
   it('should render blue', async(() => {
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.is-link').textContent).toContain('1');
+    const compiled: HTMLDivElement = fixture.debugElement.nativeElement;
+    const root: HTMLDivElement = compiled.querySelector('div.level-item div');
+    expect(root.children.length).toBe(2);
+    expect((<HTMLSpanElement> root.children[0]).className).toBe('icon has-text-link');
   }));
 });

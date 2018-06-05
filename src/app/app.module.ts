@@ -5,7 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { RaceChooserComponent } from './race-chooser/race-chooser.component';
 import { TechPickerComponent } from './tech-picker/tech-picker.component';
-import { RaceGuard } from './race.guard';
 import { TechComponent } from './tech-picker/tech/tech.component';
 import { TechColorComponent } from './tech-picker/tech-color/tech-color.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -19,7 +18,6 @@ const appRoutes: Routes = [
   },
   {
     path: 'tech/:raceid',
-    canActivate: [RaceGuard],
     component: TechPickerComponent
   },
 ];
@@ -39,9 +37,7 @@ const appRoutes: Routes = [
     ),
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
   ],
-  providers: [
-    RaceGuard
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

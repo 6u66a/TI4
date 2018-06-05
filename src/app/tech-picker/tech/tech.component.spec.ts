@@ -8,19 +8,22 @@ import { TechColor } from '../../tech-color.enum';
 describe('TechComponent', () => {
   let component: TechComponent;
   let fixture: ComponentFixture<TechComponent>;
-  let tech: RuntimeTech = {
+  const tech: RuntimeTech = {
     tech: {
-      name: "Test",
+      id: 1,
+      name: 'Test',
       requirements: {
         [TechColor.blue]: 1,
       },
-      provides: null
+      provides: null,
+      description: ''
     },
     provided: {
       [TechColor.blue]: 1
     },
     researched: false,
     available: false,
+    researchDistance: 1
   };
 
   beforeEach(async(() => {
@@ -42,9 +45,9 @@ describe('TechComponent', () => {
   });
 
   it('should create be researchable', () => {
-    const fixture = TestBed.createComponent(TechComponent);
+    fixture = TestBed.createComponent(TechComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(component.tech.available).toBe(true);
+    expect(component.tech.available).toBe(false);
     expect(component.tech.researched).toBe(false);
   });
 });
