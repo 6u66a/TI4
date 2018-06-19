@@ -14,7 +14,7 @@ export class TechComponent implements OnInit {
   @Input() provided: TechColors;
   @Output() researched: EventEmitter<RuntimeTech> = new EventEmitter<RuntimeTech>();
 
-  private showDescription = false;
+  public showDescription = false;
 
   currentClasses: {};
   techColorClasses: {};
