@@ -1,12 +1,13 @@
-import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
+import { async, ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-
-import { TechPickerComponent } from './tech-picker.component';
-import { TechColors } from '../data';
 import { RaceChooserComponent } from '../race-chooser/race-chooser.component';
 import { TechColorComponent } from './tech-color/tech-color.component';
+import { TechPickerComponent } from './tech-picker.component';
 import { TechComponent } from './tech/tech.component';
-import { Router, ActivatedRoute, convertToParamMap } from '@angular/router';
+import { RuntimeTech, Tech, TechColors } from '../data';
+import { TechColor } from '../tech-color.enum';
+
 
 describe('TechPickerComponent', () => {
   let component: TechPickerComponent;
@@ -50,4 +51,12 @@ describe('TechPickerComponent', () => {
   it('should create', fakeAsync(() => {
     expect(component).toBeTruthy();
   }));
+
+  it('should sort researched to top', () => {
+    const requirements: TechColors = { [TechColor.blue]: 2 };
+    const tech: Tech = { id: 1, name: 'Tech', requirements: requirements, provides: TechColor.blue, description: '' };
+    const itemA: RuntimeTech = { tech: tech, provided: {}, researched: false, available: true, researchDistance: 1 };
+    const itemB: RuntimeTech = { tech: tech, provided: {}, researched: true, available: false, researchDistance: 2 };
+    expect(component.distanceSorter(itemA, itemB)).toEqual(1);
+  });
 });

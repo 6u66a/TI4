@@ -1,9 +1,7 @@
-import { Component, OnInit, AfterViewInit, ViewChildren, QueryList, ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Tech, DATA, Race, State, RuntimeTech, TechColors } from '../data';
+import { DATA, Race, RuntimeTech, State, TechColors } from '../data';
 import { TechColor } from '../tech-color.enum';
-import { TechComponent } from './tech/tech.component';
-import { createViewChildren } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'app-tech-picker',
@@ -21,7 +19,6 @@ export class TechPickerComponent implements OnInit {
     const id = +this.route.snapshot.params['raceid'];
     const race: Race = DATA.races.find(item => item.id === id);
     if (race === undefined) {
-      // TODO do this via Guard
       router.navigate(['']);
     }
     this.provided = {
@@ -49,22 +46,22 @@ export class TechPickerComponent implements OnInit {
   }
 
   distanceSorter(itemA: RuntimeTech, itemB: RuntimeTech): number {
-    if (itemA.researchDistance === itemB.researchDistance) {
-      if (itemA.researched && !itemB.researched) {
-        return -1;
-      } else if (!itemA.researched && itemB.researched) {
-        return 1;
-      }
-      if (itemA.tech.name < itemB.tech.name) {
-        return -1;
-      } else if (itemA.tech.name > itemB.tech.name) {
-        return 1;
-      }
-      return 0;
-    } else if (itemA.researchDistance > itemB.researchDistance) {
+    if (itemA.researched && !itemB.researched) {
+      return -1;
+    } else if (!itemA.researched && itemB.researched) {
       return 1;
     }
-    return -1;
+    if (itemA.available && !itemB.available) {
+      return -1;
+    } else if (!itemA.available && itemB.available) {
+      return 1;
+    }
+    if (itemA.tech.name < itemB.tech.name && itemA.researchDistance === itemB.researchDistance) {
+      return -1;
+    } else if (itemA.tech.name > itemB.tech.name && itemA.researchDistance === itemB.researchDistance) {
+      return 1;
+    }
+    return itemA.researchDistance - itemB.researchDistance;
   }
 
   ngOnInit() {
