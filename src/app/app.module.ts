@@ -9,6 +9,7 @@ import { TechComponent } from './tech-picker/tech/tech.component';
 import { TechColorComponent } from './tech-picker/tech-color/tech-color.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { RandomizerComponent } from './randomizer/randomizer.component';
 
 const appRoutes: Routes = [
   {
@@ -18,8 +19,12 @@ const appRoutes: Routes = [
   },
   {
     path: 'tech/:raceid',
-    component: TechPickerComponent
+    component: TechPickerComponent,
   },
+  {
+    path: 'randomize',
+    component: RandomizerComponent,
+  }
 ];
 
 @NgModule({
@@ -28,7 +33,8 @@ const appRoutes: Routes = [
     RaceChooserComponent,
     TechPickerComponent,
     TechComponent,
-    TechColorComponent
+    TechColorComponent,
+    RandomizerComponent
   ],
   imports: [
     BrowserModule,

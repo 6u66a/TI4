@@ -1,0 +1,11 @@
+<h2 class="subtitle control is-expanded has-background-black has-text-grey-light" style="margin-left: 4px;">Randomized Races</h2>
+<div class="level is-marginless">
+    <div class="level-left" *ngFor="let race of races" routerLink="/tech/{{race.id}}" class="button is-fullwidth is-justified-start has-background-black has-text-white">
+        <span class="icon is-medium">
+            <img src="../../assets/races/export/{{race.name.toLowerCase()}}.png">
+        </span>
+        <div class="level-item">
+            {{race.name}}
+        </div>
+    </div>
+</div>

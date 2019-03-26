@@ -1,9 +1,8 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { Router, RouterOutlet } from "@angular/router";
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
-@Component({selector: 'router-outlet', template: ''})
+@Component({selector: 'app-router-outlet', template: ''})
 class RouterOutletStubComponent { }
 
 describe('AppComponent', () => {
