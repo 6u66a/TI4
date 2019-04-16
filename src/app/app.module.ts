@@ -15,15 +15,15 @@ const appRoutes: Routes = [
   {
     path: '',
     component: RaceChooserComponent,
-    pathMatch: 'full',
+    pathMatch: 'full'
   },
   {
     path: 'tech/:raceid',
-    component: TechPickerComponent,
+    component: TechPickerComponent
   },
   {
     path: 'randomize',
-    component: RandomizerComponent,
+    component: RandomizerComponent
   }
 ];
 
@@ -38,12 +38,12 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(
-      appRoutes, { enableTracing: true }
-    ),
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
+    RouterModule.forRoot(appRoutes, { enableTracing: true }),
+    ServiceWorkerModule.register('/ngsw-worker.js', {
+      enabled: environment.production
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
