@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="96.92038"
+   height="100.00001"
+   id="svg2"
+   version="1.1"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="sardakk n'orr.svg"
+   inkscape:export-filename="C:\Users\filimonov\Dropbox\Twilight Imperium\TV\vector\export\sardakk norr.png"
+   inkscape:export-xdpi="209.04625"
+   inkscape:export-ydpi="209.04625"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="92.176419"
+     inkscape:cy="133.34013"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer2"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1137"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:pagecheckerboard="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="img"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline"
+     transform="translate(-187.38839,-128.33021)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="base"
+     style="display:inline"
+     transform="translate(-187.38839,-128.33021)">
+    <path
+       style="fill:#281c1e;fill-opacity:1;stroke:#000000;stroke-width:1.16137px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 231.08264,128.9109 v 20.53028 c 0,0 -18.03732,3.66612 -19.79706,21.41015 h -14.51783 v 6.30573 h 13.63797 c 3.37283,22.72996 21.41015,24.63633 21.41015,24.63633 v 25.95615 h 6.8923 v -25.8095 c 0,0 19.79707,-3.95941 20.97022,-24.78298 h 13.49132 v -7.18559 H 259.3851 c -2.78625,-21.2635 -19.9437,-20.67693 -19.9437,-20.67693 V 128.9109 Z"
+       id="path2997"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccccccccccc" />
+    <ellipse
+       style="fill:#b8421a;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path3003"
+       cx="235.55533"
+       cy="175.32397"
+       rx="18.051666"
+       ry="18.784889" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Рога"
+     transform="translate(-187.38839,-128.33021)">
+    <path
+       style="fill:#3d2a25;fill-opacity:1;stroke:#000000;stroke-width:1.16137px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+       d="m 187.96906,150.61434 c 18.77054,10.26515 32.84844,14.51783 47.21963,15.10442 18.6239,-0.2933 31.52866,-8.35875 48.53946,-16.71751 0,0 -6.59902,14.0779 -40.03405,24.48969 0,0 19.76717,24.41762 16.71751,39.44747 -5.27921,-5.8658 -14.31703,-26.98167 -26.24944,-27.27595 -10.11849,1.31981 -27.56921,25.36955 -27.56921,25.36955 -0.43994,-13.63796 19.35711,-37.24779 19.35711,-37.24779 0,0 -36.9545,-15.98427 -37.98101,-23.16988 z"
+       id="path3008"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccc" />
+  </g>
+</svg>

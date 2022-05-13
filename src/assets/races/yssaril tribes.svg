@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="99.999992"
+   height="98.320923"
+   id="svg3010"
+   version="1.1"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="yssaril tribes.svg"
+   inkscape:export-filename="C:\Users\username\Dropbox\Twilight Imperium\TV\vector\export\yssaril.png"
+   inkscape:export-xdpi="234.0594"
+   inkscape:export-ydpi="234.0594"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs3012" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="88.214286"
+     inkscape:cy="220"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer4"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1137"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:pagecheckerboard="0" />
+  <metadata
+     id="metadata3015">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="img"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-295.12821,-222.99055)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="back"
+     style="display:inline"
+     transform="translate(-295.12821,-222.99055)">
+    <path
+       style="fill:#e2db3f;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.29769px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 295.88877,260.64248 48.43179,-36.84523 50.05392,35.9183 -18.07504,60.71355 -60.71355,0.23173 z"
+       id="path3356"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="star"
+     transform="translate(-295.12821,-222.99055)">
+    <path
+       style="fill:#d83b0a;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.29769px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 298.4378,262.03286 38.23562,1.62213 7.64713,-37.54045 8.80579,37.07699 38.23562,-2.08559 -32.90581,20.16061 15.29426,37.77216 -28.9664,-28.03945 -27.576,27.34425 14.1356,-38.00389 z"
+       id="path3353"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccccc" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="eye"
+     transform="translate(-295.12821,-222.99055)">
+    <ellipse
+       style="fill:#6d5143;fill-opacity:1;stroke:#000000;stroke-width:1.91768;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path3361"
+       cx="345.59506"
+       cy="276.63193"
+       rx="12.834072"
+       ry="12.486475" />
+    <ellipse
+       style="fill:#2c1f19;fill-opacity:1;stroke:#000000;stroke-width:1.99348;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path3363"
+       cx="345.36331"
+       cy="276.16843"
+       rx="10.015401"
+       ry="6.1918378" />
+  </g>
+</svg>

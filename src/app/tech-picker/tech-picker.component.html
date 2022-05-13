@@ -1,40 +1,30 @@
-<div class="level is-mobile is-marginless">
-  <div class="level-left">
-    <div class="level-item" style="padding: 6px;">
-      <span class="icon is-medium">
-        <img src="../../assets/races/export/{{state.race.name.toLowerCase()}}.png">
-      </span>
-      <span style="padding-left: 5px">
-        <h2 class="subtitle has-text-grey-light">{{state.race.name}}</h2>
-      </span>
-    </div>
-  </div>
-  <div class="level has-text-right" style="margin-right: 18px;">
-    <div *ngIf="provided[colorEnum.red]!==undefined&&provided[colorEnum.red]>0">
-      <span *ngFor="let i of Arr(provided[colorEnum.red]).fill(0)" class="icon has-text-danger">
-        <i class="fas fa-circle"></i>
-      </span>
-    </div>
-    <div *ngIf="provided[colorEnum.green]!==undefined&&provided[colorEnum.green]>0">
-      <span *ngFor="let i of Arr(provided[colorEnum.green]).fill(0)" class="icon has-text-success">
-        <i class="fas fa-circle"></i>
-      </span>
-    </div>
-    <div *ngIf="provided[colorEnum.yellow]!==undefined&&provided[colorEnum.yellow]>0">
-      <span *ngFor="let i of Arr(provided[colorEnum.yellow]).fill(0)" class="icon has-text-warning">
-        <i class="fas fa-circle"></i>
-      </span>
-    </div>
-    <div *ngIf="provided[colorEnum.blue]!==undefined&&provided[colorEnum.blue]>0">
-      <span *ngFor="let i of Arr(provided[colorEnum.blue]).fill(0)" class="icon has-text-link">
-        <i class="fas fa-circle"></i>
-      </span>
-    </div>
-    <div *ngIf="provided[colorEnum.black]!==undefined&&provided[colorEnum.black]>0">
-      <span *ngFor="let i of Arr(provided[colorEnum.black]).fill(0)" class="icon has-text-white">
-        <i class="fas fa-circle"></i>
-      </span>
-    </div>
-  </div>
+<mat-icon class="raceIcon" svgIcon="{{state.race.name.toLowerCase()}}" inline="true"></mat-icon>
+<h2>{{state.race.name}}</h2>
+<div *ngIf="provided[colorEnum.red]!==undefined&&provided[colorEnum.red]>0">
+    <mat-icon style="color: red" *ngFor="let i of Arr(provided[colorEnum.red]).fill(0)">
+        circle
+    </mat-icon>
 </div>
-<app-tech (researched)="onResearched($event)" *ngFor="let tech of state.tech" [tech]="tech" [provided]="provided"></app-tech>
+<div *ngIf="provided[colorEnum.green]!==undefined&&provided[colorEnum.green]>0">
+    <mat-icon style="color: green" *ngFor="let i of Arr(provided[colorEnum.green]).fill(0)">
+        circle
+    </mat-icon>
+</div>
+<div *ngIf="provided[colorEnum.yellow]!==undefined&&provided[colorEnum.yellow]>0">
+    <mat-icon style="color: yellow" *ngFor="let i of Arr(provided[colorEnum.yellow]).fill(0)">
+        circle
+    </mat-icon>
+</div>
+<div *ngIf="provided[colorEnum.blue]!==undefined&&provided[colorEnum.blue]>0">
+    <mat-icon style="color: blue" *ngFor="let i of Arr(provided[colorEnum.blue]).fill(0)">
+        circle
+    </mat-icon>
+</div>
+<div *ngIf="provided[colorEnum.black]!==undefined&&provided[colorEnum.black]>0">
+    <mat-icon style="color: white" *ngFor="let i of Arr(provided[colorEnum.black]).fill(0)">
+        circle
+    </mat-icon>
+</div>
+<mat-accordion displayMode="default" multi="true">
+  <app-tech (researched)="onResearched($event)" *ngFor="let tech of state.tech" [tech]="tech" [provided]="provided"></app-tech>
+</mat-accordion>

@@ -1,3 +1,33 @@
+
+<mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            <div class="techTitle">
+                <app-tech-color [techColors]="tech.tech.requirements" [provided]="provided"></app-tech-color>
+                <button *ngIf="!tech.available" color="warn" mat-icon-button (click)="researchMe()">
+                    <mat-icon>
+                        highlight_off
+                    </mat-icon>
+                </button>
+                <button *ngIf="tech.available && !tech.researched" color="accent" mat-icon-button (click)="researchMe()">
+                    <mat-icon>
+                        radio_button_unchecked
+                    </mat-icon>
+                </button>
+                <button *ngIf="tech.researched" color="primary" mat-icon-button (click)="researchMe()">
+                    <mat-icon>
+                        check_circle
+                    </mat-icon>
+                </button>
+                {{tech.tech.name}}
+            </div>
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p [innerHTML]="tech.tech.description"></p>
+</mat-expansion-panel>
+
+
+<!--
 <div class="level is-mobile has-text-white has-background-black is-marginless" style="outline: 1pt; outline-color: white; outline-style: solid">
   <div class="level-left">
     <div class="level-item" (click)="descriptionToggle()">
@@ -27,3 +57,4 @@
 <div class="has-background-dark has-text-white content is-marginless" *ngIf="showDescription===true">
   <p [innerHTML]="tech.tech.description"></p>
 </div>
+-->
