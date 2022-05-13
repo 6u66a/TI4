@@ -1,7 +1,27 @@
 .raceIcon {
   height: 100px !important;
+  width: 100px !important;
+  transform: scale(0.5);
 }
 
-div {
-  margin-left: 32px;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.techColors {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.techColors div {
+  display: flex;
+  flex-direction: column;
+}
+
+.race {
+  display: flex;
+  align-items: center;
 }

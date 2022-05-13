@@ -1,37 +1,36 @@
-import {Component, DoCheck, Input} from '@angular/core';
-import {TechColors} from '../../data';
-import {TechColor} from '../../tech-color.enum';
+import { Component, DoCheck, Input } from '@angular/core';
+import { TechColors } from '../../data';
+import { TechColor } from '../../tech-color.enum';
 
 @Component({
-    selector: 'app-tech-color',
-    templateUrl: './tech-color.component.html',
-    styleUrls: ['./tech-color.component.css']
+  selector: 'app-tech-color',
+  templateUrl: './tech-color.component.html',
+  styleUrls: ['./tech-color.component.css']
 })
 export class TechColorComponent implements DoCheck {
 
-    @Input() techColors: TechColors = [];
-    @Input() provided: TechColors = [];
+  @Input() techColors: TechColors = [];
+  @Input() provided: TechColors = [];
 
-    public colorEnum = TechColor;
-    public deltaTechColor: TechColors = [];
-    public Arr = Array;
+  public colorEnum = TechColor;
+  public deltaTechColor: TechColors = [];
+  public Arr = Array;
 
-    constructor() {
+  constructor() {
+  }
+
+  public updateDeltaTechColor() {
+    if (this.provided !== undefined) {
+      for (const color of Object.keys(this.techColors)) {
+        let index = Number.parseInt(color);
+        this.deltaTechColor[index] = this.techColors[index] - this.provided[index];
+      }
+    } else {
+      this.deltaTechColor = this.techColors;
     }
+  }
 
-    public updateDeltaTechColor() {
-        //TODO this is weird
-        if (this.provided !== undefined) {
-            for (const color of Object.keys(this.techColors)) {
-                let index = Number.parseInt(color);
-                this.deltaTechColor[index] = this.techColors[index] - this.provided[index];
-            }
-        } else {
-            this.deltaTechColor = this.techColors;
-        }
-    }
-
-    ngDoCheck() {
-        this.updateDeltaTechColor();
-    }
+  ngDoCheck() {
+    this.updateDeltaTechColor();
+  }
 }
