@@ -8,6 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .techColors {
@@ -24,4 +25,8 @@
 .race {
   display: flex;
   align-items: center;
+}
+
+mat-panel-title {
+  width: 100%;
 }

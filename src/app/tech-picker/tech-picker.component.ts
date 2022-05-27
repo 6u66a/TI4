@@ -1,5 +1,4 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { MatAccordion } from '@angular/material/expansion';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DATA, Race, RuntimeTech, State, TechColors } from '../data';
 import { TechColor } from '../tech-color.enum';
@@ -29,7 +28,7 @@ export class TechPickerComponent implements OnInit {
     let startingTech: boolean;
     if (race === undefined) {
       this.state = {
-        race: { tech: [], id: 0, name: "", startingtech: [] },
+        race: { tech: [], id: 0, name: "", strategy: "", startingtech: [] },
         tech: []
       };
       router.navigate(['']);
