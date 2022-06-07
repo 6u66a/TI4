@@ -1,44 +1,13 @@
-<mat-expansion-panel hideToggle>
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      <div class="header">
-        <div class="race">
-          <mat-icon class="raceIcon" svgIcon="{{state.race.name.toLowerCase()}}" inline="true"></mat-icon>
-          <h2>{{state.race.name}}</h2>
-        </div>
-        <div class="techColors">
-          <div *ngIf="provided[colorEnum.red]!==undefined&&provided[colorEnum.red]>0">
-            <mat-icon style="color: red" *ngFor="let i of Arr(provided[colorEnum.red]).fill(0)">
-              settings
-            </mat-icon>
-          </div>
-          <div *ngIf="provided[colorEnum.green]!==undefined&&provided[colorEnum.green]>0">
-            <mat-icon style="color: green" *ngFor="let i of Arr(provided[colorEnum.green]).fill(0)">
-              settings
-            </mat-icon>
-          </div>
-          <div *ngIf="provided[colorEnum.yellow]!==undefined&&provided[colorEnum.yellow]>0">
-            <mat-icon style="color: yellow" *ngFor="let i of Arr(provided[colorEnum.yellow]).fill(0)">
-              settings
-            </mat-icon>
-          </div>
-          <div *ngIf="provided[colorEnum.blue]!==undefined&&provided[colorEnum.blue]>0">
-            <mat-icon style="color: blue" *ngFor="let i of Arr(provided[colorEnum.blue]).fill(0)">
-              settings
-            </mat-icon>
-          </div>
-          <div *ngIf="provided[colorEnum.black]!==undefined&&provided[colorEnum.black]>0">
-            <mat-icon style="color: white" *ngFor="let i of Arr(provided[colorEnum.black]).fill(0)">
-              settings
-            </mat-icon>
-          </div>
-        </div>
-      </div>
-    </mat-panel-title>
-  </mat-expansion-panel-header>
-  <p [innerHTML]="state.race.strategy"></p>
-</mat-expansion-panel>
-
+<mat-toolbar color="primary">
+  <span>{{state.race.name}}</span>
+  <mat-icon class="raceIcon" svgIcon="{{state.race.name.toLowerCase()}}" inline="true"></mat-icon>
+  <span class="spacer"></span>
+  <h3 style="color: red">{{provided[colorEnum.red]}}</h3>
+  <h3 style="color: green">{{provided[colorEnum.green]}}</h3>
+  <h3 style="color: yellow">{{provided[colorEnum.yellow]}}</h3>
+  <h3 style="color: blue">{{provided[colorEnum.blue]}}</h3>
+  <h3 style="color: white">{{provided[colorEnum.black]}}</h3>
+</mat-toolbar>
 <mat-accordion displayMode="default" multi="true">
   <app-tech (researched)="onResearched($event)" *ngFor="let tech of state.tech" [tech]="tech" [provided]="provided">
   </app-tech>

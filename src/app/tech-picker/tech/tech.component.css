@@ -1,13 +1,4 @@
-div.techTitle {
-  display: flex;
-  align-items: center;
+mat-panel-title {
   width: 100%;
-  justify-content: space-between;
-}
-
-div.techTitle div {
-  display: flex;
-  justify-content: flex-end;
-  gap: 5px;
   align-items: center;
 }

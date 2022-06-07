@@ -7,7 +7,6 @@ export interface Data {
 
 export interface Race {
   id: Number;
-  strategy: String;
   name: String;
   tech: Array<Tech>;
   startingtech: Array<number>;
@@ -43,7 +42,6 @@ export const DATA: Data = {
     {
       id: 1,
       name: "Arborec",
-      strategy: "<ul><li>Get 7 money to buy carrier and Sarween Tools</li><li>Tech - to get Sarween Tools, Diplomacy - To refresh high resource planet, Trade</li><li>Leave GF on every planet</li><li>Consider Hyper Metabolism and PDS II, racial tech is win more</li><li>Eat neighbour by stage two</li></ul>",
       startingtech: [37],
       tech: [
         {
@@ -71,7 +69,6 @@ export const DATA: Data = {
     {
       id: 2,
       name: "Barony of Letnev",
-      strategy: "",
       startingtech: [50, 38],
       tech: [
         {
@@ -99,7 +96,6 @@ export const DATA: Data = {
     {
       id: 3,
       name: "Clan of Saar",
-      strategy: "<ul><li>Warfare, Tech, Construction, Imperial</li><li>Sarween Tools, Chaos Mapping, Gravity Drive, SpaceDock II/Integrated Economy - look for yellow skip</li><li>Always build something</li><li>Attack VPs hard</li><li>Take influence planets, take Leadership</li><li>Be afraid of Yin, Sol, Xxcha, late Arborec and Muat</li></ul>",
       startingtech: [50],
       tech: [
         {
@@ -127,7 +123,6 @@ export const DATA: Data = {
     {
       id: 4,
       name: "Embers of Muat",
-      strategy: "",
       startingtech: [38],
       tech: [
         {
@@ -156,7 +151,6 @@ export const DATA: Data = {
     {
       id: 5,
       name: "Emirates of Hacan",
-      strategy: "",
       startingtech: [50, 42],
       tech: [
         {
@@ -184,7 +178,6 @@ export const DATA: Data = {
     {
       id: 6,
       name: "Federation of Sol",
-      strategy: "",
       startingtech: [46, 50],
       tech: [
         {
@@ -212,7 +205,6 @@ export const DATA: Data = {
     {
       id: 7,
       name: "Ghosts of Creuss",
-      strategy: "",
       startingtech: [49],
       tech: [
         {
@@ -240,7 +232,6 @@ export const DATA: Data = {
     {
       id: 8,
       name: "L1z1x Mindnet",
-      strategy: "",
       startingtech: [46, 38],
       tech: [
         {
@@ -269,7 +260,6 @@ export const DATA: Data = {
     {
       id: 9,
       name: "Mentak Coalition",
-      strategy: "<ul><li>Rush for Cruiser II and Mirror Computing</li><li>Tech - Neural Motivator, Trade - replenish all, Leadership, Politics - to get Tech</li><li>Neural Motivator, Cruiser II, Graveton Laser, PDS II, Salvage Operation, Mirror Computing</li><li>Stockpile tradegoods until you have Mirror Computing</li><li>If no one trades, start sniping ships</li><li>Give out promissory note and get in their way immediately</li><li>Build PDS network and get Flagship to defend HS</li></ul>",
       startingtech: [38, 42],
       tech: [
         {
@@ -297,7 +287,6 @@ export const DATA: Data = {
     {
       id: 10,
       name: "Naalu Collective",
-      strategy: "",
       startingtech: [42, 46],
       tech: [
         {
@@ -326,7 +315,6 @@ export const DATA: Data = {
     {
       id: 11,
       name: "Nekro Virus",
-      strategy: "<ul><li>Tech - Stall Tech for everybody, Warfare - Consider going for Mecatol, Politics, Leadership, Trade, Diplomacy</li><li>Hunt down Sarween Tools, Graviton Laser Systems, what tech objectives tell you</li><li>Do not trade, extort</li><li>If objectives do not align, go for mecatol rex. Let others attack you to get tech.</li><li>Flagship is essential mid-late-game, get it along Transit Diodes and/or Letani II</li></ul>",
       startingtech: [45],
       tech: [
         {
@@ -350,7 +338,6 @@ export const DATA: Data = {
     {
       id: 12,
       name: "Sardakk N'orr",
-      strategy: "",
       startingtech: [],
       tech: [
         {
@@ -379,7 +366,6 @@ export const DATA: Data = {
     {
       id: 13,
       name: "Universities of Jol-Nar",
-      strategy: "<ul><li>Supernova to the side of HS</li><li>Leadership, Warfare, Trade, Diplomacy, Construction, Politics</li><li>Agressive neighbours - Eres Siphons</li><li>If going for Mecatol, go early</li><li>Economy via trade, Promissary Note 3-4 TG to opposite player</li><li>Look nice. Trade Ceasefire if you have Fleet Logistics. Win from behind.</li></ul>",
       startingtech: [46, 50, 38, 42],
       tech: [
         {
@@ -407,7 +393,6 @@ export const DATA: Data = {
     {
       id: 14,
       name: "Winnu",
-      strategy: "<ul><li>Warfare - get to Mecatol, Politics - get Warfare next Round, Tech - get Graviton Drive</li><li>Sarween Tools, Graviton Laser Systems, Hegemonic</li></ul>",
       startingtech: [],
       tech: [
         {
@@ -435,7 +420,6 @@ export const DATA: Data = {
     {
       id: 15,
       name: "Xxcha Kingdom",
-      strategy: "<ul><li>Diplomacy - To annex, Construction - To start PDS network, Trade, Tech</li><li>Sarween Tools, Plasma Scoring, PDS II, Nullification Field; then Gravity Drive for Flagship, Cruiser II for agression</li><li>Get Flagship</li></ul>",
       startingtech: [41],
       tech: [
         {
@@ -463,7 +447,6 @@ export const DATA: Data = {
     {
       id: 16,
       name: "Yin Brotherhood",
-      strategy: "",
       startingtech: [42],
       tech: [
         {
@@ -491,7 +474,6 @@ export const DATA: Data = {
     {
       id: 17,
       name: "Yssaril Tribes",
-      strategy: "<ul><li>Warfare, Politics, Diplomancy, Trade, Tech</li><li>Go green and blue</li><li>Let action cards guide you</li><li>Fish for good secret objectives</li><li>Get Flagship to grab objectives</li><li>Stall Warfare</li></ul>",
       startingtech: [46],
       tech: [
         {

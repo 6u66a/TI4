@@ -28,7 +28,7 @@ export class TechPickerComponent implements OnInit {
     let startingTech: boolean;
     if (race === undefined) {
       this.state = {
-        race: { tech: [], id: 0, name: "", strategy: "", startingtech: [] },
+        race: { tech: [], id: 0, name: "", startingtech: [] },
         tech: []
       };
       router.navigate(['']);

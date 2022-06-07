@@ -1,32 +1,9 @@
 .raceIcon {
   height: 100px !important;
   width: 100px !important;
-  transform: scale(0.5);
+  transform: scale(0.3);
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.techColors {
-  display: flex;
-  justify-content: end;
-  align-items: center;
-}
-
-.techColors div {
-  display: flex;
-  flex-direction: column;
-}
-
-.race {
-  display: flex;
-  align-items: center;
-}
-
-mat-panel-title {
-  width: 100%;
+.spacer {
+  flex: 1 1 auto;
 }
