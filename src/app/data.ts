@@ -1,3 +1,4 @@
+import { IterableChanges } from '@angular/core';
 import { TechColor } from "./tech-color.enum";
 
 export interface Data {
@@ -30,6 +31,11 @@ export interface RuntimeTech {
 
 export interface TechColors {
   [color: number]: number;
+}
+
+export interface IPlayer {
+  name: string,
+  factionName?: string;
 }
 
 export interface State {

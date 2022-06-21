@@ -1,13 +1,37 @@
-<h2 class="subtitle control is-expanded has-background-black has-text-grey-light" style="margin-left: 4px;">Randomized
-  Races</h2>
-<div class="level is-marginless">
-  <div class="level-left" *ngFor="let race of races" routerLink="/choose/{{race.id}}"
-    class="button is-fullwidth is-justified-start has-background-black has-text-white">
-    <span class="icon is-medium">
-      <img src="../../assets/races/export/{{race.name.toLowerCase()}}.png">
-    </span>
-    <div class="level-item">
-      {{race.name}}
-    </div>
-  </div>
-</div>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Add Players</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="playerForm">
+      <mat-form-field>
+        <mat-label>Player Name</mat-label>
+        <input formControlName="name" matInput />
+      </mat-form-field>
+      <button type="submit" mat-mini-fab (click)="addPlayer()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>
+<br>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Starting Setup</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-chip-list class="mat-chip-list-stacked">
+      <mat-chip *ngFor="let player of players">
+        <mat-chip-avatar>
+          <mat-icon svgIcon="{{player?.factionName?.toLowerCase()}}" inline="true"></mat-icon>
+        </mat-chip-avatar>
+        {{player.name}}
+      </mat-chip>
+    </mat-chip-list>
+  </mat-card-content>
+  <mat-card-actions>
+    <button type="button" mat-mini-fab (click)="shuffle()">
+      <mat-icon>shuffle</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

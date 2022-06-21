@@ -8,8 +8,3 @@ button {
   align-items: center;
   justify-content: space-between;
 }
-
-.mat-icon {
-  width: 100px !important;
-  height: 100px !important;
-}
