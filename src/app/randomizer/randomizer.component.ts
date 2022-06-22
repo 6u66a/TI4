@@ -1,35 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { animate, query, style, transition, trigger } from '@angular/animations';
+import { Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DATA, IPlayer as Player, Race } from '../data';
 
 @Component({
   selector: 'app-randomizer',
   templateUrl: './randomizer.component.html',
-  styleUrls: ['./randomizer.component.css']
+  styleUrls: ['./randomizer.component.css'],
+  animations: [
+    trigger('faction', [
+      transition('* => revealed', [
+        query('mat-chip-avatar', style({ opacity: 0 })),
+        query('mat-chip-avatar', animate(1000, style({ opacity: 1 }))),
+      ])
+    ])
+  ]
 })
-export class RandomizerComponent implements OnInit {
+export class RandomizerComponent implements OnDestroy {
 
   public races: Array<Race> = [...DATA.races];
   public players: Player[] = [];
+  state = '';
   playerForm = new FormGroup({
     name: new FormControl(null, Validators.required)
   })
 
-  constructor() {
-    const random: Array<number> = new Array();
-    while (random.length < 6) {
-      const candidate: number = Math.floor(Math.random() * 17);
-      const search: number | undefined = random.find((num) => candidate === num);
-      if (search === undefined) {
-        random.push(candidate);
-      }
-    }
-    random.forEach((val) => {
-      this.races.push(DATA.races[val]);
-    });
-  }
+  constructor() { }
 
-  ngOnInit() {
+  ngOnDestroy(): void {
+    this.players = [];
+    this.playerForm.reset();
   }
 
   addPlayer() {
@@ -45,9 +45,11 @@ export class RandomizerComponent implements OnInit {
     this.players = this.shuffleFisherYates(this.players)
     for (let i = 0; i < this.players.length; i++) {
       this.players[i].factionName = shuffledRaces[i].name;
+      this.players[i].speaker = false;
     }
     const speaker: number = Math.floor(Math.random() * this.players.length);
-    this.players[speaker].name = this.players[speaker].name + " - SPEAKER"
+    this.players[speaker].speaker = true;
+    this.state = "revealed";
   }
 
   shuffleFisherYates(array: any[]) {

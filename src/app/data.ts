@@ -36,6 +36,7 @@ export interface TechColors {
 export interface IPlayer {
   name: string,
   factionName?: string;
+  speaker?: boolean;
 }
 
 export interface State {

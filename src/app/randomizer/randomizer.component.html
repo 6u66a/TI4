@@ -20,12 +20,12 @@
     <mat-card-title>Starting Setup</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <mat-chip-list class="mat-chip-list-stacked">
+    <mat-chip-list class="mat-chip-list-stacked" [@faction]="state">
       <mat-chip *ngFor="let player of players">
         <mat-chip-avatar>
           <mat-icon svgIcon="{{player?.factionName?.toLowerCase()}}" inline="true"></mat-icon>
         </mat-chip-avatar>
-        {{player.name}}
+        {{player.name}}{{(player.speaker)?' - SPEAKER':''}}
       </mat-chip>
     </mat-chip-list>
   </mat-card-content>
