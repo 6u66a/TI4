@@ -10,7 +10,7 @@ import {DomSanitizer} from "@angular/platform-browser";
 export class AppComponent {
 
     constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
-        this.matIconRegistry.addSvgIcon('arborec', this.domSanitizer.bypassSecurityTrustResourceUrl('./assets/races/arborec.svg'))
+        this.matIconRegistry.addSvgIcon('arborec', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/races/arborec.svg'))
             .addSvgIcon("barony of letnev", this.domSanitizer.bypassSecurityTrustResourceUrl('./assets/races/barony of letnev.svg'))
             .addSvgIcon("clan of saar", this.domSanitizer.bypassSecurityTrustResourceUrl('./assets/races/clan of saar.svg'))
             .addSvgIcon("embers of muat", this.domSanitizer.bypassSecurityTrustResourceUrl('./assets/races/embers of muat.svg'))
