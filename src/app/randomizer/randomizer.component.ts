@@ -1,7 +1,8 @@
 import { animate, query, style, transition, trigger } from '@angular/animations';
 import { Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { DATA, IPlayer as Player, Race } from '../data';
+import { MatButton } from '@angular/material/button';
+import { DATA, Race } from '../data';
 
 @Component({
   selector: 'app-randomizer',
@@ -10,16 +11,16 @@ import { DATA, IPlayer as Player, Race } from '../data';
   animations: [
     trigger('faction', [
       transition('* => revealed', [
-        query('mat-chip-avatar', style({ opacity: 0 })),
-        query('mat-chip-avatar', animate(1000, style({ opacity: 1 }))),
+        query('mat-chip', style({ opacity: 0 })),
+        query('mat-chip', animate(1000, style({ opacity: 1 }))),
       ])
     ])
   ]
 })
 export class RandomizerComponent implements OnDestroy {
 
-  public races: Array<Race> = [...DATA.races];
-  public players: Player[] = [];
+  public races: Array<Race> = [];
+  public players: String[] = [];
   state = '';
   playerForm = new FormGroup({
     name: new FormControl(null, Validators.required)
@@ -32,24 +33,20 @@ export class RandomizerComponent implements OnDestroy {
     this.playerForm.reset();
   }
 
-  addPlayer() {
+  addPlayer(input:HTMLInputElement) {
     if (this.playerForm.valid) {
       const playerName: string = this.playerForm.get("name")?.value
       this.playerForm.reset();
-      this.players.push({ name: playerName })
+      this.players.push(playerName)
+      input.focus()
     }
   }
 
-  shuffle() {
-    const shuffledRaces = this.shuffleFisherYates(this.races)
+  shuffle(button:MatButton) {
+    this.races = this.shuffleFisherYates([...DATA.races]).slice(0,this.players.length+1);
     this.players = this.shuffleFisherYates(this.players)
-    for (let i = 0; i < this.players.length; i++) {
-      this.players[i].factionName = shuffledRaces[i].name;
-      this.players[i].speaker = false;
-    }
-    const speaker: number = Math.floor(Math.random() * this.players.length);
-    this.players[speaker].speaker = true;
     this.state = "revealed";
+    button.disabled=true
   }
 
   shuffleFisherYates(array: any[]) {

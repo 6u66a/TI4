@@ -33,12 +33,6 @@ export interface TechColors {
   [color: number]: number;
 }
 
-export interface IPlayer {
-  name: string,
-  factionName?: string;
-  speaker?: boolean;
-}
-
 export interface State {
   race: Race;
   tech: Array<RuntimeTech>;

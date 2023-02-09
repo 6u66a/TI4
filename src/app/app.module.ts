@@ -23,15 +23,15 @@ const appRoutes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'choose',
+    path: 'tech',
     component: RaceChooserComponent,
   },
   {
-    path: 'choose/:raceid',
+    path: 'tech/:raceid',
     component: TechPickerComponent
   },
   {
-    path: 'randomize',
+    path: 'draft',
     component: RandomizerComponent
   }
 ];

@@ -6,9 +6,9 @@
     <form [formGroup]="playerForm">
       <mat-form-field>
         <mat-label>Player Name</mat-label>
-        <input formControlName="name" matInput />
+        <input #nameInput formControlName="name" matInput />
       </mat-form-field>
-      <button type="submit" mat-mini-fab (click)="addPlayer()">
+      <button type="submit" mat-mini-fab (click)="addPlayer(nameInput)">
         <mat-icon>add</mat-icon>
       </button>
     </form>
@@ -17,21 +17,34 @@
 <br>
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Starting Setup</mat-card-title>
+    <mat-card-title>Players</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <mat-chip-list class="mat-chip-list-stacked" [@faction]="state">
+    <mat-chip-list class="mat-chip-list-stacked">
       <mat-chip *ngFor="let player of players">
-        <mat-chip-avatar>
-          <mat-icon svgIcon="{{player?.factionName?.toLowerCase()}}" inline="true"></mat-icon>
-        </mat-chip-avatar>
-        {{player.name}}{{(player.speaker)?' - SPEAKER':''}}
+        {{player}}
       </mat-chip>
     </mat-chip-list>
+    <mat-divider></mat-divider>
   </mat-card-content>
   <mat-card-actions>
-    <button type="button" mat-mini-fab (click)="shuffle()">
+    <button #shuffleButton type="button" mat-mini-fab (click)="shuffle(shuffleButton)">
       <mat-icon>shuffle</mat-icon>
     </button>
   </mat-card-actions>
+</mat-card>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Factions to draft</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-chip-list class="mat-chip-list-stacked" [@faction]="state">
+      <mat-chip *ngFor="let race of races">
+        <mat-chip-avatar>
+          <mat-icon svgIcon="{{race.name.toLowerCase()}}" inline="true"></mat-icon>
+        </mat-chip-avatar>
+        {{race.name}}
+      </mat-chip>
+    </mat-chip-list>
+  </mat-card-content>
 </mat-card>
