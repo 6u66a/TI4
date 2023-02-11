@@ -2,7 +2,7 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
 import { Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
-import { DATA, Race } from '../data';
+import { DATA, Player, Race } from '../data';
 
 @Component({
   selector: 'app-randomizer',
@@ -20,7 +20,11 @@ import { DATA, Race } from '../data';
 export class RandomizerComponent implements OnDestroy {
 
   public races: Array<Race> = [];
-  public players: String[] = [];
+  public players: Player[] = [];
+  public positions: String[] = [];
+  public slices: boolean[] = [];
+  public currentPosition: number = 0;
+  private increment: number = 1;
   state = '';
   playerForm = new FormGroup({
     name: new FormControl(null, Validators.required)
@@ -37,14 +41,18 @@ export class RandomizerComponent implements OnDestroy {
     if (this.playerForm.valid) {
       const playerName: string = this.playerForm.get("name")?.value
       this.playerForm.reset();
-      this.players.push(playerName)
+      this.players.push({name: playerName})
       input.focus()
     }
   }
 
   shuffle(button:MatButton) {
     this.races = this.shuffleFisherYates([...DATA.races]).slice(0,this.players.length+1);
-    this.players = this.shuffleFisherYates(this.players)
+    this.players = this.shuffleFisherYates(this.players);
+    for(let i=0;i<this.players.length;i++){
+      this.positions.push(this.formatter(i+1));
+      this.slices.push(true);
+    }
     this.state = "revealed";
     button.disabled=true
   }
@@ -58,4 +66,55 @@ export class RandomizerComponent implements OnDestroy {
     return array;
   }
 
+  formatter(i:Number):String {
+    switch(i){
+      case 1:
+        return "Speaker";
+      case 2:
+        return i+"nd";
+      case 3:
+        return i+"rd";
+      default:
+        return i+"th"; 
+    }
+  }
+
+  draftPosition(i:number):void {
+    this.players[this.currentPosition].position=this.positions[i];
+    this.positions.splice(i,1);
+    this.progressCounter();
+  }
+
+  draftSlice(i:number):void {
+    this.players[this.currentPosition].slice=this.slices[i];
+    this.slices.splice(i,1);
+    this.progressCounter();
+  }
+
+  draftRace(i:number):void {
+    this.players[this.currentPosition].race=this.races[i];
+    this.races.splice(i,1);
+    this.progressCounter();
+  }
+
+  progressCounter():void {
+    this.currentPosition+=this.increment;
+    if(this.currentPosition===-1) {
+      this.currentPosition=0;
+      this.increment*=-1;
+    } 
+    else if(this.currentPosition===this.players.length) {
+      this.currentPosition=this.players.length-1;
+      this.increment*=-1;
+    }
+  }
+
+  incomplete():boolean {
+    for(let i=0;i<this.players.length;i++) {
+      if(!this.players[i].position || !this.players[i].race || !this.players[i].slice) {
+        return true;
+      }
+    }
+    return false;
+  }
 }

@@ -6,6 +6,13 @@ export interface Data {
   genericTech: Array<Tech>;
 }
 
+export interface Player {
+  name: String;
+  position?: String;
+  race?: Race;
+  slice?: Boolean;
+}
+
 export interface Race {
   id: Number;
   name: String;

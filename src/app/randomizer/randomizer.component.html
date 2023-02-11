@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card *ngIf="!races.length">
   <mat-card-header>
     <mat-card-title>Add Players</mat-card-title>
   </mat-card-header>
@@ -21,8 +21,11 @@
   </mat-card-header>
   <mat-card-content>
     <mat-chip-list class="mat-chip-list-stacked">
-      <mat-chip *ngFor="let player of players">
-        {{player}}
+      <mat-chip *ngFor="let player of players" style="display: flex; justify-content: space-between;">
+        <span>{{player.name}}</span>
+        <span>Faction: <mat-icon aria-hidden="false" svgIcon="{{player.race?.name?.toLowerCase()}}"></mat-icon></span>
+        <span>Position: {{player.position}}</span>
+        <span>Slice: <mat-icon *ngIf="player?.slice" aria-hidden="false">done</mat-icon></span>
       </mat-chip>
     </mat-chip-list>
     <mat-divider></mat-divider>
@@ -33,17 +36,51 @@
     </button>
   </mat-card-actions>
 </mat-card>
-<mat-card>
+<h2 *ngIf="incomplete()">It´s time for {{players[currentPosition]?.name}} to draft</h2>
+<mat-card *ngIf="!players[currentPosition]?.race">
   <mat-card-header>
-    <mat-card-title>Factions to draft</mat-card-title>
+    <mat-card-title>Faction to draft</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <mat-chip-list class="mat-chip-list-stacked" [@faction]="state">
-      <mat-chip *ngFor="let race of races">
+      <mat-chip *ngFor="let race of races; let k = index">
         <mat-chip-avatar>
           <mat-icon svgIcon="{{race.name.toLowerCase()}}" inline="true"></mat-icon>
         </mat-chip-avatar>
-        {{race.name}}
+        <span style="width: 100%;">{{race.name}}</span>
+        <button type="button" mat-mini-fab (click)="draftRace(k)">
+          <mat-icon>add</mat-icon>
+        </button>
+      </mat-chip>
+    </mat-chip-list>
+  </mat-card-content>
+</mat-card>
+<mat-card *ngIf="!players[currentPosition]?.position">
+  <mat-card-header>
+    <mat-card-title>Position to draft</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-chip-list class="mat-chip-list-stacked" [@faction]="state">
+      <mat-chip *ngFor="let position of positions; let i = index">
+        <span style="width: 100%;">{{position}}</span>
+        <button type="button" mat-mini-fab (click)="draftPosition(i)">
+          <mat-icon>add</mat-icon>
+        </button>
+      </mat-chip>
+    </mat-chip-list>
+  </mat-card-content>
+</mat-card>
+<mat-card *ngIf="!players[currentPosition]?.slice">
+  <mat-card-header>
+    <mat-card-title>Slices to draft</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-chip-list class="mat-chip-list-stacked" [@faction]="state">
+      <mat-chip *ngFor="let slice of slices; let j = index">
+        <span style="width: 100%;">Slice</span>
+        <button type="button" mat-mini-fab (click)="draftSlice(j)">
+          <mat-icon>add</mat-icon>
+        </button>
       </mat-chip>
     </mat-chip-list>
   </mat-card-content>
