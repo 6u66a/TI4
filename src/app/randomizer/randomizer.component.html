@@ -23,9 +23,24 @@
     <mat-chip-list class="mat-chip-list-stacked">
       <mat-chip *ngFor="let player of players" style="display: flex; justify-content: space-between;">
         <span>{{player.name}}</span>
-        <span>Faction: <mat-icon aria-hidden="false" svgIcon="{{player.race?.name?.toLowerCase()}}"></mat-icon></span>
-        <span>Position: {{player.position}}</span>
-        <span>Slice: <mat-icon *ngIf="player?.slice" aria-hidden="false">done</mat-icon></span>
+        <span>
+          <mat-icon *ngIf="!(player.race);else elseRace" aria-hidden="false">question_mark</mat-icon>
+          <ng-template #elseRace>
+            <mat-icon aria-hidden="false" svgIcon="{{player.race?.name?.toLowerCase()}}"></mat-icon>
+          </ng-template>
+        </span>
+        <span>
+          <mat-icon *ngIf="!(player.position); else elsePosition" aria-hidden="false">question_mark</mat-icon>
+          <ng-template #elsePosition>
+            <div>{{player.position}}</div>
+          </ng-template>
+        </span>
+        <span>
+          <mat-icon *ngIf="!(player?.slice); else elseSlice" aria-hidden="false">question_mark</mat-icon>
+          <ng-template #elseSlice>
+            <mat-icon *ngIf="player?.slice" aria-hidden="false">done</mat-icon>
+          </ng-template>
+        </span>
       </mat-chip>
     </mat-chip-list>
     <mat-divider></mat-divider>
@@ -42,7 +57,7 @@
     <mat-card-title>Faction to draft</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <mat-chip-list class="mat-chip-list-stacked" [@faction]="state">
+    <mat-chip-list class="mat-chip-list-stacked">
       <mat-chip *ngFor="let race of races; let k = index">
         <mat-chip-avatar>
           <mat-icon svgIcon="{{race.name.toLowerCase()}}" inline="true"></mat-icon>
@@ -60,7 +75,7 @@
     <mat-card-title>Position to draft</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <mat-chip-list class="mat-chip-list-stacked" [@faction]="state">
+    <mat-chip-list class="mat-chip-list-stacked">
       <mat-chip *ngFor="let position of positions; let i = index">
         <span style="width: 100%;">{{position}}</span>
         <button type="button" mat-mini-fab (click)="draftPosition(i)">
@@ -75,7 +90,7 @@
     <mat-card-title>Slices to draft</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <mat-chip-list class="mat-chip-list-stacked" [@faction]="state">
+    <mat-chip-list class="mat-chip-list-stacked">
       <mat-chip *ngFor="let slice of slices; let j = index">
         <span style="width: 100%;">Slice</span>
         <button type="button" mat-mini-fab (click)="draftSlice(j)">

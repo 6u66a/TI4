@@ -1,4 +1,4 @@
-import { animate, query, style, transition, trigger } from '@angular/animations';
+import { animate, query, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
@@ -8,14 +8,6 @@ import { DATA, Player, Race } from '../data';
   selector: 'app-randomizer',
   templateUrl: './randomizer.component.html',
   styleUrls: ['./randomizer.component.css'],
-  animations: [
-    trigger('faction', [
-      transition('* => revealed', [
-        query('mat-chip', style({ opacity: 0 })),
-        query('mat-chip', animate(1000, style({ opacity: 1 }))),
-      ])
-    ])
-  ]
 })
 export class RandomizerComponent implements OnDestroy {
 
@@ -25,7 +17,6 @@ export class RandomizerComponent implements OnDestroy {
   public slices: boolean[] = [];
   public currentPosition: number = 0;
   private increment: number = 1;
-  state = '';
   playerForm = new FormGroup({
     name: new FormControl(null, Validators.required)
   })
@@ -53,7 +44,6 @@ export class RandomizerComponent implements OnDestroy {
       this.positions.push(this.formatter(i+1));
       this.slices.push(true);
     }
-    this.state = "revealed";
     button.disabled=true
   }
 
