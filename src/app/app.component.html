@@ -1,11 +1,11 @@
 <mat-toolbar>
-  <button mat-button [matMenuTriggerFor]="menu">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item routerLink="/tech">Tech Helper</button>
-    <button mat-menu-item routerLink="/draft">Draft Helper</button>
-  </mat-menu>
-  <span>TI4 Helper</span>
+    <button mat-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/tech">Tech Helper</button>
+        <button mat-menu-item routerLink="/draft">Draft Helper</button>
+    </mat-menu>
+    <span>TI4 Helper</span>
 </mat-toolbar>
 <router-outlet></router-outlet>

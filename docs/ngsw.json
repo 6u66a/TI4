@@ -1,0 +1,153 @@
+{
+  "configVersion": 1,
+  "timestamp": 1677864316624,
+  "index": "/TI4/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/TI4/favicon.ico",
+        "/TI4/index.html",
+        "/TI4/main.d246c84a90b6cc97.js",
+        "/TI4/manifest.webmanifest",
+        "/TI4/polyfills.2891472113176468.js",
+        "/TI4/runtime.4d1b8eac5dc77c72.js",
+        "/TI4/styles.f37111f28d0f589f.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/TI4/assets/icons/icon-128x128.png",
+        "/TI4/assets/icons/icon-144x144.png",
+        "/TI4/assets/icons/icon-152x152.png",
+        "/TI4/assets/icons/icon-192x192.png",
+        "/TI4/assets/icons/icon-384x384.png",
+        "/TI4/assets/icons/icon-512x512.png",
+        "/TI4/assets/icons/icon-72x72.png",
+        "/TI4/assets/icons/icon-96x96.png",
+        "/TI4/assets/races/arborec.svg",
+        "/TI4/assets/races/barony of letnev.svg",
+        "/TI4/assets/races/clan of saar.svg",
+        "/TI4/assets/races/embers of muat.svg",
+        "/TI4/assets/races/emirates of hacan.svg",
+        "/TI4/assets/races/export/arborec.png",
+        "/TI4/assets/races/export/barony of letnev.png",
+        "/TI4/assets/races/export/clan of saar.png",
+        "/TI4/assets/races/export/embers of muat.png",
+        "/TI4/assets/races/export/emirates of hacan.png",
+        "/TI4/assets/races/export/federation of sol.png",
+        "/TI4/assets/races/export/ghosts of creuss.png",
+        "/TI4/assets/races/export/l1z1x mindnet.png",
+        "/TI4/assets/races/export/lazax.png",
+        "/TI4/assets/races/export/mentak coalition.png",
+        "/TI4/assets/races/export/naalu collective.png",
+        "/TI4/assets/races/export/nekro virus.png",
+        "/TI4/assets/races/export/sardakk n'orr.png",
+        "/TI4/assets/races/export/universities of jol-nar.png",
+        "/TI4/assets/races/export/winnu.png",
+        "/TI4/assets/races/export/xxcha kingdom.png",
+        "/TI4/assets/races/export/yin brotherhood.png",
+        "/TI4/assets/races/export/yssaril tribes.png",
+        "/TI4/assets/races/federation of sol.svg",
+        "/TI4/assets/races/ghosts of creuss.svg",
+        "/TI4/assets/races/l1z1x mindnet.svg",
+        "/TI4/assets/races/lazax.svg",
+        "/TI4/assets/races/mentak coalition.svg",
+        "/TI4/assets/races/naalu collective.svg",
+        "/TI4/assets/races/nekro virus.svg",
+        "/TI4/assets/races/sardakk n'orr.svg",
+        "/TI4/assets/races/universities of jol-nar.svg",
+        "/TI4/assets/races/winnu.svg",
+        "/TI4/assets/races/xxcha kingdom.svg",
+        "/TI4/assets/races/yin brotherhood.svg",
+        "/TI4/assets/races/yssaril tribes.svg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/TI4/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/TI4/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/TI4/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/TI4/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/TI4/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/TI4/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/TI4/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/TI4/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/TI4/assets/races/arborec.svg": "fe101377c06b9bf282fd09601c813f8b787d3bed",
+    "/TI4/assets/races/barony of letnev.svg": "91effe671c1a1872f4b4d8ec8a12847d6302f62d",
+    "/TI4/assets/races/clan of saar.svg": "013dc18a882b64b5699efd980ff9a732a37046f6",
+    "/TI4/assets/races/embers of muat.svg": "5b969e74a25157d1c30b31698e733d41b66c82d5",
+    "/TI4/assets/races/emirates of hacan.svg": "c6c1bbb7587b1af3e41dd763cf76720d21db09e2",
+    "/TI4/assets/races/export/arborec.png": "279a6febbad70a0a673bc4dfcadb1dce7448fdaa",
+    "/TI4/assets/races/export/barony of letnev.png": "6b145f7d6acb44fd0a838f7d17eb55f175c7846a",
+    "/TI4/assets/races/export/clan of saar.png": "ed82f8060b98a14578adf45192391a52959c94c7",
+    "/TI4/assets/races/export/embers of muat.png": "3b8e2b181ae40029e95f644d72112fbd391cbe89",
+    "/TI4/assets/races/export/emirates of hacan.png": "eabc4bdab1536add67535c871d458133db81dd44",
+    "/TI4/assets/races/export/federation of sol.png": "9014956f9dbe182622c01405a64a1b628f6ebe1d",
+    "/TI4/assets/races/export/ghosts of creuss.png": "6e33df04f69f05f237d3c3be42f6ed890b85f0dd",
+    "/TI4/assets/races/export/l1z1x mindnet.png": "297ba966063d90358c1da11dc4a4854d6e34288a",
+    "/TI4/assets/races/export/lazax.png": "659f1417413eda19f4a323812d4d08b4f25c37f5",
+    "/TI4/assets/races/export/mentak coalition.png": "05b353f7f89704a5ca88c807291552e28234db8e",
+    "/TI4/assets/races/export/naalu collective.png": "c2c3090689f6123a6f64901b50244da00c93d5e5",
+    "/TI4/assets/races/export/nekro virus.png": "cb0c150c88ac322b47deb5265486c1ef16935ec2",
+    "/TI4/assets/races/export/sardakk n'orr.png": "1eee4da2b9601d0c6774cf75fda803e558914c7c",
+    "/TI4/assets/races/export/universities of jol-nar.png": "f43deda2ac9d84af2d96657ea8c1d520abe3b49d",
+    "/TI4/assets/races/export/winnu.png": "88f91336a6db2fb02abccf5b910ef0b50442bf42",
+    "/TI4/assets/races/export/xxcha kingdom.png": "d0b142afbd4075ce421947996b00abde7b69fa1e",
+    "/TI4/assets/races/export/yin brotherhood.png": "6697456a171a531a309618634c2369fa9a483a50",
+    "/TI4/assets/races/export/yssaril tribes.png": "da1376ba0db6983b357eb0cde1250785d2e46908",
+    "/TI4/assets/races/federation of sol.svg": "ed5995628c932e71176989b5ec7d7c28ba558b1f",
+    "/TI4/assets/races/ghosts of creuss.svg": "e6a72fe6e62f11346683f47b4720060e6d3474ad",
+    "/TI4/assets/races/l1z1x mindnet.svg": "51f76d76071a1569bf11659a522b855608ef21f2",
+    "/TI4/assets/races/lazax.svg": "55e2935ff7b17a87f8ed62958ce032355ce9e9c2",
+    "/TI4/assets/races/mentak coalition.svg": "50d059b1d62719796f16f5f6d4807ff946747c11",
+    "/TI4/assets/races/naalu collective.svg": "ba4e0702ca2e56624ed1b6fa18f98f5e8ddcaf67",
+    "/TI4/assets/races/nekro virus.svg": "2653717a073265e2cd5429a213ee9e50d05fe0cb",
+    "/TI4/assets/races/sardakk n'orr.svg": "2043c7be749e6c7760659b99813afe034d1184ef",
+    "/TI4/assets/races/universities of jol-nar.svg": "81dd381b74582cf0744a0ac318c429482959400c",
+    "/TI4/assets/races/winnu.svg": "45185bb38b0927dc46dbe65cd4d82331fe36aca8",
+    "/TI4/assets/races/xxcha kingdom.svg": "e584e0949c7227cbc20b76403ce4502d5f22a49a",
+    "/TI4/assets/races/yin brotherhood.svg": "e18d3406b6dcdbd570c78c0f913cb6f112a5ffe2",
+    "/TI4/assets/races/yssaril tribes.svg": "7ada7e6085840c1cdce0c580faeaa7d915ace366",
+    "/TI4/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/TI4/index.html": "9c89798d6b2bf2bb005c9bfe06737b4e0953ac79",
+    "/TI4/main.d246c84a90b6cc97.js": "388248e730cf7b40c55fa4f3898e28711e423118",
+    "/TI4/manifest.webmanifest": "dc2cc2d6b10b4224e7c32f4ac712115240b7c167",
+    "/TI4/polyfills.2891472113176468.js": "1615b6d6291d460c67ca87a7027c7eb0a77cc21d",
+    "/TI4/runtime.4d1b8eac5dc77c72.js": "b529e141a500846affc71fd1bcfd0b7e91116420",
+    "/TI4/styles.f37111f28d0f589f.css": "bdcfaf1bf49dda8aee730e0138b5060de73f15f3"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}

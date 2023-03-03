@@ -1,0 +1,7 @@
+<h1>Choose faction</h1>
+<section *ngFor="let race of races">
+  <button mat-menu-item routerLink="{{race.id}}">
+    <mat-icon svgIcon="{{race.name.toLowerCase()}}" inline="true"></mat-icon>
+    <span>{{race.name}}</span>
+  </button>
+</section>

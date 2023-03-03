@@ -1,0 +1,12 @@
+.headers-align .mat-expansion-panel-header-description {
+    justify-content: right;
+    align-items: center;
+ }
+
+ .headers-align .mat-expansion-panel-header-description div{
+    padding-left: 5px;
+ }
+
+ .headers-align .mat-expansion-panel-header-title .mat-icon{
+    padding-right: 5px;
+ }

@@ -1,0 +1,26 @@
+<mat-expansion-panel hideToggle class="headers-align">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon [ngStyle]="{'color': techColor()}">
+          arrow_circle_up
+        </mat-icon>
+        {{ tech.tech.name }}
+      </mat-panel-title>
+      <mat-panel-description>
+        <app-tech-color [techColors]="tech.tech.requirements" [provided]="provided"></app-tech-color>
+        <div>
+          <button *ngIf="!tech.available" color="warn" mat-mini-fab (click)="researchMe($event)">
+            <mat-icon> highlight_off </mat-icon>
+          </button>
+          <button *ngIf="tech.available && !tech.researched" color="accent" mat-mini-fab (click)="researchMe($event)">
+            <mat-icon> radio_button_unchecked </mat-icon>
+          </button>
+          <button *ngIf="tech.researched" color="primary" mat-mini-fab (click)="researchMe($event)">
+            <mat-icon> check_circle </mat-icon>
+          </button>
+        </div>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p [innerHTML]="tech.tech.description"></p>
+  </mat-expansion-panel>
+  

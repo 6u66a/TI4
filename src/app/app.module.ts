@@ -1,64 +1,65 @@
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RaceChooserComponent } from './race-chooser/race-chooser.component';
-import { TechPickerComponent } from './tech-picker/tech-picker.component';
-import { TechComponent } from './tech-picker/tech/tech.component';
-import { TechColorComponent } from './tech-picker/tech-color/tech-color.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
-import { RandomizerComponent } from './randomizer/randomizer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from "../material.module";
-import { MenuComponent } from './menu/menu.component';
+import { HomeComponent } from './home/home.component';
+import { MatListModule} from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule} from '@angular/material/menu';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { MatIconModule } from '@angular/material/icon';
+import { TechHelperComponent } from './tech-helper/tech-helper.component';
 import { HttpClientModule } from "@angular/common/http";
+import { TechPickerComponent } from './tech-helper/tech-picker/tech-picker.component';
+import { TechComponent } from './tech-helper/tech/tech.component';
+import { TechColorComponent } from './tech-helper/tech-color/tech-color.component';
+import { DraftComponent } from './draft/draft.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
-
-const appRoutes: Routes = [
-  {
-    path: '',
-    component: MenuComponent,
-    pathMatch: 'full'
-  },
-  {
-    path: 'tech',
-    component: RaceChooserComponent,
-  },
-  {
-    path: 'tech/:raceid',
-    component: TechPickerComponent
-  },
-  {
-    path: 'draft',
-    component: RandomizerComponent
-  }
-];
+import { MatInputModule } from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RaceChooserComponent,
+    HomeComponent,
+    TechHelperComponent,
     TechPickerComponent,
     TechComponent,
     TechColorComponent,
-    RandomizerComponent,
-    MenuComponent,
+    DraftComponent
   ],
   imports: [
+    MatListModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
+    MatExpansionModule,
+    MatCardModule,
+    MatChipsModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatInputModule,
+    MatTableModule,
     BrowserModule,
+    HttpClientModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes),
-    ServiceWorkerModule.register('/ngsw-worker.js', {
-      enabled: environment.production
-    }),
+    AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule,
-    HttpClientModule
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }
