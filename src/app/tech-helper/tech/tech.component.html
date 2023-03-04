@@ -4,7 +4,7 @@
         <mat-icon [ngStyle]="{'color': techColor()}">
           arrow_circle_up
         </mat-icon>
-        {{ tech.tech.name }}
+        <p>{{ tech.tech.name  }}</p>
       </mat-panel-title>
       <mat-panel-description>
         <app-tech-color [techColors]="tech.tech.requirements" [provided]="provided"></app-tech-color>
