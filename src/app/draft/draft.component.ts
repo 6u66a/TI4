@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 import { DATA, Player, Race } from '../data/data';
+import { Edition } from '../data/edition.enum';
 
 @Component({
   selector: 'app-draft',
@@ -15,6 +17,7 @@ export class DraftComponent {
   public slices: boolean[] = [];
   public currentPosition: number = 0;
   private increment: number = 1;
+  private filter: Edition[] = [Edition.Base];
   playerForm = new FormGroup({
     name: new FormControl(null, Validators.required)
   })
@@ -24,6 +27,14 @@ export class DraftComponent {
   ngOnDestroy(): void {
     this.players = [];
     this.playerForm.reset();
+  }
+
+  pokChange(change:MatCheckboxChange) {
+    if(change.checked){
+      this.filter.push(Edition.PoK);
+    } else {
+      this.filter.splice(this.filter.lastIndexOf(Edition.PoK));
+    }
   }
 
   addPlayer(input:HTMLInputElement) {
@@ -36,8 +47,7 @@ export class DraftComponent {
   }
 
   shuffle(button:any) {
-    console.log(button);
-    this.races = this.shuffleFisherYates([...DATA.races]).slice(0,this.players.length+1);
+    this.races = this.shuffleFisherYates([...DATA.races]).filter(r => this.filter.lastIndexOf(r.edition)!==-1).slice(0,this.players.length+1);
     this.players = [...this.shuffleFisherYates(this.players)];
     for(let i=0;i<this.players.length;i++){
       this.positions.push(this.formatter(i+1));

@@ -1,6 +1,8 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DATA, Race, RuntimeTech, State, TechColors } from '../../data/data';
+import { Edition } from 'src/app/data/edition.enum';
+import { DATA, Race, RuntimeTech, State, Tech, TechColors } from '../../data/data';
 import { TechColor } from '../../data/tech-color.enum';
 
 @Component({
@@ -14,6 +16,9 @@ export class TechPickerComponent implements OnInit {
 
   public colorEnum = TechColor;
   public Arr = Array;
+  private filter: Edition[] = [Edition.Base];
+  @Input() faction?: Race;
+  @Input() tech: Tech[] = [];
 
   constructor(private route: ActivatedRoute, private router: Router, public cdRef: ChangeDetectorRef) {
     const id = +this.route.snapshot.params['raceid'];
@@ -28,7 +33,7 @@ export class TechPickerComponent implements OnInit {
     let startingTech: boolean;
     if (race === undefined) {
       this.state = {
-        race: { tech: [], id: 0, name: "", startingtech: [] },
+        race: { tech: [], id: 0, name: "", startingtech: [], edition: Edition.Base },
         tech: []
       };
       router.navigate(['']);
@@ -36,13 +41,13 @@ export class TechPickerComponent implements OnInit {
       this.state = {
         race: race,
         tech: race.tech.map(item => {
-          return { tech: item, researched: false, provided: this.provided, available: false, researchDistance: 0 };
+          return { tech: item, researched: false, provided: this.provided, available: false, researchDistance: 0, edition: item.edition };
         }).concat(DATA.genericTech.map(item => {
           startingTech = (race.startingtech.indexOf(item.id) !== -1);
           if (startingTech) {
             this.provided[item.provides]++;
           }
-          return { tech: item, researched: startingTech, provided: this.provided, available: startingTech, researchDistance: 0 };
+          return { tech: item, researched: startingTech, provided: this.provided, available: startingTech, researchDistance: 0, edition: item.edition };
         }))
       };
       this.state.tech.map(item => this.updateRequirements(item));

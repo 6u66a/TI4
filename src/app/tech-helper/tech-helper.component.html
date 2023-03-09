@@ -1,7 +1,16 @@
 <h1>Choose faction</h1>
-<section *ngFor="let race of races">
-  <button mat-menu-item routerLink="{{race.id}}">
-    <mat-icon svgIcon="{{race.name.toLowerCase()}}" inline="true"></mat-icon>
-    <span>{{race.name}}</span>
-  </button>
-</section>
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Faction to draft</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-chip-listbox class="mat-mdc-chip-set-stacked">
+      <mat-chip-option *ngFor="let race of races" routerLink="{{race.id}}">
+        <mat-chip-avatar>
+          <mat-icon svgIcon="{{race.name.toLowerCase()}}" inline="true"></mat-icon>
+        </mat-chip-avatar>
+        <span>{{race.name}}</span>
+      </mat-chip-option>
+    </mat-chip-listbox>
+  </mat-card-content>
+</mat-card>

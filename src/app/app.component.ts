@@ -24,6 +24,13 @@ export class AppComponent {
         .addSvgIcon("universities of jol-nar", this.domSanitizer.bypassSecurityTrustResourceUrl('assets/races/universities of jol-nar.svg'))
         .addSvgIcon("winnu", this.domSanitizer.bypassSecurityTrustResourceUrl('assets/races/winnu.svg'))
         .addSvgIcon("xxcha kingdom", this.domSanitizer.bypassSecurityTrustResourceUrl('assets/races/xxcha kingdom.svg'))
+        .addSvgIcon("argent flight", this.domSanitizer.bypassSecurityTrustResourceUrl('assets/races/argent flight.svg'))
+        .addSvgIcon("empyrean", this.domSanitizer.bypassSecurityTrustResourceUrl('assets/races/empyrean.svg'))
+        .addSvgIcon("mahact gene-sorcerers", this.domSanitizer.bypassSecurityTrustResourceUrl('assets/races/mahact gene-sorcerers.svg'))
+        .addSvgIcon("naaz-rokha alliance", this.domSanitizer.bypassSecurityTrustResourceUrl('assets/races/naaz-rokha alliance.svg'))
+        .addSvgIcon("nomad", this.domSanitizer.bypassSecurityTrustResourceUrl('assets/races/nomad.svg'))
+        .addSvgIcon("titans of ul", this.domSanitizer.bypassSecurityTrustResourceUrl('assets/races/titans of ul.svg'))
+        .addSvgIcon("vuil'raith cabal", this.domSanitizer.bypassSecurityTrustResourceUrl("assets/races/vuil'raith cabal.svg"))
         .addSvgIcon("yin brotherhood", this.domSanitizer.bypassSecurityTrustResourceUrl('assets/races/yin brotherhood.svg'))
         .addSvgIcon("yssaril tribes", this.domSanitizer.bypassSecurityTrustResourceUrl('assets/races/yssaril tribes.svg'));
 }

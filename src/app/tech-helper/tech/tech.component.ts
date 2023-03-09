@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Edition } from 'src/app/data/edition.enum';
 import { RuntimeTech, TechColors } from '../../data/data';
 import { TechColor } from '../../data/tech-color.enum';
 
@@ -7,10 +8,10 @@ import { TechColor } from '../../data/tech-color.enum';
   templateUrl: './tech.component.html',
   styleUrls: ['./tech.component.css'],
 })
-export class TechComponent implements OnInit {
+export class TechComponent {
 
   @Input() tech: RuntimeTech = {
-    tech: { id: 0, name: "", requirements: [], description: "", provides: 0 },
+    tech: { id: 0, name: "", requirements: [], description: "", provides: 0, edition: Edition.Base },
     provided: {},
     researched: false,
     researchDistance: 0,
@@ -37,9 +38,6 @@ export class TechComponent implements OnInit {
   }
 
   constructor() {
-  }
-
-  ngOnInit() {
   }
 
   researchMe(event: MouseEvent) {
