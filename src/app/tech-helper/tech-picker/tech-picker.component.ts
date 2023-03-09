@@ -1,8 +1,6 @@
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
-import { MatCheckboxChange } from '@angular/material/checkbox';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
 import { Edition } from 'src/app/data/edition.enum';
-import { DATA, Race, RuntimeTech, State, Tech, TechColors } from '../../data/data';
+import { Race, RuntimeTech, State, Tech, TechColors } from '../../data/data';
 import { TechColor } from '../../data/tech-color.enum';
 
 @Component({
@@ -29,43 +27,7 @@ export class TechPickerComponent implements OnInit {
   @Input() faction: Race = { tech: [], id: 0, name: "", startingtech: [], edition: Edition.Base };
   @Input() tech: Tech[] = [];
 
-  constructor(private route: ActivatedRoute, private router: Router, public cdRef: ChangeDetectorRef) {
-    
-    /*
-    const id = +this.route.snapshot.params['raceid'];
-    const race: Race | undefined = DATA.races.find(item => item.id === id);
-    this.provided = {
-      [TechColor.blue]: 0,
-      [TechColor.red]: 0,
-      [TechColor.green]: 0,
-      [TechColor.yellow]: 0,
-      [TechColor.black]: 0
-    };
-    let startingTech: boolean;
-    if (race === undefined) {
-      this.state = {
-        race: { tech: [], id: 0, name: "", startingtech: [], edition: Edition.Base },
-        tech: []
-      };
-      router.navigate(['']);
-    } else {
-      this.state = {
-        race: race,
-        tech: race.tech.map(item => {
-          return { tech: item, researched: false, provided: this.provided, available: false, researchDistance: 0, edition: item.edition };
-        }).concat(DATA.genericTech.map(item => {
-          startingTech = (race.startingtech.indexOf(item.id) !== -1);
-          if (startingTech) {
-            this.provided[item.provides]++;
-          }
-          return { tech: item, researched: startingTech, provided: this.provided, available: startingTech, researchDistance: 0, edition: item.edition };
-        }))
-      };
-      this.state.tech.map(item => this.updateRequirements(item));
-      this.state.tech.sort(this.distanceSorter);
-    }
-    */
-  }
+  constructor() {}
 
   distanceSorter(itemA: RuntimeTech, itemB: RuntimeTech): number {
     if (itemA.researched && !itemB.researched) {
