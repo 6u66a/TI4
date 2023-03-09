@@ -1,11 +1,11 @@
-<h1>Choose faction</h1>
-<mat-card appearance="outlined">
+<mat-card appearance="outlined" *ngIf="!selectedFaction">
   <mat-card-header>
-    <mat-card-title>Faction to draft</mat-card-title>
+    <mat-card-title>Choose faction</mat-card-title>
   </mat-card-header>
   <mat-card-content>
+    <mat-checkbox (change)="pokChange($event)">PoK</mat-checkbox>
     <mat-chip-listbox class="mat-mdc-chip-set-stacked">
-      <mat-chip-option *ngFor="let race of races" routerLink="{{race.id}}">
+      <mat-chip-option *ngFor="let race of races" (click)="raceClick_hdl(race)">
         <mat-chip-avatar>
           <mat-icon svgIcon="{{race.name.toLowerCase()}}" inline="true"></mat-icon>
         </mat-chip-avatar>
@@ -14,3 +14,4 @@
     </mat-chip-listbox>
   </mat-card-content>
 </mat-card>
+<app-tech-picker [faction]="selectedFaction" [tech]="tech" *ngIf="selectedFaction"></app-tech-picker>

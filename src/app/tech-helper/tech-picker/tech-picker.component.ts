@@ -11,16 +11,27 @@ import { TechColor } from '../../data/tech-color.enum';
   styleUrls: ['./tech-picker.component.css']
 })
 export class TechPickerComponent implements OnInit {
-  public state: State;
-  public provided: TechColors;
+  public state: State = {
+    race: { tech: [], id: 0, name: "", startingtech: [], edition: Edition.Base },
+    tech: []
+  };
+  public provided: TechColors =  {
+    [TechColor.blue]: 0,
+    [TechColor.red]: 0,
+    [TechColor.green]: 0,
+    [TechColor.yellow]: 0,
+    [TechColor.black]: 0
+  };
 
   public colorEnum = TechColor;
   public Arr = Array;
   private filter: Edition[] = [Edition.Base];
-  @Input() faction?: Race;
+  @Input() faction: Race = { tech: [], id: 0, name: "", startingtech: [], edition: Edition.Base };
   @Input() tech: Tech[] = [];
 
   constructor(private route: ActivatedRoute, private router: Router, public cdRef: ChangeDetectorRef) {
+    
+    /*
     const id = +this.route.snapshot.params['raceid'];
     const race: Race | undefined = DATA.races.find(item => item.id === id);
     this.provided = {
@@ -53,6 +64,7 @@ export class TechPickerComponent implements OnInit {
       this.state.tech.map(item => this.updateRequirements(item));
       this.state.tech.sort(this.distanceSorter);
     }
+    */
   }
 
   distanceSorter(itemA: RuntimeTech, itemB: RuntimeTech): number {
@@ -75,6 +87,18 @@ export class TechPickerComponent implements OnInit {
   }
 
   ngOnInit() {
+    let startingTech:boolean;
+    this.state.race=this.faction;
+    this.state.tech= this.tech.map(item => {
+      startingTech = (this.faction.startingtech.indexOf(item.id) !== -1);
+          if (startingTech) {
+            this.provided[item.provides]++;
+          }
+      return { tech: item, researched: startingTech, provided: this.provided, available: false, researchDistance: 0 };
+    });
+    this.state.tech.map(item => this.updateRequirements(item));
+    this.state.tech.sort(this.distanceSorter);
+    console.log(this.state);
   }
 
   updateRequirements(tech: RuntimeTech): void {
