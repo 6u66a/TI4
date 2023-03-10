@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Edition } from 'src/app/data/edition.enum';
 import { Race, RuntimeTech, State, Tech, TechColors } from '../../data/data';
 import { TechColor } from '../../data/tech-color.enum';
 
@@ -9,10 +8,7 @@ import { TechColor } from '../../data/tech-color.enum';
   styleUrls: ['./tech-picker.component.css']
 })
 export class TechPickerComponent implements OnInit {
-  public state: State = {
-    race: { tech: [], id: 0, name: "", startingtech: [], edition: Edition.Base },
-    tech: []
-  };
+  public state?: State;
   public provided: TechColors =  {
     [TechColor.blue]: 0,
     [TechColor.red]: 0,
@@ -23,8 +19,7 @@ export class TechPickerComponent implements OnInit {
 
   public colorEnum = TechColor;
   public Arr = Array;
-  private filter: Edition[] = [Edition.Base];
-  @Input() faction: Race = { tech: [], id: 0, name: "", startingtech: [], edition: Edition.Base };
+  @Input() faction?: Race;
   @Input() tech: Tech[] = [];
 
   constructor() {}
@@ -50,17 +45,15 @@ export class TechPickerComponent implements OnInit {
 
   ngOnInit() {
     let startingTech:boolean;
-    this.state.race=this.faction;
-    this.state.tech= this.tech.map(item => {
-      startingTech = (this.faction.startingtech.indexOf(item.id) !== -1);
+    this.state = {race: this.faction, tech: this.tech.map(item => {
+      startingTech = (this.faction?.startingtech.indexOf(item.id) !== -1);
           if (startingTech) {
             this.provided[item.provides]++;
           }
       return { tech: item, researched: startingTech, provided: this.provided, available: false, researchDistance: 0 };
-    });
-    this.state.tech.map(item => this.updateRequirements(item));
-    this.state.tech.sort(this.distanceSorter);
-    console.log(this.state);
+    })};
+    this.state?.tech.map(item => this.updateRequirements(item));
+    this.state?.tech.sort(this.distanceSorter);
   }
 
   updateRequirements(tech: RuntimeTech): void {
@@ -83,7 +76,7 @@ export class TechPickerComponent implements OnInit {
     if (tech.tech.provides !== undefined) {
       (tech.researched) ? tech.provided[tech.tech.provides]++ : tech.provided[tech.tech.provides]--;
     }
-    this.state.tech.forEach(item => this.updateRequirements(item));
-    this.state.tech.sort(this.distanceSorter);
+    this.state?.tech.forEach(item => this.updateRequirements(item));
+    this.state?.tech.sort(this.distanceSorter);
   }
 }

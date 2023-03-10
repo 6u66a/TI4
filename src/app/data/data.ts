@@ -43,7 +43,7 @@ export interface TechColors {
 }
 
 export interface State {
-  race: Race;
+  race?: Race;
   tech: Array<RuntimeTech>;
 }
 

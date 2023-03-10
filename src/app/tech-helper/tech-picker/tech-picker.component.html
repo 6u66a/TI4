@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
-    <span>{{state.race.name}}</span>
-    <mat-icon class="raceIcon" svgIcon="{{state.race.name.toLowerCase()}}" inline="true"></mat-icon>
+    <span>{{state?.race?.name}}</span>
+    <mat-icon class="raceIcon" svgIcon="{{state?.race?.name?.toLowerCase()}}" inline="true"></mat-icon>
     <span class="spacer"></span>
     <h3 style="color: red">{{provided[colorEnum.red]}}</h3>
     <h3 style="color: green">{{provided[colorEnum.green]}}</h3>
@@ -9,7 +9,7 @@
     <h3 style="color: white">{{provided[colorEnum.black]}}</h3>
 </mat-toolbar>
 <mat-accordion>
-    <app-tech (researched)="onResearched($event)" *ngFor="let tech of state.tech" [tech]="tech" [provided]="provided">
+    <app-tech (researched)="onResearched($event)" *ngFor="let tech of state?.tech" [tech]="tech" [provided]="provided">
     </app-tech>
 </mat-accordion>
   

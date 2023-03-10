@@ -29,9 +29,11 @@ export class TechHelperComponent {
     this.selectedFaction=race;
     if(race.edition===Edition.PoK){
       this.tech = [...DATA.genericTech, ...race.tech]
-    } else {
+    } else if(this.selectedFaction.id===11) {
+      this.tech = [...DATA.genericTech, ...this.races.flatMap(r => r.tech)].filter(t => this.filter.indexOf(t.edition)!==-1)
+    }
+    else {
       this.tech = [...DATA.genericTech, ...race.tech].filter(t => this.filter.indexOf(t.edition)!==-1)
     }
   }
-
 }
