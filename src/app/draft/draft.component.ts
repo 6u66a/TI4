@@ -29,31 +29,31 @@ export class DraftComponent {
     this.playerForm.reset();
   }
 
-  pokChange(change:MatCheckboxChange) {
-    if(change.checked){
+  pokChange(change: MatCheckboxChange) {
+    if (change.checked) {
       this.filter.push(Edition.PoK);
     } else {
       this.filter.splice(this.filter.lastIndexOf(Edition.PoK));
     }
   }
 
-  addPlayer(input:HTMLInputElement) {
+  addPlayer(input: HTMLInputElement) {
     if (this.playerForm.valid) {
       const playerName: string | undefined | null = this.playerForm.get("name")?.value
       this.playerForm.reset();
-      this.players = [...this.players, {name: playerName}];
+      this.players = [...this.players, { name: playerName }];
       input.focus()
     }
   }
 
-  shuffle(button:any) {
-    this.races = this.shuffleFisherYates([...DATA.races]).filter(r => this.filter.lastIndexOf(r.edition)!==-1).slice(0,this.players.length+1);
+  shuffle(button: any) {
+    this.races = this.shuffleFisherYates([...DATA.races]).filter(r => this.filter.lastIndexOf(r.edition) !== -1).slice(0, this.players.length + 1);
     this.players = [...this.shuffleFisherYates(this.players)];
-    for(let i=0;i<this.players.length;i++){
-      this.positions.push(this.formatter(i+1));
+    for (let i = 0; i < this.players.length; i++) {
+      this.positions.push(this.formatter(i + 1));
       this.slices.push(true);
     }
-    button.disabled=true
+    button.disabled = true
   }
 
   shuffleFisherYates(array: any[]) {
@@ -65,58 +65,58 @@ export class DraftComponent {
     return array;
   }
 
-  formatter(i:Number):String {
-    switch(i){
+  formatter(i: Number): String {
+    switch (i) {
       case 1:
         return "Speaker";
       case 2:
-        return i+"nd";
+        return i + "nd";
       case 3:
-        return i+"rd";
+        return i + "rd";
       default:
-        return i+"th"; 
+        return i + "th";
     }
   }
 
-  draftPosition(i:number):void {
+  draftPosition(i: number): void {
     let copy = [...this.players];
-    copy[this.currentPosition].position=this.positions[i];
-    this.players=copy;
-    this.positions.splice(i,1);
+    copy[this.currentPosition].position = this.positions[i];
+    this.players = copy;
+    this.positions.splice(i, 1);
     this.progressCounter();
   }
 
-  draftSlice(i:number):void {
+  draftSlice(i: number): void {
     let copy = [...this.players];
-    copy[this.currentPosition].slice=this.slices[i];
-    this.players=copy;
-    this.slices.splice(i,1);
+    copy[this.currentPosition].slice = this.slices[i];
+    this.players = copy;
+    this.slices.splice(i, 1);
     this.progressCounter();
   }
 
-  draftRace(i:number):void {
+  draftRace(i: number): void {
     let copy = [...this.players];
-    copy[this.currentPosition].race=this.races[i];
-    this.players=copy;
-    this.races.splice(i,1);
+    copy[this.currentPosition].race = this.races[i];
+    this.players = copy;
+    this.races.splice(i, 1);
     this.progressCounter();
   }
 
-  progressCounter():void {
-    this.currentPosition+=this.increment;
-    if(this.currentPosition===-1) {
-      this.currentPosition=0;
-      this.increment*=-1;
-    } 
-    else if(this.currentPosition===this.players.length) {
-      this.currentPosition=this.players.length-1;
-      this.increment*=-1;
+  progressCounter(): void {
+    this.currentPosition += this.increment;
+    if (this.currentPosition === -1) {
+      this.currentPosition = 0;
+      this.increment *= -1;
+    }
+    else if (this.currentPosition === this.players.length) {
+      this.currentPosition = this.players.length - 1;
+      this.increment *= -1;
     }
   }
 
-  incomplete():boolean {
-    for(let i=0;i<this.players.length;i++) {
-      if(!this.players[i].position || !this.players[i].race || !this.players[i].slice) {
+  incomplete(): boolean {
+    for (let i = 0; i < this.players.length; i++) {
+      if (!this.players[i].position || !this.players[i].race || !this.players[i].slice) {
         return true;
       }
     }

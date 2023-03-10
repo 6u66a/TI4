@@ -1,5 +1,5 @@
 export enum Edition {
-    PoK,
-    Base,
-    CodexIII
-  } 
+  PoK,
+  Base,
+  CodexIII
+} 

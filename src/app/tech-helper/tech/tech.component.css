@@ -3,15 +3,15 @@
     align-items: center;
 }
 
-.headers-align .mat-expansion-panel-header-description div{
+.headers-align .mat-expansion-panel-header-description div {
     padding-left: 5px;
 }
 
-.headers-align .mat-expansion-panel-header-title .mat-icon{
+.headers-align .mat-expansion-panel-header-title .mat-icon {
     padding-right: 5px;
- }
+}
 
-.headers-align .mat-expansion-panel-header-title{
-   margin-right: 0px;
-   flex-grow: 4;   
+.headers-align .mat-expansion-panel-header-title {
+    margin-right: 0px;
+    flex-grow: 4;
 }

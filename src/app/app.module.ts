@@ -5,9 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
-import { MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { MatIconModule } from '@angular/material/icon';
@@ -23,8 +23,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import {MatTableModule} from '@angular/material/table';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatTableModule } from '@angular/material/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [

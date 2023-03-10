@@ -5,10 +5,10 @@ import { HomeComponent } from './home/home.component';
 import { TechHelperComponent } from './tech-helper/tech-helper.component';
 
 const routes: Routes = [
-  { 
-    path: '', 
-    component: HomeComponent, 
-    pathMatch: 'full' 
+  {
+    path: '',
+    component: HomeComponent,
+    pathMatch: 'full'
   },
   {
     path: 'tech',

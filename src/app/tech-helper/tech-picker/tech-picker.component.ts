@@ -9,7 +9,7 @@ import { TechColor } from '../../data/tech-color.enum';
 })
 export class TechPickerComponent implements OnInit {
   public state?: State;
-  public provided: TechColors =  {
+  public provided: TechColors = {
     [TechColor.blue]: 0,
     [TechColor.red]: 0,
     [TechColor.green]: 0,
@@ -22,7 +22,7 @@ export class TechPickerComponent implements OnInit {
   @Input() faction?: Race;
   @Input() tech: Tech[] = [];
 
-  constructor() {}
+  constructor() { }
 
   distanceSorter(itemA: RuntimeTech, itemB: RuntimeTech): number {
     if (itemA.researched && !itemB.researched) {
@@ -44,14 +44,16 @@ export class TechPickerComponent implements OnInit {
   }
 
   ngOnInit() {
-    let startingTech:boolean;
-    this.state = {race: this.faction, tech: this.tech.map(item => {
-      startingTech = (this.faction?.startingtech.indexOf(item.id) !== -1);
-          if (startingTech) {
-            this.provided[item.provides]++;
-          }
-      return { tech: item, researched: startingTech, provided: this.provided, available: false, researchDistance: 0 };
-    })};
+    let startingTech: boolean;
+    this.state = {
+      race: this.faction, tech: this.tech.map(item => {
+        startingTech = (this.faction?.startingtech.indexOf(item.id) !== -1);
+        if (startingTech) {
+          this.provided[item.provides]++;
+        }
+        return { tech: item, researched: startingTech, provided: this.provided, available: false, researchDistance: 0 };
+      })
+    };
     this.state?.tech.map(item => this.updateRequirements(item));
     this.state?.tech.sort(this.distanceSorter);
   }

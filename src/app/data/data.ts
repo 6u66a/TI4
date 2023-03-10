@@ -68,7 +68,7 @@ export const DATA: Data = {
         },
         {
           id: 2,
-          name: "Biolplasmosis",
+          name: "Bioplasmosis",
           requirements: {
             [TechColor.green]: 2
           },
@@ -428,7 +428,7 @@ export const DATA: Data = {
         },
         {
           id: 26,
-          name: "E-res Siphons",
+          name: "E-Res Siphons",
           requirements: {
             [TechColor.yellow]: 2
           },
@@ -568,7 +568,9 @@ export const DATA: Data = {
         {
           id: 68,
           name: "Aerie Hololattice",
-          requirements: {},
+          requirements: {
+            [TechColor.yellow]: 1
+          },
           edition: Edition.PoK,
           provides: TechColor.yellow,
           description:
@@ -596,7 +598,7 @@ export const DATA: Data = {
         {
           id: 69,
           name: "Aetherstream",
-          requirements: {[TechColor.blue]:2},
+          requirements: { [TechColor.blue]: 2 },
           edition: Edition.PoK,
           provides: TechColor.blue,
           description:
@@ -618,13 +620,13 @@ export const DATA: Data = {
     {
       id: 20,
       name: "Mahact Gene-Sorcerers",
-      startingtech: [67,61],
+      startingtech: [67, 61],
       edition: Edition.PoK,
       tech: [
         {
           id: 71,
           name: "Genetic Recombination",
-          requirements: {[TechColor.green]:1},
+          requirements: { [TechColor.green]: 1 },
           edition: Edition.PoK,
           provides: TechColor.green,
           description:
@@ -639,20 +641,20 @@ export const DATA: Data = {
           edition: Edition.PoK,
           provides: TechColor.black,
           description:
-          '<ul><li>Mahact Ground Force (Cost 1x2; Combat 7)</li><li>After this unit is destroyed, gain 1 commodity or convert 1 of your commodities to a trade good. Then, place the unit on this card. At the start of your next turn, place each unit that is on this card on a planet you control in your home system</li></ul>'
+            '<ul><li>Mahact Ground Force (Cost 1x2; Combat 7)</li><li>After this unit is destroyed, gain 1 commodity or convert 1 of your commodities to a trade good. Then, place the unit on this card. At the start of your next turn, place each unit that is on this card on a planet you control in your home system</li></ul>'
         }
       ]
     },
     {
       id: 21,
       name: "Naaz-Rokha Alliance",
-      startingtech: [64,60],
+      startingtech: [64, 60],
       edition: Edition.PoK,
       tech: [
         {
           id: 73,
           name: "Supercharge",
-          requirements: {[TechColor.red]:1},
+          requirements: { [TechColor.red]: 1 },
           edition: Edition.PoK,
           provides: TechColor.red,
           description:
@@ -667,7 +669,7 @@ export const DATA: Data = {
           edition: Edition.PoK,
           provides: TechColor.green,
           description:
-          'After you explore a planet, ready that planet'
+            'After you explore a planet, ready that planet'
         }
       ]
     },
@@ -680,7 +682,7 @@ export const DATA: Data = {
         {
           id: 75,
           name: "Temporal Command Suite",
-          requirements: {[TechColor.yellow]:1},
+          requirements: { [TechColor.yellow]: 1 },
           edition: Edition.PoK,
           provides: TechColor.yellow,
           description:
@@ -697,24 +699,24 @@ export const DATA: Data = {
           edition: Edition.PoK,
           provides: TechColor.black,
           description:
-          '<ul><li>Nomad Flagship (Cost 8; Combat 5(x2); Move 2; Capacity 6)</li><li>Sustain Damage</li><li>Anti-Fighter Barrage 5(x3)</li><li>You may treat this unit as if it were adjacent to systems that contain one or more of your mechs.</li></ul>'
+            '<ul><li>Nomad Flagship (Cost 8; Combat 5(x2); Move 2; Capacity 6)</li><li>Sustain Damage</li><li>Anti-Fighter Barrage 5(x3)</li><li>You may treat this unit as if it were adjacent to systems that contain one or more of your mechs.</li></ul>'
         }
       ]
     },
     {
       id: 23,
       name: "Titans of Ul",
-      startingtech: [50,66],
+      startingtech: [50, 66],
       edition: Edition.PoK,
       tech: [
         {
           id: 76,
           name: "Saturn Engine II",
-          requirements: {[TechColor.green]:1, [TechColor.yellow]:1, [TechColor.red]:1},
+          requirements: { [TechColor.green]: 1, [TechColor.yellow]: 1, [TechColor.red]: 1 },
           edition: Edition.PoK,
           provides: TechColor.black,
           description:
-          '<ul><li>Titan Cruiser (Cost 2; Combat 6; Move 3; Capacity 2)</li><li>Sustain Damage</li></ul>'
+            '<ul><li>Titan Cruiser (Cost 2; Combat 6; Move 3; Capacity 2)</li><li>Sustain Damage</li></ul>'
         },
         {
           id: 77,
@@ -726,7 +728,7 @@ export const DATA: Data = {
           edition: Edition.PoK,
           provides: TechColor.black,
           description:
-          '<ul><li>Titan PDS (Combat 6)</li><li>Planetary Shield</li><li>Space Cannon 5</li><li>Sustain Damage</li><li>Production 1</li><li>This unit is treated as both a structure and a ground force. It cannot be transported.</li><li>You may use this unit\'s SPACE CANNON against ships that are adjacent to this unit\'s system.</li></ul>'
+            '<ul><li>Titan PDS (Combat 6)</li><li>Planetary Shield</li><li>Space Cannon 5</li><li>Sustain Damage</li><li>Production 1</li><li>This unit is treated as both a structure and a ground force. It cannot be transported.</li><li>You may use this unit\'s SPACE CANNON against ships that are adjacent to this unit\'s system.</li></ul>'
         }
       ]
     },
@@ -739,11 +741,11 @@ export const DATA: Data = {
         {
           id: 78,
           name: "Vortex",
-          requirements: {[TechColor.red]:1},
+          requirements: { [TechColor.red]: 1 },
           edition: Edition.PoK,
           provides: TechColor.red,
           description:
-          'ACTION: Exhaust this card to choose another player\'s non-structure unit in a system that is adjacent to 1 or more of your space docks. Capture 1 unit of that type from that player\'s reinforcements'
+            'ACTION: Exhaust this card to choose another player\'s non-structure unit in a system that is adjacent to 1 or more of your space docks. Capture 1 unit of that type from that player\'s reinforcements'
         },
         {
           id: 79,
@@ -754,7 +756,7 @@ export const DATA: Data = {
           edition: Edition.PoK,
           provides: TechColor.black,
           description:
-          '<ul><li>Cabal Space Dock(PRODUCTION 7)</li><li>This system is a gravity rift; your ships do not roll for this gravity rift.</li><li>Place a dimensional tear token beneath this unit as a reminder</li><li>Up to 12 fighters in this system do not count against your ships\' capacity.</li></ul>'
+            '<ul><li>Cabal Space Dock(PRODUCTION 7)</li><li>This system is a gravity rift; your ships do not roll for this gravity rift.</li><li>Place a dimensional tear token beneath this unit as a reminder</li><li>Up to 12 fighters in this system do not count against your ships\' capacity.</li></ul>'
         }
       ]
     }

@@ -1,7 +1,7 @@
 export enum TechColor {
-    red,
-    green,
-    yellow,
-    blue,
-    black
-  }  
+  red,
+  green,
+  yellow,
+  blue,
+  black
+}  

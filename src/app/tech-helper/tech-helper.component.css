@@ -1,6 +1,7 @@
 section {
     width: 100%;
 }
+
 button {
     display: flex;
     width: 100%;
@@ -8,4 +9,3 @@ button {
     align-items: center;
     justify-content: space-between;
 }
-  
