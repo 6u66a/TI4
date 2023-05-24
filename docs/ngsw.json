@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1678459030844,
+  "timestamp": 1684912113517,
   "index": "/TI4/index.html",
   "assetGroups": [
     {
@@ -13,11 +13,11 @@
       "urls": [
         "/TI4/favicon.ico",
         "/TI4/index.html",
-        "/TI4/main.a5382b408ead475d.js",
+        "/TI4/main.efb9fc129c1da1ae.js",
         "/TI4/manifest.webmanifest",
         "/TI4/polyfills.2891472113176468.js",
         "/TI4/runtime.4d1b8eac5dc77c72.js",
-        "/TI4/styles.f37111f28d0f589f.css"
+        "/TI4/styles.3f96b847d53579a8.css"
       ],
       "patterns": []
     },
@@ -96,12 +96,12 @@
     "/TI4/assets/races/yin brotherhood.svg": "e18d3406b6dcdbd570c78c0f913cb6f112a5ffe2",
     "/TI4/assets/races/yssaril tribes.svg": "7ada7e6085840c1cdce0c580faeaa7d915ace366",
     "/TI4/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/TI4/index.html": "58e91ac0c71eb95f0b6bcbd39cd6d1a00cb244a1",
-    "/TI4/main.a5382b408ead475d.js": "7c7efb818d78a769127fd0ca914833797c986bc1",
+    "/TI4/index.html": "576f1112bea3ef483e47f4423147a8383a364715",
+    "/TI4/main.efb9fc129c1da1ae.js": "99e424469b72f361d5bb6974a1e8256aad7476a1",
     "/TI4/manifest.webmanifest": "27ee91ae32b7ba53c0b8eefab0e378624c9c1d9e",
     "/TI4/polyfills.2891472113176468.js": "1615b6d6291d460c67ca87a7027c7eb0a77cc21d",
     "/TI4/runtime.4d1b8eac5dc77c72.js": "b529e141a500846affc71fd1bcfd0b7e91116420",
-    "/TI4/styles.f37111f28d0f589f.css": "bdcfaf1bf49dda8aee730e0138b5060de73f15f3"
+    "/TI4/styles.3f96b847d53579a8.css": "abd2f17a11e21ca539af2a997e126dc92615c583"
   },
   "navigationUrls": [
     {
