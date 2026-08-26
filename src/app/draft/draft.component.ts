@@ -1,31 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { DATA, Player, Race } from '../data/data';
 import { Edition } from '../data/edition.enum';
 
 @Component({
+  standalone: false,
   selector: 'app-draft',
   templateUrl: './draft.component.html',
   styleUrls: ['./draft.component.css']
 })
 export class DraftComponent {
   displayedColumns: string[] = ['name', 'faction', 'position', 'slice'];
-  public races: Array<Race> = [];
-  public players: Player[] = [];
-  public positions: String[] = [];
-  public slices: boolean[] = [];
-  public currentPosition: number = 0;
+  public races = signal<Race[]>([]);
+  public players = signal<Player[]>([]);
+  public positions = signal<string[]>([]);
+  public slices = signal<boolean[]>([]);
+  public currentPosition = signal(0);
+  public incomplete = computed(() => this.players().some(player => !player.position || !player.race || !player.slice));
   private increment: number = 1;
   private filter: Edition[] = [Edition.Base];
   playerForm = new FormGroup({
-    name: new FormControl(null, Validators.required)
+    name: new FormControl<string | null>(null, Validators.required)
   })
 
   constructor() { }
 
   ngOnDestroy(): void {
-    this.players = [];
+    this.players.set([]);
     this.playerForm.reset();
   }
 
@@ -41,18 +43,16 @@ export class DraftComponent {
     if (this.playerForm.valid) {
       const playerName: string | undefined | null = this.playerForm.get("name")?.value
       this.playerForm.reset();
-      this.players = [...this.players, { name: playerName }];
+      this.players.update(players => [...players, { name: playerName }]);
       input.focus()
     }
   }
 
   shuffle(button: any) {
-    this.races = this.shuffleFisherYates([...DATA.races]).filter(r => this.filter.lastIndexOf(r.edition) !== -1).slice(0, this.players.length + 1);
-    this.players = [...this.shuffleFisherYates(this.players)];
-    for (let i = 0; i < this.players.length; i++) {
-      this.positions.push(this.formatter(i + 1));
-      this.slices.push(true);
-    }
+    this.races.set(this.shuffleFisherYates([...DATA.races]).filter(r => this.filter.lastIndexOf(r.edition) !== -1).slice(0, this.players().length + 1));
+    this.players.set(this.shuffleFisherYates([...this.players()]));
+    this.positions.set(this.players().map((_, i) => this.formatter(i + 1)));
+    this.slices.set(this.players().map(() => true));
     button.disabled = true
   }
 
@@ -65,7 +65,7 @@ export class DraftComponent {
     return array;
   }
 
-  formatter(i: Number): String {
+  formatter(i: number): string {
     switch (i) {
       case 1:
         return "Speaker";
@@ -79,47 +79,32 @@ export class DraftComponent {
   }
 
   draftPosition(i: number): void {
-    let copy = [...this.players];
-    copy[this.currentPosition].position = this.positions[i];
-    this.players = copy;
-    this.positions.splice(i, 1);
+    this.players.update(players => players.map((player, index) => index === this.currentPosition() ? { ...player, position: this.positions()[i] } : player));
+    this.positions.update(positions => positions.filter((_, index) => index !== i));
     this.progressCounter();
   }
 
   draftSlice(i: number): void {
-    let copy = [...this.players];
-    copy[this.currentPosition].slice = this.slices[i];
-    this.players = copy;
-    this.slices.splice(i, 1);
+    this.players.update(players => players.map((player, index) => index === this.currentPosition() ? { ...player, slice: this.slices()[i] } : player));
+    this.slices.update(slices => slices.filter((_, index) => index !== i));
     this.progressCounter();
   }
 
   draftRace(i: number): void {
-    let copy = [...this.players];
-    copy[this.currentPosition].race = this.races[i];
-    this.players = copy;
-    this.races.splice(i, 1);
+    this.players.update(players => players.map((player, index) => index === this.currentPosition() ? { ...player, race: this.races()[i] } : player));
+    this.races.update(races => races.filter((_, index) => index !== i));
     this.progressCounter();
   }
 
   progressCounter(): void {
-    this.currentPosition += this.increment;
-    if (this.currentPosition === -1) {
-      this.currentPosition = 0;
+    this.currentPosition.update(position => position + this.increment);
+    if (this.currentPosition() === -1) {
+      this.currentPosition.set(0);
       this.increment *= -1;
     }
-    else if (this.currentPosition === this.players.length) {
-      this.currentPosition = this.players.length - 1;
+    else if (this.currentPosition() === this.players().length) {
+      this.currentPosition.set(this.players().length - 1);
       this.increment *= -1;
     }
-  }
-
-  incomplete(): boolean {
-    for (let i = 0; i < this.players.length; i++) {
-      if (!this.players[i].position || !this.players[i].race || !this.players[i].slice) {
-        return true;
-      }
-    }
-    return false;
   }
 }

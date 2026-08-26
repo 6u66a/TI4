@@ -20,4 +20,14 @@ describe('TechHelperComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('selects a faction and exposes its filtered technologies', () => {
+    const race = component.races[0];
+
+    component.raceClick_hdl(race);
+
+    expect(component.selectedFaction()).toBe(race);
+    expect(component.tech().length).toBeGreaterThan(0);
+    expect(component.tech().every(tech => tech.edition === 0)).toBeTrue();
+  });
 });

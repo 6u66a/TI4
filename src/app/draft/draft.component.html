@@ -1,4 +1,4 @@
-<mat-card appearance="outlined" *ngIf="!races.length">
+<mat-card appearance="outlined" *ngIf="!races().length">
   <mat-card-header>
     <mat-card-title>Add Players</mat-card-title>
   </mat-card-header>
@@ -23,7 +23,7 @@
     <mat-card-title>Players</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <table mat-table [dataSource]="players">
+    <table mat-table [dataSource]="players()">
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Name </th>
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
@@ -60,15 +60,15 @@
   </mat-card-actions>
 </mat-card>
 
-<h2 *ngIf="incomplete()">It´s time for {{players[currentPosition].name}} to draft</h2>
+<h2 *ngIf="incomplete()">It´s time for {{players()[currentPosition()].name}} to draft</h2>
 
-<mat-card appearance="outlined" *ngIf="!players[currentPosition]?.race">
+<mat-card appearance="outlined" *ngIf="!players()[currentPosition()]?.race">
   <mat-card-header>
     <mat-card-title>Faction to draft</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <mat-chip-listbox class="mat-mdc-chip-set-stacked">
-      <mat-chip-option *ngFor="let race of races; let k = index" (click)="draftRace(k)">
+      <mat-chip-option *ngFor="let race of races(); let k = index" (click)="draftRace(k)">
         <mat-chip-avatar>
           <mat-icon svgIcon="{{race.name.toLowerCase()}}" inline="true"></mat-icon>
         </mat-chip-avatar>
@@ -77,25 +77,25 @@
     </mat-chip-listbox>
   </mat-card-content>
 </mat-card>
-<mat-card appearance="outlined" *ngIf="!players[currentPosition]?.position">
+<mat-card appearance="outlined" *ngIf="!players()[currentPosition()]?.position">
   <mat-card-header>
     <mat-card-title>Position to draft</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <mat-chip-listbox class="mat-mdc-chip-set-stacked">
-      <mat-chip-option *ngFor="let position of positions; let i = index" (click)="draftPosition(i)">
+      <mat-chip-option *ngFor="let position of positions(); let i = index" (click)="draftPosition(i)">
         <span>{{position}}</span>
       </mat-chip-option>
     </mat-chip-listbox>
   </mat-card-content>
 </mat-card>
-<mat-card appearance="outlined" *ngIf="!players[currentPosition]?.slice">
+<mat-card appearance="outlined" *ngIf="!players()[currentPosition()]?.slice">
   <mat-card-header>
     <mat-card-title>Slices to draft</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <mat-chip-listbox class="mat-mdc-chip-set-stacked">
-      <mat-chip-option *ngFor="let slice of slices; let j = index" (click)="draftSlice(j)">
+      <mat-chip-option *ngFor="let slice of slices(); let j = index" (click)="draftSlice(j)">
         <span>Slice</span>
       </mat-chip-option>
     </mat-chip-listbox>

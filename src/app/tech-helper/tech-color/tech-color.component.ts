@@ -1,36 +1,32 @@
-import { Component, DoCheck, Input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { TechColors } from '../../data/data';
 import { TechColor } from '../../data/tech-color.enum';
 
 @Component({
+  standalone: false,
   selector: 'app-tech-color',
   templateUrl: './tech-color.component.html',
   styleUrls: ['./tech-color.component.css']
 })
-export class TechColorComponent implements DoCheck {
+export class TechColorComponent {
 
-  @Input() techColors: TechColors = [];
-  @Input() provided: TechColors = [];
+  techColors = input<TechColors>({});
+  provided = input<TechColors>({});
 
   public colorEnum = TechColor;
-  public deltaTechColor: TechColors = [];
+  public deltaTechColor = computed(() => {
+    const techColors = this.techColors();
+    const provided = this.provided();
+    const delta: TechColors = {};
+    for (const color of Object.keys(techColors)) {
+      const index = Number.parseInt(color);
+      delta[index] = techColors[index] - (provided[index] ?? 0);
+    }
+    return delta;
+  });
   public Arr = Array;
 
   constructor() {
   }
 
-  public updateDeltaTechColor() {
-    if (this.provided !== undefined) {
-      for (const color of Object.keys(this.techColors)) {
-        let index = Number.parseInt(color);
-        this.deltaTechColor[index] = this.techColors[index] - this.provided[index];
-      }
-    } else {
-      this.deltaTechColor = this.techColors;
-    }
-  }
-
-  ngDoCheck() {
-    this.updateDeltaTechColor();
-  }
 }

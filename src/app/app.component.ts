@@ -1,14 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
+  standalone: false,
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
+  private matIconRegistry = inject(MatIconRegistry);
+  private domSanitizer = inject(DomSanitizer);
+
+  constructor() {
     this.matIconRegistry.addSvgIcon('arborec', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/races/arborec.svg'))
       .addSvgIcon("barony of letnev", this.domSanitizer.bypassSecurityTrustResourceUrl('assets/races/barony of letnev.svg'))
       .addSvgIcon("clan of saar", this.domSanitizer.bypassSecurityTrustResourceUrl('assets/races/clan of saar.svg'))

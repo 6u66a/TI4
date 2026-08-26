@@ -1,26 +1,27 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, input, OnInit, signal } from '@angular/core';
 import { Race, RuntimeTech, State, Tech, TechColors } from '../../data/data';
 import { TechColor } from '../../data/tech-color.enum';
 
 @Component({
+  standalone: false,
   selector: 'app-tech-picker',
   templateUrl: './tech-picker.component.html',
   styleUrls: ['./tech-picker.component.css']
 })
 export class TechPickerComponent implements OnInit {
-  public state?: State;
-  public provided: TechColors = {
+  public state = signal<State | undefined>(undefined);
+  public provided = signal<TechColors>({
     [TechColor.blue]: 0,
     [TechColor.red]: 0,
     [TechColor.green]: 0,
     [TechColor.yellow]: 0,
     [TechColor.black]: 0
-  };
+  });
 
   public colorEnum = TechColor;
   public Arr = Array;
-  @Input() faction?: Race;
-  @Input() tech: Tech[] = [];
+  faction = input<Race>();
+  tech = input<Tech[]>([]);
 
   constructor() { }
 
@@ -44,22 +45,21 @@ export class TechPickerComponent implements OnInit {
   }
 
   ngOnInit() {
-    let startingTech: boolean;
-    this.state = {
-      race: this.faction, tech: this.tech.map(item => {
-        startingTech = (this.faction?.startingtech.indexOf(item.id) !== -1);
-        if (startingTech) {
-          this.provided[item.provides]++;
-        }
-        return { tech: item, researched: startingTech, provided: this.provided, available: false, researchDistance: 0 };
-      })
-    };
-    this.state?.tech.map(item => this.updateRequirements(item));
-    this.state?.tech.sort(this.distanceSorter);
+    const provided = { ...this.provided() };
+    const runtimeTech = this.tech().map(item => {
+      const startingTech = this.faction()?.startingtech.indexOf(item.id) !== -1;
+      if (startingTech) {
+        provided[item.provides]++;
+      }
+      return { tech: item, researched: startingTech, provided, available: false, researchDistance: 0 };
+    });
+    this.provided.set(provided);
+    this.state.set({ race: this.faction(), tech: runtimeTech });
+    this.state.update(state => state ? { ...state, tech: state.tech.map(item => { this.updateRequirements(item); return item; }).sort(this.distanceSorter) } : state);
   }
 
   updateRequirements(tech: RuntimeTech): void {
-    tech.available = this.checkForMatchingRequirements(tech, this.provided);
+    tech.available = this.checkForMatchingRequirements(tech, this.provided());
   }
 
   checkForMatchingRequirements(tech: RuntimeTech, provided: TechColors): boolean {
@@ -74,11 +74,12 @@ export class TechPickerComponent implements OnInit {
   }
 
   onResearched(tech: RuntimeTech) {
+    const nextProvided = { ...this.provided() };
     tech.researched = !tech.researched;
     if (tech.tech.provides !== undefined) {
-      (tech.researched) ? tech.provided[tech.tech.provides]++ : tech.provided[tech.tech.provides]--;
+      (tech.researched) ? nextProvided[tech.tech.provides]++ : nextProvided[tech.tech.provides]--;
     }
-    this.state?.tech.forEach(item => this.updateRequirements(item));
-    this.state?.tech.sort(this.distanceSorter);
+    this.provided.set(nextProvided);
+    this.state.update(state => state ? { ...state, tech: state.tech.map(item => ({ ...item, provided: nextProvided })).map(item => { this.updateRequirements(item); return item; }).sort(this.distanceSorter) } : state);
   }
 }

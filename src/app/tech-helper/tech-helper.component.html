@@ -1,4 +1,4 @@
-<mat-card appearance="outlined" *ngIf="!selectedFaction">
+<mat-card appearance="outlined" *ngIf="!selectedFaction()">
   <mat-card-header>
     <mat-card-title>Choose faction</mat-card-title>
   </mat-card-header>
@@ -14,4 +14,4 @@
     </mat-chip-listbox>
   </mat-card-content>
 </mat-card>
-<app-tech-picker [faction]="selectedFaction" [tech]="tech" *ngIf="selectedFaction"></app-tech-picker>
+<app-tech-picker [faction]="selectedFaction()" [tech]="tech()" *ngIf="selectedFaction()"></app-tech-picker>
