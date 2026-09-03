@@ -1,0 +1,47 @@
+mat-chip-option {
+	padding-right: 56px;
+	position: relative;
+}
+
+.race-complexity {
+	align-items: flex-start;
+	display: flex;
+	gap: 2px;
+	justify-content: flex-start;
+	position: absolute;
+	right: 16px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.complexity-bar {
+	box-sizing: border-box;
+	display: block;
+	height: 12px;
+	width: 24px;
+}
+
+.complexity-low .complexity-bar {
+	background-color: green;
+	color: green;
+}
+
+.complexity-moderate .complexity-bar {
+	background-color: yellow;
+	color: yellow;
+}
+
+.complexity-high .complexity-bar {
+	background-color: red;
+	color: red;
+}
+
+.complexity-low .complexity-bar.outline {
+	background-color: transparent !important;
+	border: 2px solid green;
+}
+
+.complexity-moderate .complexity-bar.outline {
+	background-color: transparent !important;
+	border: 2px solid yellow;
+}

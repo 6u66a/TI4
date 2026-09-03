@@ -2,6 +2,7 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SettingsService } from '../appstate/settings.service';
 import { DATA, Player, Race } from '../data/data';
+import { Complexity } from '../data/complexity.enum';
 
 @Component({
   standalone: false,
@@ -11,6 +12,7 @@ import { DATA, Player, Race } from '../data/data';
 })
 export class DraftComponent {
   private readonly settingsService = inject(SettingsService);
+  public readonly complexity = Complexity;
   displayedColumns: string[] = ['name', 'faction', 'position', 'slice'];
   public races = computed(() => DATA.races.filter(race => this.settingsService.settings().editions.includes(race.edition)));
   public draftRaces = signal<Race[]>([]);
@@ -69,6 +71,21 @@ export class DraftComponent {
         return i + "rd";
       default:
         return i + "th";
+    }
+  }
+
+  complexityLabel(complexity: Complexity): string {
+    return Complexity[complexity];
+  }
+
+  complexityBars(complexity: Complexity): boolean[] {
+    switch (complexity) {
+      case Complexity.Low:
+        return [false, true, true];
+      case Complexity.Moderate:
+        return [false, false, true];
+      case Complexity.High:
+        return [false, false, false];
     }
   }
 

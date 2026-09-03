@@ -70,6 +70,14 @@
           <mat-icon svgIcon="{{race.name.toLowerCase()}}" inline="true"></mat-icon>
         </mat-chip-avatar>
         <span>{{race.name}}</span>
+        <span class="race-complexity"
+          [class.complexity-low]="race.difficulty === complexity.Low"
+          [class.complexity-moderate]="race.difficulty === complexity.Moderate"
+          [class.complexity-high]="race.difficulty === complexity.High"
+          [attr.aria-label]="complexityLabel(race.difficulty)"
+          [title]="complexityLabel(race.difficulty)">
+          <span class="complexity-bar" [class.outline]="bar" *ngFor="let bar of complexityBars(race.difficulty)"></span>
+        </span>
       </mat-chip-option>
     </mat-chip-listbox>
   </mat-card-content>
