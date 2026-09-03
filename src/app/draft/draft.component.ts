@@ -1,6 +1,7 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatCheckboxChange } from '@angular/material/checkbox';
+import { SettingsService } from '../appstate/settings.service';
 import { DATA, Player, Race } from '../data/data';
 import { Edition } from '../data/edition.enum';
 
@@ -11,6 +12,7 @@ import { Edition } from '../data/edition.enum';
   styleUrls: ['./draft.component.css']
 })
 export class DraftComponent {
+  private readonly settingsService = inject(SettingsService);
   displayedColumns: string[] = ['name', 'faction', 'position', 'slice'];
   public races = signal<Race[]>([]);
   public players = signal<Player[]>([]);
@@ -49,7 +51,9 @@ export class DraftComponent {
   }
 
   shuffle(button: any) {
-    this.races.set(this.shuffleFisherYates([...DATA.races]).filter(r => this.filter.lastIndexOf(r.edition) !== -1).slice(0, this.players().length + 1));
+    this.races.set(this.shuffleFisherYates([...DATA.races])
+    .filter(r => this.filter.lastIndexOf(r.edition) !== -1)
+    .slice(0, this.players().length + this.settingsService.settings().additionalRaces));
     this.players.set(this.shuffleFisherYates([...this.players()]));
     this.positions.set(this.players().map((_, i) => this.formatter(i + 1)));
     this.slices.set(this.players().map(() => true));

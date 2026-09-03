@@ -7,11 +7,6 @@ export interface Data {
   genericTech: Array<Tech>;
 }
 
-export interface DraftSettings {
-  editions: Array<Edition>;
-  additionalRaces: number;
-}
-
 export interface Player {
   name: String | undefined | null;
   position?: String;

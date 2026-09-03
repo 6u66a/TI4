@@ -1,1 +1,22 @@
-<p>settings.component works!</p>
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Settings</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="saveSettings()">
+      <mat-checkbox formControlName="base">Base</mat-checkbox>
+      <mat-checkbox formControlName="pok">Prophecy of Kings</mat-checkbox>
+      <mat-checkbox formControlName="te">Thunder Edge</mat-checkbox>
+      <br>
+      <mat-form-field>
+        <mat-label>Additional races for drafting</mat-label>
+        <input matInput type="number" formControlName="additionalRaces" min="0" step="1">
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button type="button" mat-mini-fab (click)="saveSettings()" aria-label="Save settings">
+      <mat-icon>save</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
