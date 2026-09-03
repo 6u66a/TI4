@@ -3,7 +3,7 @@
     <mat-card-title>Settings</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <form [formGroup]="form" (ngSubmit)="saveSettings()">
+    <form [formGroup]="form">
       <mat-checkbox formControlName="base">Base</mat-checkbox>
       <mat-checkbox formControlName="pok">Prophecy of Kings</mat-checkbox>
       <mat-checkbox formControlName="te">Thunder Edge</mat-checkbox>
@@ -14,9 +14,4 @@
       </mat-form-field>
     </form>
   </mat-card-content>
-  <mat-card-actions>
-    <button type="button" mat-mini-fab (click)="saveSettings()" aria-label="Save settings">
-      <mat-icon>save</mat-icon>
-    </button>
-  </mat-card-actions>
 </mat-card>

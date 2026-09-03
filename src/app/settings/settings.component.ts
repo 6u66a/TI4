@@ -1,21 +1,18 @@
-import { Component, inject } from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { SettingsService } from '../appstate/settings.service';
 import { Edition } from '../data/edition.enum';
 
 @Component({
   imports: [
-    MatButtonModule,
     MatCardModule,
     MatCheckboxModule,
     MatFormFieldModule,
-    MatIconModule,
     MatInputModule,
     ReactiveFormsModule
   ],
@@ -25,6 +22,7 @@ import { Edition } from '../data/edition.enum';
 })
 export class SettingsComponent {
   private readonly settingsService = inject(SettingsService);
+  private readonly destroyRef = inject(DestroyRef);
 
   public readonly settings = this.settingsService.settings;
   public readonly form = new FormGroup({
@@ -34,7 +32,13 @@ export class SettingsComponent {
     additionalRaces: new FormControl(this.settings().additionalRaces, { nonNullable: true })
   });
 
-  public saveSettings(): void {
+  constructor() {
+    this.form.valueChanges
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(() => this.persistSettings());
+  }
+
+  private persistSettings(): void {
     const formValue = this.form.getRawValue();
     const editions: Edition[] = [];
 
