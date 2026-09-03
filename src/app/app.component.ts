@@ -1,6 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { SettingsService } from './appstate/settings.service';
+import { Edition } from './data/edition.enum';
 
 @Component({
   standalone: false,
@@ -11,6 +13,21 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class AppComponent {
   private matIconRegistry = inject(MatIconRegistry);
   private domSanitizer = inject(DomSanitizer);
+  private settingsService = inject(SettingsService);
+  public settingsLabel = computed(() => this.settingsService.settings().editions
+    .map(edition => this.editionLabel(edition))
+    .join(' + ') || 'No edition');
+
+  private editionLabel(edition: Edition): string {
+    switch (edition) {
+      case Edition.Base:
+        return ' ';
+      case Edition.PoK:
+        return 'PoK';
+      case Edition.TE:
+        return 'TE';
+    }
+  }
 
   constructor() {
     this.matIconRegistry.addSvgIcon('arborec', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/races/arborec.svg'))

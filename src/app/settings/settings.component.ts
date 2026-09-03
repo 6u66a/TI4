@@ -26,7 +26,7 @@ export class SettingsComponent {
 
   public readonly settings = this.settingsService.settings;
   public readonly form = new FormGroup({
-    base: new FormControl(this.settings().editions.includes(Edition.Base), { nonNullable: true }),
+    base: new FormControl({ value: true, disabled: true }, { nonNullable: true }),
     pok: new FormControl(this.settings().editions.includes(Edition.PoK), { nonNullable: true }),
     te: new FormControl(this.settings().editions.includes(Edition.TE), { nonNullable: true }),
     additionalRaces: new FormControl(this.settings().additionalRaces, { nonNullable: true })
@@ -40,11 +40,8 @@ export class SettingsComponent {
 
   private persistSettings(): void {
     const formValue = this.form.getRawValue();
-    const editions: Edition[] = [];
+    const editions: Edition[] = [Edition.Base];
 
-    if (formValue.base) {
-      editions.push(Edition.Base);
-    }
     if (formValue.pok) {
       editions.push(Edition.PoK);
     }

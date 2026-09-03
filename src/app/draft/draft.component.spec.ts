@@ -32,7 +32,7 @@ describe('DraftComponent', () => {
 
   it('updates draft choices and progress through signals', () => {
     component.players.set([{ name: 'Alice' }, { name: 'Bob' }]);
-    component.races.set([{ id: 1, name: 'Arborec', tech: [], startingtech: [], edition: 0 } as any]);
+    component.draftRaces.set([{ id: 1, name: 'Arborec', tech: [], startingtech: [], edition: 0 } as any]);
     component.positions.set(['Speaker']);
     component.slices.set([true]);
 

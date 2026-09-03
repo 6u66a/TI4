@@ -1,9 +1,7 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatCheckboxChange } from '@angular/material/checkbox';
 import { SettingsService } from '../appstate/settings.service';
 import { DATA, Player, Race } from '../data/data';
-import { Edition } from '../data/edition.enum';
 
 @Component({
   standalone: false,
@@ -14,14 +12,14 @@ import { Edition } from '../data/edition.enum';
 export class DraftComponent {
   private readonly settingsService = inject(SettingsService);
   displayedColumns: string[] = ['name', 'faction', 'position', 'slice'];
-  public races = signal<Race[]>([]);
+  public races = computed(() => DATA.races.filter(race => this.settingsService.settings().editions.includes(race.edition)));
+  public draftRaces = signal<Race[]>([]);
   public players = signal<Player[]>([]);
   public positions = signal<string[]>([]);
   public slices = signal<boolean[]>([]);
   public currentPosition = signal(0);
   public incomplete = computed(() => this.players().some(player => !player.position || !player.race || !player.slice));
   private increment: number = 1;
-  private filter: Edition[] = [Edition.Base];
   playerForm = new FormGroup({
     name: new FormControl<string | null>(null, Validators.required)
   })
@@ -30,15 +28,8 @@ export class DraftComponent {
 
   ngOnDestroy(): void {
     this.players.set([]);
+    this.draftRaces.set([]);
     this.playerForm.reset();
-  }
-
-  pokChange(change: MatCheckboxChange) {
-    if (change.checked) {
-      this.filter.push(Edition.PoK);
-    } else {
-      this.filter.splice(this.filter.lastIndexOf(Edition.PoK));
-    }
   }
 
   addPlayer(input: HTMLInputElement) {
@@ -51,8 +42,7 @@ export class DraftComponent {
   }
 
   shuffle(button: any) {
-    this.races.set(this.shuffleFisherYates([...DATA.races])
-    .filter(r => this.filter.lastIndexOf(r.edition) !== -1)
+    this.draftRaces.set(this.shuffleFisherYates([...this.races()])
     .slice(0, this.players().length + this.settingsService.settings().additionalRaces));
     this.players.set(this.shuffleFisherYates([...this.players()]));
     this.positions.set(this.players().map((_, i) => this.formatter(i + 1)));
@@ -95,8 +85,8 @@ export class DraftComponent {
   }
 
   draftRace(i: number): void {
-    this.players.update(players => players.map((player, index) => index === this.currentPosition() ? { ...player, race: this.races()[i] } : player));
-    this.races.update(races => races.filter((_, index) => index !== i));
+    this.players.update(players => players.map((player, index) => index === this.currentPosition() ? { ...player, race: this.draftRaces()[i] } : player));
+    this.draftRaces.update(races => races.filter((_, index) => index !== i));
     this.progressCounter();
   }
 

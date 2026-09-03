@@ -1,4 +1,4 @@
-<mat-card appearance="outlined" *ngIf="!races().length">
+<mat-card appearance="outlined" *ngIf="!draftRaces().length">
   <mat-card-header>
     <mat-card-title>Add Players</mat-card-title>
   </mat-card-header>
@@ -13,9 +13,6 @@
       </button>
     </form>
   </mat-card-content>
-  <mat-card-actions>
-    <mat-checkbox (change)="pokChange($event)">PoK</mat-checkbox>
-  </mat-card-actions>
 </mat-card>
 <br>
 <mat-card appearance="outlined">
@@ -68,7 +65,7 @@
   </mat-card-header>
   <mat-card-content>
     <mat-chip-listbox class="mat-mdc-chip-set-stacked">
-      <mat-chip-option *ngFor="let race of races(); let k = index" (click)="draftRace(k)">
+      <mat-chip-option *ngFor="let race of draftRaces(); let k = index" (click)="draftRace(k)">
         <mat-chip-avatar>
           <mat-icon svgIcon="{{race.name.toLowerCase()}}" inline="true"></mat-icon>
         </mat-chip-avatar>
