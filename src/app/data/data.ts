@@ -1,9 +1,15 @@
 import { Edition } from "./edition.enum";
 import { TechColor } from "./tech-color.enum";
+import { Complexity } from "./complexity.enum";
 
 export interface Data {
   races: Array<Race>;
   genericTech: Array<Tech>;
+}
+
+export interface DraftSettings {
+  editions: Array<Edition>;
+  additionalRaces: number;
 }
 
 export interface Player {
@@ -19,6 +25,7 @@ export interface Race {
   tech: Array<Tech>;
   startingtech: Array<number>;
   edition: Edition;
+  difficulty: Complexity;
 }
 
 export interface Tech {
@@ -52,6 +59,7 @@ export const DATA: Data = {
     {
       id: 1,
       name: "Arborec",
+      difficulty: Complexity.High,
       startingtech: [37],
       edition: Edition.Base,
       tech: [
@@ -82,6 +90,7 @@ export const DATA: Data = {
     {
       id: 2,
       name: "Barony of Letnev",
+      difficulty: Complexity.Low,
       startingtech: [50, 38],
       edition: Edition.Base,
       tech: [
@@ -112,6 +121,7 @@ export const DATA: Data = {
     {
       id: 3,
       name: "Clan of Saar",
+      difficulty: Complexity.Moderate,
       startingtech: [50],
       edition: Edition.Base,
       tech: [
@@ -142,6 +152,7 @@ export const DATA: Data = {
     {
       id: 4,
       name: "Embers of Muat",
+      difficulty: Complexity.High,
       startingtech: [38],
       edition: Edition.Base,
       tech: [
@@ -173,6 +184,7 @@ export const DATA: Data = {
     {
       id: 5,
       name: "Emirates of Hacan",
+      difficulty: Complexity.Low,
       startingtech: [50, 42],
       edition: Edition.Base,
       tech: [
@@ -203,6 +215,7 @@ export const DATA: Data = {
     {
       id: 6,
       name: "Federation of Sol",
+      difficulty: Complexity.Low,
       startingtech: [46, 50],
       edition: Edition.Base,
       tech: [
@@ -233,6 +246,7 @@ export const DATA: Data = {
     {
       id: 7,
       name: "Ghosts of Creuss",
+      difficulty: Complexity.Moderate,
       startingtech: [49],
       edition: Edition.Base,
       tech: [
@@ -263,6 +277,7 @@ export const DATA: Data = {
     {
       id: 8,
       name: "L1z1x Mindnet",
+      difficulty: Complexity.Low,
       startingtech: [46, 38],
       edition: Edition.Base,
       tech: [
@@ -294,6 +309,7 @@ export const DATA: Data = {
     {
       id: 9,
       name: "Mentak Coalition",
+      difficulty: Complexity.High,
       startingtech: [38, 42],
       edition: Edition.Base,
       tech: [
@@ -324,6 +340,7 @@ export const DATA: Data = {
     {
       id: 10,
       name: "Naalu Collective",
+      difficulty: Complexity.Moderate,
       startingtech: [42, 46],
       edition: Edition.Base,
       tech: [
@@ -355,6 +372,7 @@ export const DATA: Data = {
     {
       id: 11,
       name: "Nekro Virus",
+      difficulty: Complexity.High,
       startingtech: [45],
       edition: Edition.Base,
       tech: [
@@ -381,6 +399,7 @@ export const DATA: Data = {
     {
       id: 12,
       name: "Sardakk N'orr",
+      difficulty: Complexity.Moderate,
       startingtech: [],
       edition: Edition.Base,
       tech: [
@@ -412,6 +431,7 @@ export const DATA: Data = {
     {
       id: 13,
       name: "Universities of Jol-Nar",
+      difficulty: Complexity.Low,
       startingtech: [46, 50, 38, 42],
       edition: Edition.Base,
       tech: [
@@ -442,6 +462,7 @@ export const DATA: Data = {
     {
       id: 14,
       name: "Winnu",
+      difficulty: Complexity.Moderate,
       startingtech: [],
       edition: Edition.Base,
       tech: [
@@ -472,6 +493,7 @@ export const DATA: Data = {
     {
       id: 15,
       name: "Xxcha Kingdom",
+      difficulty: Complexity.Low,
       startingtech: [41],
       edition: Edition.Base,
       tech: [
@@ -502,6 +524,7 @@ export const DATA: Data = {
     {
       id: 16,
       name: "Yin Brotherhood",
+      difficulty: Complexity.Low,
       startingtech: [42],
       edition: Edition.Base,
       tech: [
@@ -532,6 +555,7 @@ export const DATA: Data = {
     {
       id: 17,
       name: "Yssaril Tribes",
+      difficulty: Complexity.Low,
       startingtech: [46],
       edition: Edition.Base,
       tech: [
@@ -562,6 +586,7 @@ export const DATA: Data = {
     {
       id: 18,
       name: "Argent Flight",
+      difficulty: Complexity.Low,
       startingtech: [],
       edition: Edition.PoK,
       tech: [
@@ -592,6 +617,7 @@ export const DATA: Data = {
     {
       id: 19,
       name: "Empyrean",
+      difficulty: Complexity.Low,
       startingtech: [62],
       edition: Edition.PoK,
       tech: [
@@ -620,6 +646,7 @@ export const DATA: Data = {
     {
       id: 20,
       name: "Mahact Gene-Sorcerers",
+      difficulty: Complexity.High,
       startingtech: [67, 61],
       edition: Edition.PoK,
       tech: [
@@ -648,6 +675,7 @@ export const DATA: Data = {
     {
       id: 21,
       name: "Naaz-Rokha Alliance",
+      difficulty: Complexity.Low,
       startingtech: [64, 60],
       edition: Edition.PoK,
       tech: [
@@ -676,6 +704,7 @@ export const DATA: Data = {
     {
       id: 22,
       name: "Nomad",
+      difficulty: Complexity.Low,
       startingtech: [63],
       edition: Edition.PoK,
       tech: [
@@ -706,6 +735,7 @@ export const DATA: Data = {
     {
       id: 23,
       name: "Titans of Ul",
+      difficulty: Complexity.Moderate,
       startingtech: [50, 66],
       edition: Edition.PoK,
       tech: [
@@ -735,6 +765,7 @@ export const DATA: Data = {
     {
       id: 24,
       name: "Vuil'Raith Cabal",
+      difficulty: Complexity.High,
       startingtech: [65],
       edition: Edition.PoK,
       tech: [

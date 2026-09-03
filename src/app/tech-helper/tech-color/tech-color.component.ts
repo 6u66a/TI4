@@ -24,7 +24,6 @@ export class TechColorComponent {
     }
     return delta;
   });
-  public Arr = Array;
 
   constructor() {
   }
