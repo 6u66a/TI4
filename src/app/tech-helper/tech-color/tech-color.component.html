@@ -1,17 +1,27 @@
 <div class="missingTech">
   @if (deltaTechColor()[colorEnum.red]!==undefined&&deltaTechColor()[colorEnum.red]>0) {
-    <h3 style="color: red">{{deltaTechColor()[colorEnum.red]}}</h3>
+    @for (dot of dots(deltaTechColor()[colorEnum.red]); track $index) {
+      <span class="dot" style="background-color: red"></span>
+    }
   }
   @if (deltaTechColor()[colorEnum.green]!==undefined&&deltaTechColor()[colorEnum.green]>0) {
-    <h3 style="color: green">{{deltaTechColor()[colorEnum.green]}}</h3>
+    @for (dot of dots(deltaTechColor()[colorEnum.green]); track $index) {
+      <span class="dot" style="background-color: green"></span>
+    }
   }
   @if (deltaTechColor()[colorEnum.yellow]!==undefined&&deltaTechColor()[colorEnum.yellow]>0) {
-    <h3 style="color: yellow">{{deltaTechColor()[colorEnum.yellow]}}</h3>
+    @for (dot of dots(deltaTechColor()[colorEnum.yellow]); track $index) {
+      <span class="dot" style="background-color: yellow"></span>
+    }
   }
   @if (deltaTechColor()[colorEnum.blue]!==undefined&&deltaTechColor()[colorEnum.blue]>0) {
-    <h3 style="color: blue">{{deltaTechColor()[colorEnum.blue]}}</h3>
+    @for (dot of dots(deltaTechColor()[colorEnum.blue]); track $index) {
+      <span class="dot" style="background-color: blue"></span>
+    }
   }
   @if (deltaTechColor()[colorEnum.black]!==undefined&&deltaTechColor()[colorEnum.black]>0) {
-    <h3 style="color: white">{{deltaTechColor()[colorEnum.black]}}</h3>
+    @for (dot of dots(deltaTechColor()[colorEnum.black]); track $index) {
+      <span class="dot" style="background-color: black"></span>
+    }
   }
 </div>

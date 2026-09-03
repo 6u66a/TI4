@@ -25,6 +25,10 @@ export class TechColorComponent {
     return delta;
   });
 
+  public dots(count: number): number[] {
+    return Array.from({ length: count }, (_, index) => index);
+  }
+
   constructor() {
   }
 
