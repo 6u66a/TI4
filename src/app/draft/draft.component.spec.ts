@@ -30,6 +30,13 @@ describe('DraftComponent', () => {
     expect(component.players()).toEqual([{ name: 'Alice' }]);
   });
 
+  it('allows Fisher-Yates to keep an element in place', () => {
+    spyOn(Math, 'random').and.returnValue(0.999999);
+    const races = ['Arborec', 'Barony', 'Saar'];
+
+    expect(component.shuffleFisherYates(races)).toEqual(['Arborec', 'Barony', 'Saar']);
+  });
+
   it('updates draft choices and progress through signals', () => {
     component.players.set([{ name: 'Alice' }, { name: 'Bob' }]);
     component.draftRaces.set([{ id: 1, name: 'Arborec', tech: [], startingtech: [], edition: 0 } as any]);
