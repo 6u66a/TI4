@@ -1,5 +1,5 @@
 import { Component, input, OnInit, signal } from '@angular/core';
-import { Race, RuntimeTech, State, Tech, TechColors } from '../../data/data';
+import { Faction, RuntimeTech, State, Tech, TechColors } from '../../data/data';
 import { TechColor } from '../../data/tech-color.enum';
 
 @Component({
@@ -20,7 +20,7 @@ export class TechPickerComponent implements OnInit {
 
   public colorEnum = TechColor;
   public Arr = Array;
-  faction = input<Race>();
+  faction = input<Faction>();
   tech = input<Tech[]>([]);
 
   constructor() { }
@@ -54,7 +54,7 @@ export class TechPickerComponent implements OnInit {
       return { tech: item, researched: startingTech, provided, available: false, researchDistance: 0 };
     });
     this.provided.set(provided);
-    this.state.set({ race: this.faction(), tech: runtimeTech });
+    this.state.set({ faction: this.faction(), tech: runtimeTech });
     this.state.update(state => state ? { ...state, tech: state.tech.map(item => { this.updateRequirements(item); return item; }).sort(this.distanceSorter) } : state);
   }
 

@@ -1,4 +1,4 @@
-<mat-card appearance="outlined" *ngIf="!draftRaces().length">
+<mat-card appearance="outlined" *ngIf="!draftFactions().length">
   <mat-card-header>
     <mat-card-title>Add Players</mat-card-title>
   </mat-card-header>
@@ -29,7 +29,7 @@
       <ng-container matColumnDef="faction">
         <th mat-header-cell *matHeaderCellDef> Faction </th>
         <td mat-cell *matCellDef="let element">
-          <mat-icon aria-hidden="false" svgIcon="{{element.race?.name?.toLowerCase()}}"></mat-icon>
+          <mat-icon aria-hidden="false" svgIcon="{{element.faction?.name?.toLowerCase()}}"></mat-icon>
         </td>
       </ng-container>
 
@@ -59,24 +59,24 @@
 
 <h2 *ngIf="incomplete()">It´s time for {{players()[currentPosition()].name}} to draft</h2>
 
-<mat-card appearance="outlined" *ngIf="!players()[currentPosition()]?.race">
+<mat-card appearance="outlined" *ngIf="!players()[currentPosition()]?.faction">
   <mat-card-header>
     <mat-card-title>Faction to draft</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <mat-chip-listbox class="mat-mdc-chip-set-stacked">
-      <mat-chip-option *ngFor="let race of draftRaces(); let k = index" (click)="draftRace(k)">
+      <mat-chip-option *ngFor="let faction of draftFactions(); let k = index" (click)="draftFaction(k)">
         <mat-chip-avatar>
-          <mat-icon svgIcon="{{race.name.toLowerCase()}}" inline="true"></mat-icon>
+          <mat-icon svgIcon="{{faction.name.toLowerCase()}}" inline="true"></mat-icon>
         </mat-chip-avatar>
-        <span>{{race.name}}</span>
-        <span class="race-complexity"
-          [class.complexity-low]="race.difficulty === complexity.Low"
-          [class.complexity-moderate]="race.difficulty === complexity.Moderate"
-          [class.complexity-high]="race.difficulty === complexity.High"
-          [attr.aria-label]="complexityLabel(race.difficulty)"
-          [title]="complexityLabel(race.difficulty)">
-          <span class="complexity-bar" [class.outline]="bar" *ngFor="let bar of complexityBars(race.difficulty)"></span>
+        <span>{{faction.name}}</span>
+        <span class="faction-complexity"
+          [class.complexity-low]="faction.difficulty === complexity.Low"
+          [class.complexity-moderate]="faction.difficulty === complexity.Moderate"
+          [class.complexity-high]="faction.difficulty === complexity.High"
+          [attr.aria-label]="complexityLabel(faction.difficulty)"
+          [title]="complexityLabel(faction.difficulty)">
+          <span class="complexity-bar" [class.outline]="bar" *ngFor="let bar of complexityBars(faction.difficulty)"></span>
         </span>
       </mat-chip-option>
     </mat-chip-listbox>

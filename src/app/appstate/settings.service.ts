@@ -5,11 +5,11 @@ import { Edition } from '../data/edition.enum';
 export class SettingsService {
   public settings = signal<Settings>({
     editions: [Edition.Base],
-    additionalRaces: 0
+    additionalFactions: 0
   });
 }
 
 export interface Settings {
   editions: Array<Edition>;
-  additionalRaces: number;
+  additionalFactions: number;
 }

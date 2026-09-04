@@ -29,7 +29,7 @@ export class SettingsComponent {
     base: new FormControl({ value: true, disabled: true }, { nonNullable: true }),
     pok: new FormControl(this.settings().editions.includes(Edition.PoK), { nonNullable: true }),
     te: new FormControl(this.settings().editions.includes(Edition.TE), { nonNullable: true }),
-    additionalRaces: new FormControl(this.settings().additionalRaces, { nonNullable: true })
+    additionalFactions: new FormControl(this.settings().additionalFactions, { nonNullable: true })
   });
 
   constructor() {
@@ -51,7 +51,7 @@ export class SettingsComponent {
 
     this.settingsService.settings.set({
       editions,
-      additionalRaces: Math.max(0, formValue.additionalRaces)
+      additionalFactions: Math.max(0, formValue.additionalFactions)
     });
   }
 }

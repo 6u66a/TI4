@@ -3,18 +3,18 @@ import { TechColor } from "./tech-color.enum";
 import { Complexity } from "./complexity.enum";
 
 export interface Data {
-  races: Array<Race>;
+  factions: Array<Faction>;
   genericTech: Array<Tech>;
 }
 
 export interface Player {
   name: String | undefined | null;
   position?: String;
-  race?: Race;
+  faction?: Faction;
   slice?: Boolean;
 }
 
-export interface Race {
+export interface Faction {
   id: Number;
   name: String;
   tech: Array<Tech>;
@@ -45,12 +45,12 @@ export interface TechColors {
 }
 
 export interface State {
-  race?: Race;
+  faction?: Faction;
   tech: Array<RuntimeTech>;
 }
 
 export const DATA: Data = {
-  races: [
+  factions: [
     {
       id: 1,
       name: "Arborec",

@@ -22,11 +22,11 @@ describe('TechHelperComponent', () => {
   });
 
   it('selects a faction and exposes its filtered technologies', () => {
-    const race = component.races[0];
+    const faction = component.factions()[0];
 
-    component.raceClick_hdl(race);
+    component.factionClick_hdl(faction);
 
-    expect(component.selectedFaction()).toBe(race);
+    expect(component.selectedFaction()).toBe(faction);
     expect(component.tech().length).toBeGreaterThan(0);
     expect(component.tech().every(tech => tech.edition === 0)).toBeTrue();
   });

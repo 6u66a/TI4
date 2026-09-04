@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1788514065199,
+  "timestamp": 1788514312199,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,10 +13,10 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main-2ZO4KO7D.js",
+        "/main.js",
         "/manifest.webmanifest",
-        "/polyfills-5CFQRCPP.js",
-        "/styles-B4MDRMFU.css"
+        "/polyfills.js",
+        "/styles.css"
       ],
       "patterns": []
     },
@@ -95,11 +95,11 @@
     "/assets/races/yin brotherhood.svg": "e18d3406b6dcdbd570c78c0f913cb6f112a5ffe2",
     "/assets/races/yssaril tribes.svg": "7ada7e6085840c1cdce0c580faeaa7d915ace366",
     "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/index.html": "3e459d19e84709e6147b90421d80feaa8569474f",
-    "/main-2ZO4KO7D.js": "91dede85df0b2011c4147b6f86081dd65d950c3d",
+    "/index.html": "517a0b1c28f46dd931f5405252c76895a0647843",
+    "/main.js": "df063589c7ad33c62a9df1f4435f2417eb3e5096",
     "/manifest.webmanifest": "27ee91ae32b7ba53c0b8eefab0e378624c9c1d9e",
-    "/polyfills-5CFQRCPP.js": "f2241e9a25858f895ce299d15f6f22e849e2fd72",
-    "/styles-B4MDRMFU.css": "5e5ab0f8f9f8eab5a8585eeed1ac11b9f057c127"
+    "/polyfills.js": "c84285b1224ba8dff3860145317c80fe214878fe",
+    "/styles.css": "765f78b45be28b16faf643beef89cdc3f6f026b7"
   },
   "navigationUrls": [
     {

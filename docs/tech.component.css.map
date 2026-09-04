@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/tech-helper/tech/tech.component.css"],
+  "sourcesContent": [".headers-align .mat-expansion-panel-header-description {\r\n    justify-content: right;\r\n    align-items: center;\r\n    margin-right: 0;\r\n}\r\n\r\n.headers-align .mat-expansion-panel-header {\r\n    padding-right: 0;\r\n}\r\n\r\n.headers-align .mat-expansion-panel-header-description div {\r\n    padding-left: 5px;\r\n}\r\n\r\n.headers-align .mat-expansion-panel-header-title .mat-icon {\r\n    padding-right: 5px;\r\n}\r\n\r\n.headers-align .mat-expansion-panel-header-title {\r\n    margin-right: 0px;\r\n    flex-grow: 4;\r\n}"],
+  "mappings": ";AAAA,CAAC,cAAc,CAAC;AACZ,mBAAiB;AACjB,eAAa;AACb,gBAAc;AAClB;AAEA,CANC,cAMc,CAAC;AACZ,iBAAe;AACnB;AAEA,CAVC,cAUc,CAVC,uCAUuC;AACnD,gBAAc;AAClB;AAEA,CAdC,cAcc,CAAC,iCAAiC,CAAC;AAC9C,iBAAe;AACnB;AAEA,CAlBC,cAkBc,CAJC;AAKZ,gBAAc;AACd,aAAW;AACf;",
+  "names": []
+}
