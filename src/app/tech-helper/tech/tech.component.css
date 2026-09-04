@@ -1,6 +1,11 @@
 .headers-align .mat-expansion-panel-header-description {
     justify-content: right;
     align-items: center;
+    margin-right: 0;
+}
+
+.headers-align .mat-expansion-panel-header {
+    padding-right: 0;
 }
 
 .headers-align .mat-expansion-panel-header-description div {

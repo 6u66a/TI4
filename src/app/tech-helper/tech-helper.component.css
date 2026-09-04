@@ -2,6 +2,11 @@ section {
     width: 100%;
 }
 
+app-tech-picker {
+    display: block;
+    width: 100%;
+}
+
 button {
     display: flex;
     width: 100%;

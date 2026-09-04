@@ -17,8 +17,8 @@ mat-chip-option {
 .complexity-bar {
 	box-sizing: border-box;
 	display: block;
-	height: 12px;
-	width: 24px;
+	height: 8px;
+	width: 16px;
 }
 
 .complexity-low .complexity-bar {
