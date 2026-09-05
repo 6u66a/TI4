@@ -809,10 +809,10 @@ export const DATA: Data = {
     {
       id: 37,
       edition: Edition.Base,
-      name: "Magen Defense Grid Ω",
+      name: "Magen Defense Grid ΩΩ",
       requirements: { [TechColor.red]: 1 },
       description:
-        "At the start of ground combat on a planet that contains 1 or more of your structures, you may produce 1 hit and assign it to 1 of your opponent´s ground forces.",
+        "<ul><li>When any player activates a system that contains 1 or more of your structures, place 1 infantry from your reinforcements with each of those structures.</li><li>At the start of ground combat on a planet that contains 1 or more of your structures, produce 1 hit and assign it to 1 of your opponent's ground forces.</li></ul>",
       provides: TechColor.red
     },
     {
@@ -863,10 +863,10 @@ export const DATA: Data = {
     {
       id: 43,
       edition: Edition.Base,
-      name: "X-89 Bacterial Weapon Ω",
+      name: "X-89 Bacterial Weapon ΩΩ",
       requirements: { [TechColor.green]: 3 },
       description:
-        "After 1 or more of your units use BOMBARDMENT against a planet, if at least 1 of your opponent´s infantry was destroyed, you may destroy all of your opponent´s infantry on that planet.",
+        "<ul><li>Double the hits produced by your units' BOMBARDMENT and ground combat rolls.</li><li>Exhaust each planet you use BOMBARDMENT against.</li></ul>",
       provides: TechColor.green
     },
     {
