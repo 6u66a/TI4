@@ -19,6 +19,35 @@
 					</mat-error>
 				}
 			</mat-form-field>
+			<button mat-raised-button type="button" (click)="generateSlices()">
+				Generate slices
+			</button>
 		</form>
 	</mat-card-content>
 </mat-card>
+
+@if (generatedSlices.length) {
+	<div class="slice-list">
+		@for (slice of generatedSlices; track $index; let sliceIndex = $index) {
+			<mat-card appearance="outlined" class="slice-card">
+				<mat-card-header>
+					<mat-card-title>Slice {{ sliceIndex + 1 }}</mat-card-title>
+				</mat-card-header>
+				<mat-card-content>
+					<h3>Blue systems</h3>
+					<ul>
+						@for (system of slice.blue; track system.id) {
+							<li>System {{ system.id }}</li>
+						}
+					</ul>
+					<h3>Red systems</h3>
+					<ul>
+						@for (system of slice.red; track system.id) {
+							<li>System {{ system.id }}</li>
+						}
+					</ul>
+				</mat-card-content>
+			</mat-card>
+		}
+	</div>
+}

@@ -1,17 +1,24 @@
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Component, computed, effect, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SettingsService } from '../appstate/settings.service';
-import { DATA, Faction, Player } from '../data/data';
+import { DATA, System } from '../data/data';
 import { Edition } from '../data/edition.enum';
 import { SystemType } from '../data/system.enum';
+
+interface GeneratedSlice {
+  blue: System[];
+  red: System[];
+}
 
 @Component({
   imports: [
     MatCardModule,
+    MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule
@@ -41,6 +48,8 @@ export class SliceGeneratorComponent {
     })
   });
 
+  public generatedSlices: GeneratedSlice[] = [];
+
   constructor() {
     effect(() => {
       const maxPlayerCount = this.maxPlayerCount();
@@ -58,5 +67,30 @@ export class SliceGeneratorComponent {
 
       playerCount.updateValueAndValidity({ emitEvent: false });
     });
+  }
+
+  generateSlices(): void {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+
+    const playerCount = this.form.controls.playerCount.value;
+    const blueSystems = this.shuffleFisherYates([...this.blueSystems()]);
+    const redSystems = this.shuffleFisherYates([...this.redSystems()]);
+
+    this.generatedSlices = Array.from({ length: playerCount }, () => ({
+      blue: blueSystems.splice(0, 3),
+      red: redSystems.splice(0, 2)
+    }));
+  }
+
+  shuffleFisherYates<T>(array: T[]): T[] {
+    let i = array.length;
+    while (i--) {
+      const ri = Math.floor(Math.random() * (i + 1));
+      [array[i], array[ri]] = [array[ri], array[i]];
+    }
+    return array;
   }
 }
