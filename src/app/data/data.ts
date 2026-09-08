@@ -1,10 +1,18 @@
 import { Edition } from "./edition.enum";
 import { TechColor } from "./tech-color.enum";
 import { Complexity } from "./complexity.enum";
+import { SystemType } from "./system.enum";
 
 export interface Data {
   factions: Array<Faction>;
   genericTech: Array<Tech>;
+  systems: Array<System>;
+}
+
+export interface System {
+  id: Number;
+  type: SystemType;
+  edition: Edition;
 }
 
 export interface Player {
@@ -1085,5 +1093,39 @@ export const DATA: Data = {
         "<ul><li>At the end of your turn, you may exhaust this card to redistribute your command tokens</li><li>When you cast votes during the agenda phase, you may cast 3 additional votes; if you do, and the outcome you voted for is not resolved, exhaust this card</li></ul>",
       provides: TechColor.yellow
     }
+  ],
+  systems: [
+    { id: 19, type: SystemType.Blue, edition: Edition.Base },
+    { id: 20, type: SystemType.Blue, edition: Edition.Base },
+    { id: 21, type: SystemType.Blue, edition: Edition.Base },
+    { id: 22, type: SystemType.Blue, edition: Edition.Base },
+    { id: 23, type: SystemType.Blue, edition: Edition.Base },
+    { id: 24, type: SystemType.Blue, edition: Edition.Base },
+    { id: 25, type: SystemType.Blue, edition: Edition.Base },
+    { id: 26, type: SystemType.Blue, edition: Edition.Base },
+    { id: 27, type: SystemType.Blue, edition: Edition.Base },
+    { id: 28, type: SystemType.Blue, edition: Edition.Base },
+    { id: 29, type: SystemType.Blue, edition: Edition.Base },
+    { id: 30, type: SystemType.Blue, edition: Edition.Base },
+    { id: 31, type: SystemType.Blue, edition: Edition.Base },
+    { id: 32, type: SystemType.Blue, edition: Edition.Base },
+    { id: 33, type: SystemType.Blue, edition: Edition.Base },
+    { id: 34, type: SystemType.Blue, edition: Edition.Base },
+    { id: 35, type: SystemType.Blue, edition: Edition.Base },
+    { id: 36, type: SystemType.Blue, edition: Edition.Base },
+    { id: 37, type: SystemType.Blue, edition: Edition.Base },
+    { id: 38, type: SystemType.Blue, edition: Edition.Base },
+    { id: 39, type: SystemType.Red, edition: Edition.Base },
+    { id: 40, type: SystemType.Red, edition: Edition.Base },
+    { id: 41, type: SystemType.Red, edition: Edition.Base },
+    { id: 42, type: SystemType.Red, edition: Edition.Base },
+    { id: 43, type: SystemType.Red, edition: Edition.Base },
+    { id: 44, type: SystemType.Red, edition: Edition.Base },
+    { id: 45, type: SystemType.Red, edition: Edition.Base },
+    { id: 46, type: SystemType.Red, edition: Edition.Base },
+    { id: 47, type: SystemType.Red, edition: Edition.Base },
+    { id: 48, type: SystemType.Red, edition: Edition.Base },
+    { id: 49, type: SystemType.Red, edition: Edition.Base },
+    { id: 50, type: SystemType.Red, edition: Edition.Base },
   ]
 };
