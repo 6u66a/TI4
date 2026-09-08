@@ -6,8 +6,8 @@
 		<form [formGroup]="form">
 			<mat-form-field>
 				<mat-label>Number of players</mat-label>
-				<input matInput type="number" formControlName="playerCount" min="4" max="8" step="1">
-				<mat-hint>4 to 8 players</mat-hint>
+				<input matInput type="number" formControlName="playerCount" min="4" [max]="maxPlayerCount()" step="1">
+				<mat-hint>4 to {{ maxPlayerCount() }} players</mat-hint>
 				@if (form.controls.playerCount.hasError('required')) {
 					<mat-error>
 					Enter the number of players.
@@ -15,7 +15,7 @@
 				}
 				@if (form.controls.playerCount.hasError('min') || form.controls.playerCount.hasError('max')) {
 					<mat-error>
-					Enter a number between 4 and 8.
+					Enter a number between 4 and {{ maxPlayerCount() }}.
 					</mat-error>
 				}
 			</mat-form-field>
