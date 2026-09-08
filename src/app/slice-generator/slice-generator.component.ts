@@ -8,7 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SettingsService } from '../appstate/settings.service';
 import { DATA, System } from '../data/data';
 import { Edition } from '../data/edition.enum';
-import { SystemType } from '../data/system.enum';
+import { SystemType } from '../data/tiles.enum';
 
 interface GeneratedSlice {
   blue: System[];

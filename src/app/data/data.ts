@@ -1,7 +1,7 @@
 import { Edition } from "./edition.enum";
 import { TechColor } from "./tech-color.enum";
 import { Complexity } from "./complexity.enum";
-import { SystemType } from "./system.enum";
+import { SystemType } from "./tiles.enum";
 
 export interface Data {
   factions: Array<Faction>;
