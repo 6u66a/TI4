@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
-    <span>{{state()?.faction?.name}}</span>
-    <mat-icon class="factionIcon" svgIcon="{{state()?.faction?.name?.toLowerCase()}}" inline="true"></mat-icon>
+    <img class="faction-icon" [src]="factionIcon(state()?.faction)" [alt]="state()?.faction?.name ?? ''" [title]="state()?.faction?.name ?? ''">
+    <span>The {{state()?.faction?.name}}</span>
     <span class="spacer"></span>
     <h3 style="color: red">{{provided()[colorEnum.red]}}</h3>
     <h3 style="color: green">{{provided()[colorEnum.green]}}</h3>

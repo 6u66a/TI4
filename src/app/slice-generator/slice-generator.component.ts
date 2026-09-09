@@ -15,6 +15,15 @@ interface GeneratedSlice {
   red: System[];
 }
 
+interface SliceSummary {
+  resources: number;
+  influence: number;
+  bioticSpecialties: number;
+  warfareSpecialties: number;
+  propulsionSpecialties: number;
+  cyberneticSpecialties: number;
+}
+
 @Component({
   imports: [
     MatCardModule,
@@ -30,6 +39,8 @@ interface GeneratedSlice {
 export class SliceGeneratorComponent {
 
   private readonly settingsService = inject(SettingsService);
+  readonly PlanetTrait = PlanetTrait;
+  readonly TechSpecialty = TechSpecialty;
 
   public readonly maxPlayerCount = computed(() => {
     const editions = this.settingsService.settings().editions;
@@ -58,10 +69,10 @@ export class SliceGeneratorComponent {
   };
 
   readonly wormholeNames: Record<number, string> = {
-    [Wormwhole.ALPHA]: 'Alpha',
-    [Wormwhole.BETA]: 'Beta',
-    [Wormwhole.GAMMA]: 'Gamma',
-    [Wormwhole.DELTA]: 'Delta'
+    [Wormwhole.ALPHA]: 'α',
+    [Wormwhole.BETA]: 'β',
+    [Wormwhole.GAMMA]: 'γ',
+    [Wormwhole.DELTA]: 'δ'
   };
 
   readonly traitNames: Record<number, string> = {
@@ -124,7 +135,30 @@ export class SliceGeneratorComponent {
     this.generatedSlices = Array.from({ length: playerCount }, () => ({
       blue: blueSystems.splice(0, 3),
       red: redSystems.splice(0, 2)
-    }));
+    })).sort((left, right) => {
+      const leftSummary = this.sliceSummary(left);
+      const rightSummary = this.sliceSummary(right);
+
+      return rightSummary.resources - leftSummary.resources
+        || rightSummary.influence - leftSummary.influence;
+    });
+  }
+
+  sliceSummary(slice: GeneratedSlice): SliceSummary {
+    const planets = [...slice.blue].flatMap(system => system.planets ?? []);
+
+    return {
+      resources: planets.reduce((total, planet) => total + Number(planet.resources), 0),
+      influence: planets.reduce((total, planet) => total + Number(planet.influence), 0),
+      bioticSpecialties: this.countSpecialties(planets, TechSpecialty.BIOTIC),
+      warfareSpecialties: this.countSpecialties(planets, TechSpecialty.WARFARE),
+      propulsionSpecialties: this.countSpecialties(planets, TechSpecialty.PROPULSION),
+      cyberneticSpecialties: this.countSpecialties(planets, TechSpecialty.CYBERNETIC)
+    };
+  }
+
+  private countSpecialties(planets: NonNullable<System['planets']>, specialty: TechSpecialty): number {
+    return planets.reduce((total, planet) => total + (planet.techSpecialty?.includes(specialty) ? 1 : 0), 0);
   }
 
   shuffleFisherYates<T>(array: T[]): T[] {

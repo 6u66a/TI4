@@ -30,10 +30,37 @@
 	<div class="slice-list">
 		@for (slice of generatedSlices; track $index; let sliceIndex = $index) {
 			<mat-card appearance="outlined" class="slice-card">
+				@let summary = sliceSummary(slice);
 				<mat-card-header>
-					<mat-card-title>Slice {{ sliceIndex + 1 }}</mat-card-title>
+					<mat-card-title>Slice {{ sliceIndex + 1 }} ({{ summary.resources }} / {{ summary.influence }})</mat-card-title>
 				</mat-card-header>
 				<mat-card-content>
+					<div class="slice-summary" aria-label="Slice overview">
+						@if (summary.bioticSpecialties > 0) {
+						<span class="summary-item">
+							<img [src]="generalIconPath + specialtyIcons[TechSpecialty.BIOTIC]" alt="Biotic specialties" title="Biotic specialties">
+							<strong>{{ summary.bioticSpecialties }}</strong>
+						</span>
+						}
+						@if (summary.warfareSpecialties > 0) {
+						<span class="summary-item">
+							<img [src]="generalIconPath + specialtyIcons[TechSpecialty.WARFARE]" alt="Warfare specialties" title="Warfare specialties">
+							<strong>{{ summary.warfareSpecialties }}</strong>
+						</span>
+						}
+						@if (summary.propulsionSpecialties > 0) {
+						<span class="summary-item">
+							<img [src]="generalIconPath + specialtyIcons[TechSpecialty.PROPULSION]" alt="Propulsion specialties" title="Propulsion specialties">
+							<strong>{{ summary.propulsionSpecialties }}</strong>
+						</span>
+						}
+						@if (summary.cyberneticSpecialties > 0) {
+						<span class="summary-item">
+							<img [src]="generalIconPath + specialtyIcons[TechSpecialty.CYBERNETIC]" alt="Cybernetic specialties" title="Cybernetic specialties">
+							<strong>{{ summary.cyberneticSpecialties }}</strong>
+						</span>
+						}
+					</div>
 					<h3>Blue systems</h3>
 					<ul>
 						@for (system of slice.blue; track system.id) {

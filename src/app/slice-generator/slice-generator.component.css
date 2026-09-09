@@ -9,6 +9,29 @@
 	margin-bottom: 4px;
 }
 
+.slice-summary {
+	display: grid;
+	gap: 4px 12px;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	margin-bottom: 16px;
+}
+
+.summary-item {
+	align-items: center;
+	display: inline-flex;
+	gap: 4px;
+}
+
+.resource-influence {
+	grid-column: 1 / -1;
+}
+
+.summary-item img {
+	height: 24px;
+	object-fit: contain;
+	width: 24px;
+}
+
 .slice-card ul {
 	margin-top: 0;
 }

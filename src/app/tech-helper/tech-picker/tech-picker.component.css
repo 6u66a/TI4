@@ -1,0 +1,16 @@
+.faction-icon {
+	height: 32px;
+	margin-left: 8px;
+	margin-right: 8px;
+	object-fit: contain;
+	width: 32px;
+}
+
+.spacer {
+	flex: 1 1 auto;
+}
+
+h3 {
+	margin: 0 0 0 12px;
+	text-align: right;
+}
