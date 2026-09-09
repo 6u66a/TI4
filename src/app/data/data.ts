@@ -1,7 +1,7 @@
 import { Edition } from "./edition.enum";
 import { TechColor } from "./tech-color.enum";
 import { Complexity } from "./complexity.enum";
-import { SystemType } from "./tiles.enum";
+import { PlanetTrait, SystemType, Anomaly, TechSpecialty, Wormwhole } from "./tiles.enum";
 
 export interface Data {
   factions: Array<Faction>;
@@ -13,6 +13,19 @@ export interface System {
   id: Number;
   type: SystemType;
   edition: Edition;
+  planets?: Array<Planet>;
+  anomaly?: Anomaly;
+  wormholes?: Array<Wormwhole>;
+}
+
+export interface Planet {
+  name: String;
+  traits: Array<PlanetTrait>;
+  resources: Number;
+  influence: Number;
+  legendary?: Boolean;
+  homePlanet?: Faction;
+  techSpecialty?: Array<TechSpecialty>;
 }
 
 export interface Player {
@@ -28,7 +41,7 @@ export interface Faction {
   tech: Array<Tech>;
   startingtech: Array<number>;
   edition: Edition;
-  difficulty: Complexity;
+  complexity: Complexity;
 }
 
 export interface Tech {
@@ -62,7 +75,7 @@ export const DATA: Data = {
     {
       id: 1,
       name: "Arborec",
-      difficulty: Complexity.High,
+      complexity: Complexity.High,
       startingtech: [37],
       edition: Edition.Base,
       tech: [
@@ -93,7 +106,7 @@ export const DATA: Data = {
     {
       id: 2,
       name: "Barony of Letnev",
-      difficulty: Complexity.Low,
+      complexity: Complexity.Low,
       startingtech: [50, 38],
       edition: Edition.Base,
       tech: [
@@ -124,7 +137,7 @@ export const DATA: Data = {
     {
       id: 3,
       name: "Clan of Saar",
-      difficulty: Complexity.Moderate,
+      complexity: Complexity.Moderate,
       startingtech: [50],
       edition: Edition.Base,
       tech: [
@@ -155,7 +168,7 @@ export const DATA: Data = {
     {
       id: 4,
       name: "Embers of Muat",
-      difficulty: Complexity.High,
+      complexity: Complexity.High,
       startingtech: [38],
       edition: Edition.Base,
       tech: [
@@ -187,7 +200,7 @@ export const DATA: Data = {
     {
       id: 5,
       name: "Emirates of Hacan",
-      difficulty: Complexity.Low,
+      complexity: Complexity.Low,
       startingtech: [50, 42],
       edition: Edition.Base,
       tech: [
@@ -218,7 +231,7 @@ export const DATA: Data = {
     {
       id: 6,
       name: "Federation of Sol",
-      difficulty: Complexity.Low,
+      complexity: Complexity.Low,
       startingtech: [46, 50],
       edition: Edition.Base,
       tech: [
@@ -249,7 +262,7 @@ export const DATA: Data = {
     {
       id: 7,
       name: "Ghosts of Creuss",
-      difficulty: Complexity.Moderate,
+      complexity: Complexity.Moderate,
       startingtech: [49],
       edition: Edition.Base,
       tech: [
@@ -280,7 +293,7 @@ export const DATA: Data = {
     {
       id: 8,
       name: "L1z1x Mindnet",
-      difficulty: Complexity.Low,
+      complexity: Complexity.Low,
       startingtech: [46, 38],
       edition: Edition.Base,
       tech: [
@@ -312,7 +325,7 @@ export const DATA: Data = {
     {
       id: 9,
       name: "Mentak Coalition",
-      difficulty: Complexity.High,
+      complexity: Complexity.High,
       startingtech: [38, 42],
       edition: Edition.Base,
       tech: [
@@ -343,7 +356,7 @@ export const DATA: Data = {
     {
       id: 10,
       name: "Naalu Collective",
-      difficulty: Complexity.Moderate,
+      complexity: Complexity.Moderate,
       startingtech: [42, 46],
       edition: Edition.Base,
       tech: [
@@ -375,7 +388,7 @@ export const DATA: Data = {
     {
       id: 11,
       name: "Nekro Virus",
-      difficulty: Complexity.High,
+      complexity: Complexity.High,
       startingtech: [45],
       edition: Edition.Base,
       tech: [
@@ -402,7 +415,7 @@ export const DATA: Data = {
     {
       id: 12,
       name: "Sardakk N'orr",
-      difficulty: Complexity.Moderate,
+      complexity: Complexity.Moderate,
       startingtech: [],
       edition: Edition.Base,
       tech: [
@@ -434,7 +447,7 @@ export const DATA: Data = {
     {
       id: 13,
       name: "Universities of Jol-Nar",
-      difficulty: Complexity.Low,
+      complexity: Complexity.Low,
       startingtech: [46, 50, 38, 42],
       edition: Edition.Base,
       tech: [
@@ -465,7 +478,7 @@ export const DATA: Data = {
     {
       id: 14,
       name: "Winnu",
-      difficulty: Complexity.Moderate,
+      complexity: Complexity.Moderate,
       startingtech: [],
       edition: Edition.Base,
       tech: [
@@ -496,7 +509,7 @@ export const DATA: Data = {
     {
       id: 15,
       name: "Xxcha Kingdom",
-      difficulty: Complexity.Low,
+      complexity: Complexity.Low,
       startingtech: [41],
       edition: Edition.Base,
       tech: [
@@ -527,7 +540,7 @@ export const DATA: Data = {
     {
       id: 16,
       name: "Yin Brotherhood",
-      difficulty: Complexity.Low,
+      complexity: Complexity.Low,
       startingtech: [42],
       edition: Edition.Base,
       tech: [
@@ -558,7 +571,7 @@ export const DATA: Data = {
     {
       id: 17,
       name: "Yssaril Tribes",
-      difficulty: Complexity.Low,
+      complexity: Complexity.Low,
       startingtech: [46],
       edition: Edition.Base,
       tech: [
@@ -589,7 +602,7 @@ export const DATA: Data = {
     {
       id: 18,
       name: "Argent Flight",
-      difficulty: Complexity.Low,
+      complexity: Complexity.Low,
       startingtech: [],
       edition: Edition.PoK,
       tech: [
@@ -620,7 +633,7 @@ export const DATA: Data = {
     {
       id: 19,
       name: "Empyrean",
-      difficulty: Complexity.Low,
+      complexity: Complexity.Low,
       startingtech: [62],
       edition: Edition.PoK,
       tech: [
@@ -649,7 +662,7 @@ export const DATA: Data = {
     {
       id: 20,
       name: "Mahact Gene-Sorcerers",
-      difficulty: Complexity.High,
+      complexity: Complexity.High,
       startingtech: [67, 61],
       edition: Edition.PoK,
       tech: [
@@ -678,7 +691,7 @@ export const DATA: Data = {
     {
       id: 21,
       name: "Naaz-Rokha Alliance",
-      difficulty: Complexity.Low,
+      complexity: Complexity.Low,
       startingtech: [64, 60],
       edition: Edition.PoK,
       tech: [
@@ -707,7 +720,7 @@ export const DATA: Data = {
     {
       id: 22,
       name: "Nomad",
-      difficulty: Complexity.Low,
+      complexity: Complexity.Low,
       startingtech: [63],
       edition: Edition.PoK,
       tech: [
@@ -738,7 +751,7 @@ export const DATA: Data = {
     {
       id: 23,
       name: "Titans of Ul",
-      difficulty: Complexity.Moderate,
+      complexity: Complexity.Moderate,
       startingtech: [50, 66],
       edition: Edition.PoK,
       tech: [
@@ -768,7 +781,7 @@ export const DATA: Data = {
     {
       id: 24,
       name: "Vuil'Raith Cabal",
-      difficulty: Complexity.High,
+      complexity: Complexity.High,
       startingtech: [65],
       edition: Edition.PoK,
       tech: [
@@ -1095,37 +1108,316 @@ export const DATA: Data = {
     }
   ],
   systems: [
-    { id: 19, type: SystemType.Blue, edition: Edition.Base },
-    { id: 20, type: SystemType.Blue, edition: Edition.Base },
-    { id: 21, type: SystemType.Blue, edition: Edition.Base },
-    { id: 22, type: SystemType.Blue, edition: Edition.Base },
-    { id: 23, type: SystemType.Blue, edition: Edition.Base },
-    { id: 24, type: SystemType.Blue, edition: Edition.Base },
-    { id: 25, type: SystemType.Blue, edition: Edition.Base },
-    { id: 26, type: SystemType.Blue, edition: Edition.Base },
-    { id: 27, type: SystemType.Blue, edition: Edition.Base },
-    { id: 28, type: SystemType.Blue, edition: Edition.Base },
-    { id: 29, type: SystemType.Blue, edition: Edition.Base },
-    { id: 30, type: SystemType.Blue, edition: Edition.Base },
-    { id: 31, type: SystemType.Blue, edition: Edition.Base },
-    { id: 32, type: SystemType.Blue, edition: Edition.Base },
-    { id: 33, type: SystemType.Blue, edition: Edition.Base },
-    { id: 34, type: SystemType.Blue, edition: Edition.Base },
-    { id: 35, type: SystemType.Blue, edition: Edition.Base },
-    { id: 36, type: SystemType.Blue, edition: Edition.Base },
-    { id: 37, type: SystemType.Blue, edition: Edition.Base },
-    { id: 38, type: SystemType.Blue, edition: Edition.Base },
-    { id: 39, type: SystemType.Red, edition: Edition.Base },
-    { id: 40, type: SystemType.Red, edition: Edition.Base },
-    { id: 41, type: SystemType.Red, edition: Edition.Base },
-    { id: 42, type: SystemType.Red, edition: Edition.Base },
-    { id: 43, type: SystemType.Red, edition: Edition.Base },
-    { id: 44, type: SystemType.Red, edition: Edition.Base },
-    { id: 45, type: SystemType.Red, edition: Edition.Base },
+    {
+      id: 19,
+      type: SystemType.Blue,
+      edition: Edition.Base,
+      planets: [{ name: "Wellon", traits: [PlanetTrait.INDUSTRIAL], resources: 1, influence: 2, techSpecialty: [TechSpecialty.CYBERNETIC] }]
+    },
+    {
+      id: 20,
+      type: SystemType.Blue,
+      edition: Edition.Base,
+      planets: [{ name: "Vefut II", traits: [PlanetTrait.HAZARDOUS], resources: 2, influence: 2 }]
+    },
+    {
+      id: 21,
+      type: SystemType.Blue,
+      edition: Edition.Base,
+      planets: [{ name: "Thibah", traits: [PlanetTrait.INDUSTRIAL], resources: 1, influence: 1, techSpecialty: [TechSpecialty.PROPULSION] }]
+    },
+    {
+      id: 22,
+      type: SystemType.Blue,
+      edition: Edition.Base,
+      planets: [{ name: "Tar'mann", traits: [PlanetTrait.INDUSTRIAL], resources: 1, influence: 1, techSpecialty: [TechSpecialty.BIOTIC] }]
+    },
+    {
+      id: 23,
+      type: SystemType.Blue,
+      edition: Edition.Base,
+      planets: [{ name: "Saudor", traits: [PlanetTrait.INDUSTRIAL], resources: 2, influence: 2 }]
+    },
+    {
+      id: 24,
+      type: SystemType.Blue,
+      edition: Edition.Base,
+      planets: [{ name: "Mehar Xull", traits: [PlanetTrait.HAZARDOUS], resources: 1, influence: 3, techSpecialty: [TechSpecialty.WARFARE] }]
+    },
+    {
+      id: 25,
+      type: SystemType.Blue,
+      edition: Edition.Base,
+      wormholes: [Wormwhole.BETA],
+      planets: [{ name: "Quann", traits: [PlanetTrait.CULTURAL], resources: 2, influence: 1 }]
+    },
+    {
+      id: 26,
+      type: SystemType.Blue,
+      edition: Edition.Base,
+      wormholes: [Wormwhole.ALPHA],
+      planets: [{ name: "Lodor", traits: [PlanetTrait.CULTURAL], resources: 3, influence: 1 }]
+    },
+    {
+      id: 27,
+      type: SystemType.Blue,
+      edition: Edition.Base,
+      planets: [
+        { name: "New Albion", traits: [PlanetTrait.INDUSTRIAL], resources: 1, influence: 1, techSpecialty: [TechSpecialty.BIOTIC] },
+        { name: "Starpoint", traits: [PlanetTrait.HAZARDOUS], resources: 3, influence: 1 }
+      ]
+    },
+    {
+      id: 28,
+      type: SystemType.Blue,
+      edition: Edition.Base,
+      planets: [
+        { name: "Tequ'ran", traits: [PlanetTrait.HAZARDOUS], resources: 2, influence: 0 },
+        { name: "Torkan", traits: [PlanetTrait.CULTURAL], resources: 0, influence: 3 }
+      ]
+    },
+    {
+      id: 29,
+      type: SystemType.Blue,
+      edition: Edition.Base,
+      planets: [
+        { name: "Qucen'n", traits: [PlanetTrait.INDUSTRIAL], resources: 1, influence: 2 },
+        { name: "Rarron", traits: [PlanetTrait.CULTURAL], resources: 0, influence: 3 }
+      ]
+    },
+    {
+      id: 30,
+      type: SystemType.Blue,
+      edition: Edition.Base,
+      planets: [
+        { name: "Mellon", traits: [PlanetTrait.CULTURAL], resources: 0, influence: 2 },
+        { name: "Zohbat", traits: [PlanetTrait.HAZARDOUS], resources: 3, influence: 1 }
+      ]
+    },
+    {
+      id: 31,
+      type: SystemType.Blue,
+      edition: Edition.Base,
+      planets: [
+        { name: "Lazar", traits: [PlanetTrait.INDUSTRIAL], resources: 1, influence: 0, techSpecialty: [TechSpecialty.CYBERNETIC] },
+        { name: "Sakulag", traits: [PlanetTrait.HAZARDOUS], resources: 2, influence: 1 }
+      ]
+    },
+    {
+      id: 32,
+      type: SystemType.Blue,
+      edition: Edition.Base,
+      planets: [
+        { name: "Dal Bootha", traits: [PlanetTrait.CULTURAL], resources: 0, influence: 2 },
+        { name: "Xxehan", traits: [PlanetTrait.CULTURAL], resources: 1, influence: 1 }
+      ]
+    },
+    {
+      id: 33,
+      type: SystemType.Blue,
+      edition: Edition.Base,
+      planets: [
+        { name: "Corneeq", traits: [PlanetTrait.CULTURAL], resources: 1, influence: 2 },
+        { name: "Resulon", traits: [PlanetTrait.CULTURAL], resources: 2, influence: 0 }
+      ]
+    },
+    {
+      id: 34,
+      type: SystemType.Blue,
+      edition: Edition.Base,
+      planets: [
+        { name: "Centauri", traits: [PlanetTrait.CULTURAL], resources: 1, influence: 3 },
+        { name: "Gral", traits: [PlanetTrait.INDUSTRIAL], resources: 1, influence: 1, techSpecialty: [TechSpecialty.PROPULSION] }
+      ]
+    },
+    {
+      id: 35,
+      type: SystemType.Blue,
+      edition: Edition.Base,
+      planets: [
+        { name: "Bereg", traits: [PlanetTrait.HAZARDOUS], resources: 3, influence: 1 },
+        { name: "Lirta IV", traits: [PlanetTrait.HAZARDOUS], resources: 2, influence: 3 }
+      ]
+    },
+    {
+      id: 36,
+      type: SystemType.Blue,
+      edition: Edition.Base,
+      planets: [
+        { name: "Arnor", traits: [PlanetTrait.INDUSTRIAL], resources: 2, influence: 1 },
+        { name: "Lor", traits: [PlanetTrait.INDUSTRIAL], resources: 1, influence: 2 }
+      ]
+    },
+    {
+      id: 37,
+      type: SystemType.Blue,
+      edition: Edition.Base,
+      planets: [
+        { name: "Arinam", traits: [PlanetTrait.INDUSTRIAL], resources: 1, influence: 2 },
+        { name: "Meer", traits: [PlanetTrait.HAZARDOUS], resources: 0, influence: 4, techSpecialty: [TechSpecialty.WARFARE] }
+      ]
+    },
+    {
+      id: 38,
+      type: SystemType.Blue,
+      edition: Edition.Base,
+      planets: [
+        { name: "Abyz", traits: [PlanetTrait.HAZARDOUS], resources: 3, influence: 0 },
+        { name: "Fria", traits: [PlanetTrait.HAZARDOUS], resources: 2, influence: 0 }
+      ]
+    },
+    { id: 39, type: SystemType.Red, edition: Edition.Base, wormholes: [Wormwhole.ALPHA] },
+    { id: 40, type: SystemType.Red, edition: Edition.Base, wormholes: [Wormwhole.BETA] },
+    { id: 41, type: SystemType.Red, edition: Edition.Base, anomaly: Anomaly.GRAVITY_RIFT },
+    { id: 42, type: SystemType.Red, edition: Edition.Base, anomaly: Anomaly.NEBULA },
+    { id: 43, type: SystemType.Red, edition: Edition.Base, anomaly: Anomaly.SUPERNOVA },
+    { id: 44, type: SystemType.Red, edition: Edition.Base, anomaly: Anomaly.ASTEROID_FIELD },
+    { id: 45, type: SystemType.Red, edition: Edition.Base, anomaly: Anomaly.ASTEROID_FIELD },
     { id: 46, type: SystemType.Red, edition: Edition.Base },
     { id: 47, type: SystemType.Red, edition: Edition.Base },
     { id: 48, type: SystemType.Red, edition: Edition.Base },
     { id: 49, type: SystemType.Red, edition: Edition.Base },
     { id: 50, type: SystemType.Red, edition: Edition.Base },
+    {
+      id: 59,
+      type: SystemType.Blue,
+      edition: Edition.PoK,
+      planets: [{ name: "Archon Vail", traits: [PlanetTrait.HAZARDOUS], resources: 1, influence: 3, techSpecialty: [TechSpecialty.PROPULSION] }]
+    },
+    {
+      id: 60,
+      type: SystemType.Blue,
+      edition: Edition.PoK,
+      planets: [{ name: "Perimeter", traits: [PlanetTrait.INDUSTRIAL], resources: 2, influence: 1 }]
+    },
+    {
+      id: 61,
+      type: SystemType.Blue,
+      edition: Edition.PoK,
+      planets: [{ name: "Ang", traits: [PlanetTrait.INDUSTRIAL], resources: 2, influence: 0, techSpecialty: [TechSpecialty.WARFARE] }]
+    },
+    {
+      id: 62,
+      type: SystemType.Blue,
+      edition: Edition.PoK,
+      planets: [{ name: "Sem-Lore", traits: [PlanetTrait.CULTURAL], resources: 3, influence: 2, techSpecialty: [TechSpecialty.CYBERNETIC] }]
+    },
+    {
+      id: 63,
+      type: SystemType.Blue,
+      edition: Edition.PoK,
+      planets: [{ name: "Vorhal", traits: [PlanetTrait.CULTURAL], resources: 0, influence: 2, techSpecialty: [TechSpecialty.BIOTIC] }]
+    },
+    {
+      id: 64,
+      type: SystemType.Blue,
+      edition: Edition.PoK,
+      wormholes: [Wormwhole.BETA],
+      planets: [{ name: "Atlas", traits: [PlanetTrait.HAZARDOUS], resources: 3, influence: 1 }]
+    },
+    {
+      id: 65,
+      type: SystemType.Blue,
+      edition: Edition.PoK,
+      planets: [{ name: "Primor", traits: [PlanetTrait.CULTURAL], resources: 2, influence: 1, legendary: true }]
+    },
+    {
+      id: 66,
+      type: SystemType.Blue,
+      edition: Edition.PoK,
+      planets: [{ name: "Hope's End", traits: [PlanetTrait.HAZARDOUS], resources: 3, influence: 0, legendary: true }]
+    },
+    {
+      id: 67,
+      type: SystemType.Red,
+      edition: Edition.PoK,
+      anomaly: Anomaly.GRAVITY_RIFT,
+      planets: [{ name: "Cormund", traits: [PlanetTrait.HAZARDOUS], resources: 2, influence: 0 }]
+    },
+    {
+      id: 68,
+      type: SystemType.Red,
+      edition: Edition.PoK,
+      anomaly: Anomaly.NEBULA,
+      planets: [{ name: "Everra", traits: [PlanetTrait.CULTURAL], resources: 3, influence: 1 }]
+    },
+    {
+      id: 69,
+      type: SystemType.Blue,
+      edition: Edition.PoK,
+      planets: [
+        { name: "Accoen", traits: [PlanetTrait.INDUSTRIAL], resources: 2, influence: 3 },
+        { name: "Jeol Ir", traits: [PlanetTrait.INDUSTRIAL], resources: 2, influence: 3 }
+      ]
+    },
+    {
+      id: 70,
+      type: SystemType.Blue,
+      edition: Edition.PoK,
+      planets: [
+        { name: "Kraag", traits: [PlanetTrait.HAZARDOUS], resources: 2, influence: 1 },
+        { name: "Siig", traits: [PlanetTrait.HAZARDOUS], resources: 0, influence: 2 }
+      ]
+    },
+    {
+      id: 71,
+      type: SystemType.Blue,
+      edition: Edition.PoK,
+      planets: [
+        { name: "Ba'Kal", traits: [PlanetTrait.INDUSTRIAL], resources: 3, influence: 2 },
+        { name: "Alio Prima", traits: [PlanetTrait.CULTURAL], resources: 1, influence: 1 }
+      ]
+    },
+    {
+      id: 72,
+      type: SystemType.Blue,
+      edition: Edition.PoK,
+      planets: [
+        { name: "Lisis", traits: [PlanetTrait.INDUSTRIAL], resources: 2, influence: 2 },
+        { name: "Velnor", traits: [PlanetTrait.INDUSTRIAL], resources: 2, influence: 1, techSpecialty: [TechSpecialty.WARFARE] }
+      ]
+    },
+    {
+      id: 73,
+      type: SystemType.Blue,
+      edition: Edition.PoK,
+      planets: [
+        { name: "Lisis", traits: [PlanetTrait.CULTURAL], resources: 0, influence: 2, techSpecialty: [TechSpecialty.CYBERNETIC] },
+        { name: "Xanhact", traits: [PlanetTrait.HAZARDOUS], resources: 0, influence: 1 }
+      ]
+    },
+    {
+      id: 74,
+      type: SystemType.Blue,
+      edition: Edition.PoK,
+      planets: [
+        { name: "Vega Major", traits: [PlanetTrait.CULTURAL], resources: 2, influence: 1 },
+        { name: "Vega Minor", traits: [PlanetTrait.CULTURAL], resources: 1, influence: 2, techSpecialty: [TechSpecialty.PROPULSION] }
+      ]
+    },
+    {
+      id: 75,
+      type: SystemType.Blue,
+      edition: Edition.PoK,
+      planets: [
+        { name: "Loki", traits: [PlanetTrait.CULTURAL], resources: 1, influence: 2 },
+        { name: "Abaddon", traits: [PlanetTrait.CULTURAL], resources: 1, influence: 0 },
+        { name: "Ashtroth", traits: [PlanetTrait.HAZARDOUS], resources: 2, influence: 0 }
+      ]
+    },
+    {
+      id: 76,
+      type: SystemType.Blue,
+      edition: Edition.PoK,
+      planets: [
+        { name: "Rigel I", traits: [PlanetTrait.HAZARDOUS], resources: 0, influence: 1 },
+        { name: "Rigel II", traits: [PlanetTrait.INDUSTRIAL], resources: 1, influence: 2 },
+        { name: "Rigel III", traits: [PlanetTrait.INDUSTRIAL], resources: 1, influence: 1, techSpecialty: [TechSpecialty.BIOTIC] }
+      ]
+    },
+    { id: 77, type: SystemType.Red, edition: Edition.PoK },
+    { id: 78, type: SystemType.Red, edition: Edition.PoK },
+    { id: 79, type: SystemType.Red, edition: Edition.PoK, wormholes: [Wormwhole.ALPHA], anomaly: Anomaly.ASTEROID_FIELD },
+    { id: 80, type: SystemType.Red, edition: Edition.PoK, anomaly: Anomaly.SUPERNOVA }
   ]
 };

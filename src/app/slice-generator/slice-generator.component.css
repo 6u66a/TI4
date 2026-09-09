@@ -12,3 +12,28 @@
 .slice-card ul {
 	margin-top: 0;
 }
+
+.slice-card li {
+	margin-bottom: 8px;
+}
+
+.system-feature {
+	display: block;
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+.planet-icons {
+	display: inline-flex;
+	gap: 3px;
+	margin-left: 5px;
+	vertical-align: middle;
+}
+
+.planet-icons img,
+.planet-icon {
+	height: 20px;
+	width: 20px;
+	object-fit: contain;
+	vertical-align: middle;
+}

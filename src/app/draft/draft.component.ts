@@ -12,6 +12,32 @@ import { Complexity } from '../data/complexity.enum';
 })
 export class DraftComponent {
   private readonly settingsService = inject(SettingsService);
+  private readonly factionIconNames: Record<number, string> = {
+    1: 'Arborec.png',
+    2: 'Letnev.png',
+    3: 'Saar.png',
+    4: 'Muaat.png',
+    5: 'Hacan.png',
+    6: 'Sol.png',
+    7: 'Creuss.png',
+    8: 'L1Z1X.png',
+    9: 'Mentak.png',
+    10: 'Naalu.png',
+    11: 'Nekro.png',
+    12: 'Sardakk.png',
+    13: 'Jol Nar.png',
+    14: 'Winnu.png',
+    15: 'Xxcha.png',
+    16: 'Yin.png',
+    17: 'Yssaril.png',
+    18: 'Argent.png',
+    19: 'Empyrean.png',
+    20: 'Mahact.png',
+    21: 'Naaz-Rokha.png',
+    22: 'Nomad.png',
+    23: 'Titans.png',
+    24: "Vuil'Raith.png"
+  };
   public readonly complexity = Complexity;
   displayedColumns: string[] = ['name', 'faction', 'position', 'slice'];
   public factions = computed(() => DATA.factions.filter(faction => this.settingsService.settings().editions.includes(faction.edition)));
@@ -87,6 +113,10 @@ export class DraftComponent {
       case Complexity.High:
         return [false, false, false];
     }
+  }
+
+  factionIcon(faction: Faction): string {
+    return `assets/factions/${this.factionIconNames[Number(faction.id)]}`;
   }
 
   draftPosition(i: number): void {

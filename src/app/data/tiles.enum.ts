@@ -4,14 +4,14 @@ export enum SystemType {
   Green
 } 
 
-export enum PlanetTraits {
+export enum PlanetTrait {
     HAZARDOUS,
     INDUSTRIAL,
     CULTURAL,
     NONE
 }
 
-export enum TECH_SPECIALTIES {
+export enum TechSpecialty {
     BIOTIC,
     WARFARE,
     PROPULSION,
@@ -19,14 +19,14 @@ export enum TECH_SPECIALTIES {
     NONE
 }
 
-export enum ANOMALIES {
+export enum Anomaly {
     NEBULA,
     GRAVITY_RIFT,
     ASTEROID_FIELD,
     SUPERNOVA
 }
 
-export enum WORMHOLES {
+export enum Wormwhole {
     ALPHA,
     BETA,
     GAMMA,

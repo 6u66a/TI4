@@ -6,7 +6,7 @@
     <mat-chip-listbox class="mat-mdc-chip-set-stacked">
       <mat-chip-option *ngFor="let faction of factions()" (click)="factionClick_hdl(faction)">
         <mat-chip-avatar>
-          <mat-icon svgIcon="{{faction.name.toLowerCase()}}" inline="true"></mat-icon>
+          <img class="faction-icon" [src]="factionIcon(faction)" [alt]="faction.name" [title]="faction.name" />
         </mat-chip-avatar>
         <span>{{faction.name}}</span>
       </mat-chip-option>

@@ -3,6 +3,12 @@ mat-chip-option {
 	position: relative;
 }
 
+.faction-icon {
+	height: 32px;
+	object-fit: contain;
+	width: 32px;
+}
+
 .faction-complexity {
 	align-items: flex-start;
 	display: flex;

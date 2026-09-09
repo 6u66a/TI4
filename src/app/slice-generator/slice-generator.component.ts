@@ -8,7 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SettingsService } from '../appstate/settings.service';
 import { DATA, System } from '../data/data';
 import { Edition } from '../data/edition.enum';
-import { SystemType } from '../data/tiles.enum';
+import { Anomaly, PlanetTrait, SystemType, TechSpecialty, Wormwhole } from '../data/tiles.enum';
 
 interface GeneratedSlice {
   blue: System[];
@@ -49,6 +49,48 @@ export class SliceGeneratorComponent {
   });
 
   public generatedSlices: GeneratedSlice[] = [];
+
+  readonly anomalyNames: Record<number, string> = {
+    [Anomaly.NEBULA]: 'Nebula',
+    [Anomaly.GRAVITY_RIFT]: 'Gravity Rift',
+    [Anomaly.ASTEROID_FIELD]: 'Asteroid Field',
+    [Anomaly.SUPERNOVA]: 'Supernova'
+  };
+
+  readonly wormholeNames: Record<number, string> = {
+    [Wormwhole.ALPHA]: 'Alpha',
+    [Wormwhole.BETA]: 'Beta',
+    [Wormwhole.GAMMA]: 'Gamma',
+    [Wormwhole.DELTA]: 'Delta'
+  };
+
+  readonly traitNames: Record<number, string> = {
+    [PlanetTrait.HAZARDOUS]: 'Hazardous',
+    [PlanetTrait.INDUSTRIAL]: 'Industrial',
+    [PlanetTrait.CULTURAL]: 'Cultural'
+  };
+
+  readonly traitIcons: Record<number, string> = {
+    [PlanetTrait.HAZARDOUS]: 'Hazardous.png',
+    [PlanetTrait.INDUSTRIAL]: 'Industrial.png',
+    [PlanetTrait.CULTURAL]: 'Cultural.png'
+  };
+
+  readonly specialtyNames: Record<number, string> = {
+    [TechSpecialty.BIOTIC]: 'Biotic',
+    [TechSpecialty.WARFARE]: 'Warfare',
+    [TechSpecialty.PROPULSION]: 'Propulsion',
+    [TechSpecialty.CYBERNETIC]: 'Cybernetic'
+  };
+
+  readonly specialtyIcons: Record<number, string> = {
+    [TechSpecialty.BIOTIC]: 'Biotic dark.png',
+    [TechSpecialty.WARFARE]: 'Warfare dark.png',
+    [TechSpecialty.PROPULSION]: 'Propulsion dark.png',
+    [TechSpecialty.CYBERNETIC]: 'Cybernetic dark.png'
+  };
+
+  readonly generalIconPath = 'assets/generalIcons/';
 
   constructor() {
     effect(() => {

@@ -14,3 +14,9 @@ button {
     align-items: center;
     justify-content: space-between;
 }
+
+.faction-icon {
+    height: 32px;
+    object-fit: contain;
+    width: 32px;
+}

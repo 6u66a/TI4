@@ -37,13 +37,81 @@
 					<h3>Blue systems</h3>
 					<ul>
 						@for (system of slice.blue; track system.id) {
-							<li>System {{ system.id }}</li>
+							<li>
+								<strong>System {{ system.id }}</strong>
+								@if (system.planets?.length) {
+									<ul>
+										@for (planet of system.planets; track planet.name) {
+											<li>
+												{{ planet.name }} ({{ planet.resources }}/{{ planet.influence }})
+												@if (planet.traits.length) {
+													<span class="planet-icons" aria-label="Planet traits">
+														@for (trait of planet.traits; track trait) {
+															<img [src]="generalIconPath + traitIcons[trait]" [alt]="traitNames[trait]" [title]="traitNames[trait]">
+														}
+													</span>
+												}
+												@if (planet.techSpecialty?.length) {
+													<span class="planet-icons" aria-label="Technology specialties">
+														@for (specialty of planet.techSpecialty; track specialty) {
+															<img [src]="generalIconPath + specialtyIcons[specialty]" [alt]="specialtyNames[specialty]" [title]="specialtyNames[specialty]">
+														}
+													</span>
+												}
+												@if (planet.legendary) {
+													<img class="planet-icon" src="assets/generalIcons/Legendary white.png" alt="Legendary" title="Legendary">
+												}
+											</li>
+										}
+									</ul>
+								}
+								@if (system.anomaly !== undefined) {
+									<span class="system-feature">Anomaly: {{ anomalyNames[system.anomaly] }}</span>
+								}
+								@if (system.wormholes?.length) {
+									<span class="system-feature">Wormhole: {{ system.wormholes.map(wormhole => wormholeNames[wormhole]).join(', ') }}</span>
+								}
+							</li>
 						}
 					</ul>
 					<h3>Red systems</h3>
 					<ul>
 						@for (system of slice.red; track system.id) {
-							<li>System {{ system.id }}</li>
+							<li>
+								<strong>System {{ system.id }}</strong>
+								@if (system.planets?.length) {
+									<ul>
+										@for (planet of system.planets; track planet.name) {
+											<li>
+												{{ planet.name }} ({{ planet.resources }}/{{ planet.influence }})
+												@if (planet.traits.length) {
+													<span class="planet-icons" aria-label="Planet traits">
+														@for (trait of planet.traits; track trait) {
+															<img [src]="generalIconPath + traitIcons[trait]" [alt]="traitNames[trait]" [title]="traitNames[trait]">
+														}
+													</span>
+												}
+												@if (planet.techSpecialty?.length) {
+													<span class="planet-icons" aria-label="Technology specialties">
+														@for (specialty of planet.techSpecialty; track specialty) {
+															<img [src]="generalIconPath + specialtyIcons[specialty]" [alt]="specialtyNames[specialty]" [title]="specialtyNames[specialty]">
+														}
+													</span>
+												}
+												@if (planet.legendary) {
+													<img class="planet-icon" src="assets/generalIcons/Legendary.png" alt="Legendary" title="Legendary">
+												}
+											</li>
+										}
+									</ul>
+								}
+								@if (system.anomaly !== undefined) {
+									<span class="system-feature">Anomaly: {{ anomalyNames[system.anomaly] }}</span>
+								}
+								@if (system.wormholes?.length) {
+									<span class="system-feature">Wormhole: {{ system.wormholes.map(wormhole => wormholeNames[wormhole]).join(', ') }}</span>
+								}
+							</li>
 						}
 					</ul>
 				</mat-card-content>
