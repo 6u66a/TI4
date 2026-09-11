@@ -74,9 +74,7 @@
 												@if (planet.traits.length) {
 													<span class="planet-icons" aria-label="Planet traits">
 														@for (trait of planet.traits; track trait) {
-															@if(trait !== PlanetTrait.NONE) {
-																<img [src]="generalIconPath + traitIcons[trait]" [alt]="traitNames[trait]" [title]="traitNames[trait]">
-															}
+															<img [src]="generalIconPath + traitIcons[trait]" [alt]="traitNames[trait]" [title]="traitNames[trait]">
 														}
 													</span>
 												}
@@ -128,7 +126,7 @@
 													</span>
 												}
 												@if (planet.legendary) {
-													<img class="planet-icon" src="assets/generalIcons/Legendary.png" alt="Legendary" title="Legendary">
+													<img class="planet-icon" src="assets/generalIcons/Legendary white.png" alt="Legendary" title="Legendary">
 												}
 											</li>
 										}
