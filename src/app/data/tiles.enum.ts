@@ -23,7 +23,8 @@ export enum Anomaly {
     NEBULA,
     GRAVITY_RIFT,
     ASTEROID_FIELD,
-    SUPERNOVA
+    SUPERNOVA,
+    ENTROPIC_SCAR
 }
 
 export enum Wormwhole {

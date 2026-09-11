@@ -1,27 +1,72 @@
-# Ti4
+# Siggis TI4 Buddy
 
-This project uses [Angular CLI](https://github.com/angular/angular-cli) version 22.1.3.
+A small Angular web application with useful tools for **Twilight Imperium 4**.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Tech Helper**: Helps you decide on your Tech-Path during play
+- **Slice Generator**: Generate random slices for 4 to 6 players with the base game, or up to 8 players when **Prophecy of Kings** and/or **Thunder's Edge** is enabled
+- **Draft**: Drafting system for faction, position and slice
+- **Settings**: Select available editions and manage application settings
 
-## Code scaffolding
+Game data is stored in [src/app/data/data.ts](src/app/data/data.ts), including factions, technologies, and system tiles.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Requirements
 
-## Build
+- Node.js and npm
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Development
 
-## Running unit tests
+Install dependencies:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+npm install
+```
 
-## Running end-to-end tests
+Start the development server:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+npm start
+```
 
-## Further help
+Open [http://localhost:4200/](http://localhost:4200/) in your browser. The application reloads automatically when source files change.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Routes
+
+| Route | Area |
+| --- | --- |
+| `/` | Home |
+| `/tech` | Tech Helper |
+| `/draft` | Faction Draft |
+| `/slice` | Slice Generator |
+| `/settings` | Settings |
+
+## Build and Tests
+
+Create a production build:
+
+```bash
+npm run build
+```
+
+Build artifacts are written to the `dist/` directory.
+
+Run unit tests:
+
+```bash
+npm test
+```
+
+Tests use [Karma](https://karma-runner.github.io).
+
+## Angular CLI
+
+This project uses [Angular](https://angular.dev/) and Angular CLI 22.1.3. Run `npx ng help` for additional CLI commands.
+
+## Attribution
+
+*Twilight Imperium 4* was published by Fantasy Flight Games. *Twilight Imperium*, its names, logos, artwork, and related intellectual property belong to Fantasy Flight Games and/or their respective rights holders. This project is unofficial and is not affiliated with or endorsed by Fantasy Flight Games.
+
+The race and technology icons used in this project are sourced from the work shared by BoardGameGeek user [Polarstern](https://boardgamegeek.com/profile/Polarstern):
+
+[TI4 Race and Tech Symbols - Vectorized](https://boardgamegeek.com/filepage/180049/ti4-race-and-tech-symbols-vectorized)

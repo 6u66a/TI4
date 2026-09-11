@@ -92,8 +92,8 @@
 										}
 									</ul>
 								}
-								@if (system.anomaly !== undefined) {
-									<span class="system-feature">Anomaly: {{ anomalyNames[system.anomaly] }}</span>
+								@if (system.anomalies !== undefined) {
+									<span class="system-feature">Anomaly: {{ system.anomalies.map(anomaly => anomalyNames[anomaly]).join(', ') }}</span>
 								}
 								@if (system.wormholes?.length) {
 									<span class="system-feature">Wormhole: {{ system.wormholes.map(wormhole => wormholeNames[wormhole]).join(', ') }}</span>
@@ -132,8 +132,8 @@
 										}
 									</ul>
 								}
-								@if (system.anomaly !== undefined) {
-									<span class="system-feature">Anomaly: {{ anomalyNames[system.anomaly] }}</span>
+								@if (system.anomalies !== undefined) {
+									<span class="system-feature">Anomaly: {{ system.anomalies.map(anomaly => anomalyNames[anomaly]).join(', ') }}</span>
 								}
 								@if (system.wormholes?.length) {
 									<span class="system-feature">Wormhole: {{ system.wormholes.map(wormhole => wormholeNames[wormhole]).join(', ') }}</span>

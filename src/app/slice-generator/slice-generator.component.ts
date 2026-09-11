@@ -44,7 +44,7 @@ export class SliceGeneratorComponent {
 
   public readonly maxPlayerCount = computed(() => {
     const editions = this.settingsService.settings().editions;
-    return editions.includes(Edition.PoK) ? 8 : 6;
+    return editions.includes(Edition.PoK) || editions.includes(Edition.TE) ? 8 : 6;
   });
 
   public blueSystems = computed(() => DATA.systems
@@ -65,7 +65,8 @@ export class SliceGeneratorComponent {
     [Anomaly.NEBULA]: 'Nebula',
     [Anomaly.GRAVITY_RIFT]: 'Gravity Rift',
     [Anomaly.ASTEROID_FIELD]: 'Asteroid Field',
-    [Anomaly.SUPERNOVA]: 'Supernova'
+    [Anomaly.SUPERNOVA]: 'Supernova',
+    [Anomaly.ENTROPIC_SCAR]: 'Entropic Scar'
   };
 
   readonly wormholeNames: Record<number, string> = {

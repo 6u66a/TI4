@@ -14,7 +14,7 @@ export interface System {
   type: SystemType;
   edition: Edition;
   planets?: Array<Planet>;
-  anomaly?: Anomaly;
+  anomalies?: Array<Anomaly>;
   wormholes?: Array<Wormwhole>;
 }
 
@@ -1268,11 +1268,11 @@ export const DATA: Data = {
     },
     { id: 39, type: SystemType.Red, edition: Edition.Base, wormholes: [Wormwhole.ALPHA] },
     { id: 40, type: SystemType.Red, edition: Edition.Base, wormholes: [Wormwhole.BETA] },
-    { id: 41, type: SystemType.Red, edition: Edition.Base, anomaly: Anomaly.GRAVITY_RIFT },
-    { id: 42, type: SystemType.Red, edition: Edition.Base, anomaly: Anomaly.NEBULA },
-    { id: 43, type: SystemType.Red, edition: Edition.Base, anomaly: Anomaly.SUPERNOVA },
-    { id: 44, type: SystemType.Red, edition: Edition.Base, anomaly: Anomaly.ASTEROID_FIELD },
-    { id: 45, type: SystemType.Red, edition: Edition.Base, anomaly: Anomaly.ASTEROID_FIELD },
+    { id: 41, type: SystemType.Red, edition: Edition.Base, anomalies: [Anomaly.GRAVITY_RIFT] },
+    { id: 42, type: SystemType.Red, edition: Edition.Base, anomalies: [Anomaly.NEBULA] },
+    { id: 43, type: SystemType.Red, edition: Edition.Base, anomalies: [Anomaly.SUPERNOVA] },
+    { id: 44, type: SystemType.Red, edition: Edition.Base, anomalies: [Anomaly.ASTEROID_FIELD] },
+    { id: 45, type: SystemType.Red, edition: Edition.Base, anomalies: [Anomaly.ASTEROID_FIELD] },
     { id: 46, type: SystemType.Red, edition: Edition.Base },
     { id: 47, type: SystemType.Red, edition: Edition.Base },
     { id: 48, type: SystemType.Red, edition: Edition.Base },
@@ -1331,14 +1331,14 @@ export const DATA: Data = {
       id: 67,
       type: SystemType.Red,
       edition: Edition.PoK,
-      anomaly: Anomaly.GRAVITY_RIFT,
+      anomalies: [Anomaly.GRAVITY_RIFT],
       planets: [{ name: "Cormund", traits: [PlanetTrait.HAZARDOUS], resources: 2, influence: 0 }]
     },
     {
       id: 68,
       type: SystemType.Red,
       edition: Edition.PoK,
-      anomaly: Anomaly.NEBULA,
+      anomalies: [Anomaly.NEBULA],
       planets: [{ name: "Everra", traits: [PlanetTrait.CULTURAL], resources: 3, influence: 1 }]
     },
     {
@@ -1417,7 +1417,127 @@ export const DATA: Data = {
     },
     { id: 77, type: SystemType.Red, edition: Edition.PoK },
     { id: 78, type: SystemType.Red, edition: Edition.PoK },
-    { id: 79, type: SystemType.Red, edition: Edition.PoK, wormholes: [Wormwhole.ALPHA], anomaly: Anomaly.ASTEROID_FIELD },
-    { id: 80, type: SystemType.Red, edition: Edition.PoK, anomaly: Anomaly.SUPERNOVA }
+    { id: 79, type: SystemType.Red, edition: Edition.PoK, wormholes: [Wormwhole.ALPHA], anomalies: [Anomaly.ASTEROID_FIELD] },
+    { id: 80, type: SystemType.Red, edition: Edition.PoK, anomalies: [Anomaly.SUPERNOVA] },
+    { id: 81, type: SystemType.Red, edition: Edition.PoK, anomalies: [Anomaly.SUPERNOVA] },
+    {
+      id: 97,
+      type: SystemType.Blue,
+      edition: Edition.TE,
+      planets: [{ name: "Faunus", traits: [PlanetTrait.NONE], resources: 1, influence: 3, legendary: true }]
+    },
+    {
+      id: 98,
+      type: SystemType.Blue,
+      edition: Edition.TE,
+      planets: [{ name: "Garbozia", traits: [PlanetTrait.NONE], resources: 2, influence: 1, legendary: true }]
+    },
+    {
+      id: 99,
+      type: SystemType.Blue,
+      edition: Edition.TE,
+      planets: [{ name: "Emelpar", traits: [PlanetTrait.NONE], resources: 0, influence: 2, legendary: true }]
+    },
+    {
+      id: 100,
+      type: SystemType.Blue,
+      edition: Edition.TE,
+      planets: [{ name: "Tempesta", traits: [PlanetTrait.NONE], resources: 1, influence: 1, legendary: true }]
+    },
+    {
+      id: 101,
+      type: SystemType.Blue,
+      edition: Edition.TE,
+      planets: [{ name: "Olergodt", traits: [PlanetTrait.NONE], resources: 2, influence: 1 }]
+    },
+    {
+      id: 102,
+      type: SystemType.Blue,
+      edition: Edition.TE,
+      wormholes: [Wormwhole.ALPHA],
+      planets: [{ name: "Andeara", traits: [PlanetTrait.NONE], resources: 1, influence: 1 }]
+    },
+    {
+      id: 103,
+      type: SystemType.Blue,
+      edition: Edition.TE,
+      planets: [{ name: "Vira-Pics III", traits: [PlanetTrait.NONE], resources: 2, influence: 3 }]
+    },
+    {
+      id: 104,
+      type: SystemType.Blue,
+      edition: Edition.TE,
+      planets: [{ name: "Lesab", traits: [PlanetTrait.NONE], resources: 2, influence: 1 }]
+    },
+    {
+      id: 105,
+      type: SystemType.Blue,
+      edition: Edition.TE,
+      planets: [
+        { name: "New Terra", traits: [PlanetTrait.NONE], resources: 1, influence: 1 },
+        { name: "Tinnes", traits: [PlanetTrait.NONE], resources: 2, influence: 1 }
+      ]
+    },
+    {
+      id: 106,
+      type: SystemType.Blue,
+      edition: Edition.TE,
+      planets: [
+        { name: "Cresius", traits: [PlanetTrait.NONE], resources: 0, influence: 1 },
+        { name: "Lazul Rex", traits: [PlanetTrait.NONE], resources: 2, influence: 2 }
+      ]
+    },
+    {
+      id: 107,
+      type: SystemType.Blue,
+      edition: Edition.TE,
+      planets: [
+        { name: "Tiamat", traits: [PlanetTrait.NONE], resources: 2, influence: 1 },
+        { name: "Hercalor", traits: [PlanetTrait.NONE], resources: 1, influence: 0 }
+      ]
+    },
+    {
+      id: 108,
+      type: SystemType.Blue,
+      edition: Edition.TE,
+      planets: [
+        { name: "Kostboth", traits: [PlanetTrait.NONE], resources: 0, influence: 1 },
+        { name: "Capha", traits: [PlanetTrait.NONE], resources: 3, influence: 0 }
+      ]
+    },
+    {
+      id: 109,
+      type: SystemType.Blue,
+      edition: Edition.TE,
+      planets: [
+        { name: "Bellatrix", traits: [PlanetTrait.NONE], resources: 1, influence: 2 },
+        { name: "Tsion Station", traits: [PlanetTrait.NONE], resources: 1, influence: 1 }
+      ]
+    },
+    {
+      id: 110,
+      type: SystemType.Blue,
+      edition: Edition.TE,
+      planets: [
+        { name: "Horizon", traits: [PlanetTrait.NONE], resources: 1, influence: 2 },
+        { name: "Elnath", traits: [PlanetTrait.NONE], resources: 2, influence: 0 },
+        { name: "Luthien VI", traits: [PlanetTrait.NONE], resources: 3, influence: 1 }
+      ]
+    },
+    {
+      id: 111,
+      type: SystemType.Blue,
+      edition: Edition.TE,
+      planets: [
+        { name: "Tarana", traits: [PlanetTrait.NONE], resources: 1, influence: 2 },
+        { name: "Oluz Station", traits: [PlanetTrait.NONE], resources: 1, influence: 1 }
+      ]
+    },
+    { id: 112, type: SystemType.Blue, edition: Edition.TE, planets: [{ name: "Mecatol Rex", traits: [PlanetTrait.NONE], resources: 1, influence: 6, legendary: true }] },
+    { id: 113, type: SystemType.Red, edition: Edition.TE, anomalies: [Anomaly.GRAVITY_RIFT], wormholes: [Wormwhole.BETA] },
+    { id: 114, type: SystemType.Red, edition: Edition.TE, anomalies: [Anomaly.ENTROPIC_SCAR] },
+    { id: 115, type: SystemType.Red, edition: Edition.TE, anomalies: [Anomaly.ASTEROID_FIELD], planets: [{ name: "Industrex", traits: [PlanetTrait.NONE], resources: 2, influence: 0 }] },
+    { id: 116, type: SystemType.Red, edition: Edition.TE, anomalies: [Anomaly.NEBULA], planets: [{ name: "Lemox", traits: [PlanetTrait.NONE], resources: 0, influence: 3 }] },
+    { id: 117, type: SystemType.Red, edition: Edition.TE, anomalies: [Anomaly.GRAVITY_RIFT, Anomaly.ASTEROID_FIELD], planets: [{ name: "The Watchtower", traits: [PlanetTrait.NONE], resources: 1, influence: 1 }] }
   ]
 };
