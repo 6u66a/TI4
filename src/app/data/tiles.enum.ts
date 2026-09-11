@@ -7,16 +7,14 @@ export enum SystemType {
 export enum PlanetTrait {
     HAZARDOUS,
     INDUSTRIAL,
-    CULTURAL,
-    NONE
+    CULTURAL
 }
 
 export enum TechSpecialty {
     BIOTIC,
     WARFARE,
     PROPULSION,
-    CYBERNETIC,
-    NONE
+    CYBERNETIC
 }
 
 export enum Anomaly {

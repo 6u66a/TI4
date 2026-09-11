@@ -74,7 +74,9 @@
 												@if (planet.traits.length) {
 													<span class="planet-icons" aria-label="Planet traits">
 														@for (trait of planet.traits; track trait) {
-															<img [src]="generalIconPath + traitIcons[trait]" [alt]="traitNames[trait]" [title]="traitNames[trait]">
+															@if(trait !== PlanetTrait.NONE) {
+																<img [src]="generalIconPath + traitIcons[trait]" [alt]="traitNames[trait]" [title]="traitNames[trait]">
+															}
 														}
 													</span>
 												}
