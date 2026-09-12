@@ -1,7 +1,6 @@
 import { Component, EventEmitter, input, Output, signal } from '@angular/core';
-import { Edition } from '../../data/edition.enum';
-import { RuntimeTech, TechColors } from '../../data/data';
-import { TechColor } from '../../data/tech-color.enum';
+import { RuntimeTech, TechColor, TechColors } from '../../data/tech-helper.interface';
+import { Edition } from '../../data/data';
 
 @Component({
   standalone: false,

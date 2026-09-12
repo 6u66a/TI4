@@ -6,7 +6,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { SettingsService } from '../appstate/settings.service';
-import { Edition } from '../data/edition.enum';
+import { Edition } from '../data/data';
 
 @Component({
   imports: [

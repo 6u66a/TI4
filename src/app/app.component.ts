@@ -2,7 +2,7 @@ import { Component, computed, inject } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { SettingsService } from './appstate/settings.service';
-import { Edition } from './data/edition.enum';
+import { Edition } from './data/data';
 
 @Component({
   standalone: false,

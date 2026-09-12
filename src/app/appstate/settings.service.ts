@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { Edition } from '../data/edition.enum';
+import { Edition } from "../data/data";
 
 @Injectable({ providedIn: 'root' })
 export class SettingsService {

@@ -1,6 +1,8 @@
 import { Component, input, OnInit, signal } from '@angular/core';
-import { Faction, RuntimeTech, State, Tech, TechColors } from '../../data/data';
-import { TechColor } from '../../data/tech-color.enum';
+import { Faction } from '../../data/data';
+import { State } from '../../data/draft.interface';
+import { TechColor, TechColors, Tech, RuntimeTech } from '../../data/tech-helper.interface';
+import { factionIcons } from '../../data/resources';
 
 @Component({
   standalone: false,
@@ -9,32 +11,6 @@ import { TechColor } from '../../data/tech-color.enum';
   styleUrls: ['./tech-picker.component.css']
 })
 export class TechPickerComponent implements OnInit {
-  private readonly factionIconNames: Record<number, string> = {
-    1: 'Arborec.png',
-    2: 'Letnev.png',
-    3: 'Saar.png',
-    4: 'Muaat.png',
-    5: 'Hacan.png',
-    6: 'Sol.png',
-    7: 'Creuss.png',
-    8: 'L1Z1X.png',
-    9: 'Mentak.png',
-    10: 'Naalu.png',
-    11: 'Nekro.png',
-    12: 'Sardakk.png',
-    13: 'Jol Nar.png',
-    14: 'Winnu.png',
-    15: 'Xxcha.png',
-    16: 'Yin.png',
-    17: 'Yssaril.png',
-    18: 'Argent.png',
-    19: 'Empyrean.png',
-    20: 'Mahact.png',
-    21: 'Naaz-Rokha.png',
-    22: 'Nomad.png',
-    23: 'Titans.png',
-    24: "Vuil'Raith.png"
-  };
 
   public state = signal<State | undefined>(undefined);
   public provided = signal<TechColors>({
@@ -53,7 +29,7 @@ export class TechPickerComponent implements OnInit {
   constructor() { }
 
   factionIcon(faction: Faction | undefined): string | undefined {
-    const iconName = faction ? this.factionIconNames[Number(faction.id)] : undefined;
+    const iconName = faction ? factionIcons[Number(faction.id)] : undefined;
     return iconName ? `assets/factions/${iconName}` : undefined;
   }
 

@@ -6,9 +6,8 @@ import { MatInputModule } from '@angular/material/input';
 import { Component, computed, effect, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SettingsService } from '../appstate/settings.service';
-import { DATA, System } from '../data/data';
-import { Edition } from '../data/edition.enum';
-import { Anomaly, PlanetTrait, SystemType, TechSpecialty, Wormwhole } from '../data/tiles.enum';
+import { DATA, Edition } from '../data/data';
+import { Anomaly, PlanetTrait, System, SystemType, TechSpecialty, Wormwhole } from '../data/tiles.interface';
 
 interface GeneratedSlice {
   blue: System[];

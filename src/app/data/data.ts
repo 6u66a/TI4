@@ -1,38 +1,16 @@
-import { Edition } from "./edition.enum";
-import { TechColor } from "./tech-color.enum";
-import { Complexity } from "./complexity.enum";
-import { PlanetTrait, SystemType, Anomaly, TechSpecialty, Wormwhole } from "./tiles.enum";
+import { PlanetTrait, SystemType, Anomaly, TechSpecialty, Wormwhole, System } from "./tiles.interface";
+import { Tech, TechColor } from "./tech-helper.interface";
+import { Complexity } from "./draft.interface";
 
+export enum Edition {
+  PoK,
+  Base,
+  TE
+}
 export interface Data {
   factions: Array<Faction>;
   genericTech: Array<Tech>;
   systems: Array<System>;
-}
-
-export interface System {
-  id: Number;
-  type: SystemType;
-  edition: Edition;
-  planets?: Array<Planet>;
-  anomalies?: Array<Anomaly>;
-  wormholes?: Array<Wormwhole>;
-}
-
-export interface Planet {
-  name: String;
-  traits: Array<PlanetTrait>;
-  resources: Number;
-  influence: Number;
-  legendary?: Boolean;
-  homePlanet?: Faction;
-  techSpecialty?: Array<TechSpecialty>;
-}
-
-export interface Player {
-  name: String | undefined | null;
-  position?: String;
-  faction?: Faction;
-  slice?: Boolean;
 }
 
 export interface Faction {
@@ -42,32 +20,6 @@ export interface Faction {
   startingtech: Array<number>;
   edition: Edition;
   complexity: Complexity;
-}
-
-export interface Tech {
-  id: number;
-  name: String;
-  requirements: TechColors;
-  provides: TechColor;
-  description: String;
-  edition: Edition
-}
-
-export interface RuntimeTech {
-  tech: Tech;
-  provided: TechColors;
-  researched: boolean;
-  available: boolean;
-  researchDistance: number;
-}
-
-export interface TechColors {
-  [color: number]: number;
-}
-
-export interface State {
-  faction?: Faction;
-  tech: Array<RuntimeTech>;
 }
 
 export const DATA: Data = {
@@ -827,7 +779,7 @@ export const DATA: Data = {
     },
     {
       id: 26,
-      name: "The Ral Nel Consortium",
+      name: "Ral Nel Consortium",
       complexity: Complexity.Low,
       startingtech: [],
       edition: Edition.TE,
@@ -845,7 +797,7 @@ export const DATA: Data = {
     },
     {
       id: 27,
-      name: "The Deepwrought Scholarate",
+      name: "Deepwrought Scholarate",
       complexity: Complexity.Moderate,
       startingtech: [],
       edition: Edition.TE,
@@ -872,7 +824,7 @@ export const DATA: Data = {
     },
     {
       id: 28,
-      name: "The Crimson Rebellion",
+      name: "Crimson Rebellion",
       complexity: Complexity.High,
       startingtech: [],
       edition: Edition.TE,
@@ -890,7 +842,7 @@ export const DATA: Data = {
     },
     {
       id: 29,
-      name: "The Firmament / The Obsidian",
+      name: "Firmament",
       complexity: Complexity.High,
       startingtech: [],
       edition: Edition.TE,
@@ -902,7 +854,7 @@ export const DATA: Data = {
           provides: TechColor.yellow,
           edition: Edition.TE,
           description:
-            "<ul><li>CANNOT BE RESEARCHED</li><li>When you gain this card, put The Fracture into play. Flip this card if the Obsidian faction is in play.</li></ul>"
+            "<ul><li>CANNOT BE RESEARCHED</li><li>When you gain this card, put the Fracture into play. Flip this card if the Obsidian faction is in play.</li></ul>"
         },
         {
           id: 89,
@@ -917,7 +869,7 @@ export const DATA: Data = {
     },
     {
       id: 30,
-      name: "The Council Keleres",
+      name: "Council Keleres",
       complexity: Complexity.Moderate,
       startingtech: [],
       edition: Edition.TE,

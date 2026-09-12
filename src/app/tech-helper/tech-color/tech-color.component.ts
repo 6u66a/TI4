@@ -1,6 +1,5 @@
 import { Component, computed, input } from '@angular/core';
-import { TechColors } from '../../data/data';
-import { TechColor } from '../../data/tech-color.enum';
+import { TechColor, TechColors } from '../../data/tech-helper.interface';
 
 @Component({
   standalone: false,
