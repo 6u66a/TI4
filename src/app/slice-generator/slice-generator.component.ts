@@ -146,7 +146,7 @@ export class SliceGeneratorComponent {
   }
 
   sliceSummary(slice: GeneratedSlice): SliceSummary {
-    const planets = [...slice.blue].flatMap(system => system.planets ?? []);
+    const planets = [...slice.blue, ...slice.red].flatMap(system => system.planets ?? []);
 
     return {
       resources: planets.reduce((total, planet) => total + Number(planet.resources), 0),
