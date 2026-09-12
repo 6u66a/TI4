@@ -37,6 +37,11 @@ export class DraftComponent {
     22: 'Nomad.png',
     23: 'Titans.png',
     24: "Vuil'Raith.png",
+    25: "Last Bastion.png",
+    26: "Ral-Nel.png",
+    27: "Deepwrought.png",
+    28: "Crimson Rebellion.png",
+    29: "Firmament.png",
     30: 'Keleres.png'
   };
   public readonly complexity = Complexity;

@@ -38,6 +38,11 @@ export class TechHelperComponent {
     22: 'Nomad.png',
     23: 'Titans.png',
     24: "Vuil'Raith.png",
+    25: "Last Bastion.png",
+    26: "Ral-Nel.png",
+    27: "Deepwrought.png",
+    28: "Crimson Rebellion.png",
+    29: "Firmament.png",
     30: 'Keleres.png'
   };
   public factions = computed(() => DATA.factions.filter(faction => this.settingsService.settings().editions.includes(faction.edition)));
