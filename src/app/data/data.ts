@@ -618,7 +618,7 @@ export const DATA: Data = {
             "Other players cannot move ships through systems that contain your structures. Each planet that contains 1 or more of your structures gains the PRODUCTION 1 ability as if it were a unit"
         },
         {
-          id: 67,
+          id: 80,
           name: "Strike Wing Alpha II",
           requirements: {
             [TechColor.red]: 2
@@ -756,7 +756,7 @@ export const DATA: Data = {
       edition: Edition.PoK,
       tech: [
         {
-          id: 76,
+          id: 81,
           name: "Saturn Engine II",
           requirements: { [TechColor.green]: 1, [TechColor.yellow]: 1, [TechColor.red]: 1 },
           edition: Edition.PoK,
@@ -804,6 +804,141 @@ export const DATA: Data = {
           provides: TechColor.black,
           description:
             '<ul><li>Cabal Space Dock(PRODUCTION 7)</li><li>This system is a gravity rift; your ships do not roll for this gravity rift.</li><li>Place a dimensional tear token beneath this unit as a reminder</li><li>Up to 12 fighters in this system do not count against your ships\' capacity.</li></ul>'
+        }
+      ]
+    },
+    {
+      id: 25,
+      name: "Last Bastion",
+      complexity: Complexity.Low,
+      startingtech: [],
+      edition: Edition.TE,
+      tech: [
+        {
+          id: 82,
+          name: "Proxima Targeting VI",
+          requirements: { [TechColor.red]: 1 },
+          provides: TechColor.red,
+          edition: Edition.TE,
+          description:
+            "<ul><li>Cancel 1 hit produced by BOMBARDMENT rolls made against your ground forces for each of your galvanized units present.</li><li>At the start of a round of ground combat, you may resolve BOMBARDMENT 8 (x3) against your opponents ground forces; if you do, make an identical roll against your own ground </li></ul>"
+        }
+      ]
+    },
+    {
+      id: 26,
+      name: "The Ral Nel Consortium",
+      complexity: Complexity.Low,
+      startingtech: [],
+      edition: Edition.TE,
+      tech: [
+        {
+          id: 84,
+          name: "Nanomachines",
+          requirements: { [TechColor.red]: 1 },
+          provides: TechColor.red,
+          edition: Edition.TE,
+          description:
+            "<ul><li>ACTION: Exhaust this card to place 1 PDS on a planet you control, repair all of your damaged units, or exhaust this card and discard 1 action card to draw 1 action card.</li><li>ACTION: Exhaust this card to repair all of your damaged units.</li><li>ACTION: Exhaust this card and discard 1 action card to draw 1 action card.</li></ul>"
+        }
+      ]
+    },
+    {
+      id: 27,
+      name: "The Deepwrought Scholarate",
+      complexity: Complexity.Moderate,
+      startingtech: [],
+      edition: Edition.TE,
+      tech: [
+        {
+          id: 85,
+          name: "Radical Advancement",
+          requirements: { [TechColor.green]: 1 },
+          provides: TechColor.green,
+          edition: Edition.TE,
+          description:
+            "At the start of the status phase, you may replace one of your non-unit upgrade technologies with a technology of the same color that has exactly 1 more prerequisite."
+        },
+        {
+          id: 86,
+          name: "Hydrothermal Mining",
+          requirements: { [TechColor.green]: 1 },
+          provides: TechColor.green,
+          edition: Edition.TE,
+          description:
+            "At the start of the status phase, gain 1 trade good for each ocean card in play."
+        }
+      ]
+    },
+    {
+      id: 28,
+      name: "The Crimson Rebellion",
+      complexity: Complexity.High,
+      startingtech: [],
+      edition: Edition.TE,
+      tech: [
+        {
+          id: 87,
+          name: "Subatomic Splicer",
+          requirements: { [TechColor.yellow]: 1 },
+          provides: TechColor.yellow,
+          edition: Edition.TE,
+          description:
+            "When one of your ships is destroyed, you may produce a ship of the same type at a space dock in your home system."
+        }
+      ]
+    },
+    {
+      id: 29,
+      name: "The Firmament / The Obsidian",
+      complexity: Complexity.High,
+      startingtech: [],
+      edition: Edition.TE,
+      tech: [
+        {
+          id: 88,
+          name: "Plane Splitter",
+          requirements: { [TechColor.yellow]: 2 },
+          provides: TechColor.yellow,
+          edition: Edition.TE,
+          description:
+            "<ul><li>CANNOT BE RESEARCHED</li><li>When you gain this card, put The Fracture into play. Flip this card if the Obsidian faction is in play.</li></ul>"
+        },
+        {
+          id: 89,
+          name: "Neural Parasite",
+          requirements: { [TechColor.green]: 2 },
+          provides: TechColor.green,
+          edition: Edition.TE,
+          description:
+            "<ul><li>CANNOT BE RESEARCHED</li><li>At the start of the status phase, you may place 1 infantry from your reinforcements on a planet you control in your home system. Flip this card if the Obsidian faction is in play.</li></ul>"
+        }
+      ]
+    },
+    {
+      id: 30,
+      name: "The Council Keleres",
+      complexity: Complexity.Moderate,
+      startingtech: [],
+      edition: Edition.TE,
+      tech: [
+        {
+          id: 90,
+          name: "Executive Order",
+          requirements: { [TechColor.yellow]: 1 },
+          provides: TechColor.yellow,
+          edition: Edition.TE,
+          description:
+            "ACTION: Exhaust this card and draw the top or bottom card of the agenda deck. Players immediately vote on this agenda as if you were the speaker; you can spend trade goods and resources on this agenda as if they were votes."
+        },
+        {
+          id: 91,
+          name: "Agency Supply Network",
+          requirements: { [TechColor.yellow]: 2 },
+          provides: TechColor.yellow,
+          edition: Edition.TE,
+          description:
+            "Once per action, when you resolve a unit's PRODUCTION ability, you may resolve another of your unit's PRODUCTION abilities in any system."
         }
       ]
     }

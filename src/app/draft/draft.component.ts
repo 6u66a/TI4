@@ -36,7 +36,8 @@ export class DraftComponent {
     21: 'Naaz-Rokha.png',
     22: 'Nomad.png',
     23: 'Titans.png',
-    24: "Vuil'Raith.png"
+    24: "Vuil'Raith.png",
+    30: 'Keleres.png'
   };
   public readonly complexity = Complexity;
   displayedColumns: string[] = ['name', 'faction', 'position', 'slice'];
@@ -115,8 +116,9 @@ export class DraftComponent {
     }
   }
 
-  factionIcon(faction: Faction): string {
-    return `assets/factions/${this.factionIconNames[Number(faction.id)]}`;
+  factionIcon(faction: Faction): string | undefined {
+    const iconName = this.factionIconNames[Number(faction.id)];
+    return iconName ? `assets/factions/${iconName}` : undefined;
   }
 
   draftPosition(i: number): void {

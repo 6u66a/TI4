@@ -37,7 +37,8 @@ export class TechHelperComponent {
     21: 'Naaz-Rokha.png',
     22: 'Nomad.png',
     23: 'Titans.png',
-    24: "Vuil'Raith.png"
+    24: "Vuil'Raith.png",
+    30: 'Keleres.png'
   };
   public factions = computed(() => DATA.factions.filter(faction => this.settingsService.settings().editions.includes(faction.edition)));
   public selectedFaction = signal<Faction | undefined>(undefined);
@@ -45,8 +46,9 @@ export class TechHelperComponent {
 
   constructor() { }
 
-  factionIcon(faction: Faction): string {
-    return `assets/factions/${this.factionIconNames[Number(faction.id)]}`;
+  factionIcon(faction: Faction): string | undefined {
+    const iconName = this.factionIconNames[Number(faction.id)];
+    return iconName ? `assets/factions/${iconName}` : undefined;
   }
 
   factionClick_hdl(faction: Faction) {
