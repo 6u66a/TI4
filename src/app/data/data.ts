@@ -854,7 +854,7 @@ export const DATA: Data = {
           provides: TechColor.yellow,
           edition: Edition.TE,
           description:
-            "<ul><li>CANNOT BE RESEARCHED</li><li>When you gain this card, put the Fracture into play. Flip this card if the Obsidian faction is in play.</li></ul>"
+            "When you gain this card, put The Fracture into play. Flip this card if the Obsidian faction is in play."
         },
         {
           id: 89,
@@ -863,7 +863,7 @@ export const DATA: Data = {
           provides: TechColor.green,
           edition: Edition.TE,
           description:
-            "<ul><li>CANNOT BE RESEARCHED</li><li>At the start of the status phase, you may place 1 infantry from your reinforcements on a planet you control in your home system. Flip this card if the Obsidian faction is in play.</li></ul>"
+            "At the start of the status phase, you may place 1 infantry from your reinforcements on a planet you control in your home system. Flip this card if the Obsidian faction is in play."
         }
       ]
     },
