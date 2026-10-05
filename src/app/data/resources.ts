@@ -25,8 +25,8 @@ export const factionIcons: { [key: number]: string } = {
     24: 'vuilraith.png',
     25: 'last_bastion.png',
     26: 'ral_nel.png',
-    27: "deepwrought.png",
-    28: "crimson_rebellion.png",
-    29: "firmament.png",
+    27: 'deepwrought.png',
+    28: 'crimson_rebellion.png',
+    29: 'firmament.png',
     30: 'keleres.png'
   };
