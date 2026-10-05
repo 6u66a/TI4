@@ -67,6 +67,4 @@ This project uses [Angular](https://angular.dev/) and Angular CLI 22.1.3. Run `n
 
 *Twilight Imperium 4* was published by Fantasy Flight Games. *Twilight Imperium*, its names, logos, artwork, and related intellectual property belong to Fantasy Flight Games and/or their respective rights holders. This project is unofficial and is not affiliated with or endorsed by Fantasy Flight Games.
 
-The race and technology icons used in this project are sourced from the work shared by BoardGameGeek user [Polarstern](https://boardgamegeek.com/profile/Polarstern):
-
-[TI4 Race and Tech Symbols - Vectorized](https://boardgamegeek.com/filepage/180049/ti4-race-and-tech-symbols-vectorized)
+The race and technology icons used in this project are sourced from the work shared at TI4 Homebrew Hub on Discord.
